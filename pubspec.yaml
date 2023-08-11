@@ -19,6 +19,7 @@ dependencies:
 
   flutter_bloc: ^8.0.3
   flutter_screenutil: ^5.8.4
+  hive_flutter:
 
 dev_dependencies:
   flutter_test:

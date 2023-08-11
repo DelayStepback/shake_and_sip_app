@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
+void main() async {
+  await Hive.initFlutter();
 
-void main() {
+  //Hive.registerAdapter();
+  await Hive.openBox<Cocktail>("_cocktailsBox");
+
+
   runApp(const MyApp());
 }
 
