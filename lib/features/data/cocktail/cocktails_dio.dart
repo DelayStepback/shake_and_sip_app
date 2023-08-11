@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
 
 class DioCocktailsClient {
   final Dio _dio = Dio(BaseOptions(headers: {
