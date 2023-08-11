@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive/hive.dart';
-
+import 'package:hive_flutter/hive_flutter.dart';
 part 'cocktail.freezed.dart';
 
 part 'cocktail.g.dart';
@@ -8,7 +7,7 @@ part 'cocktail.g.dart';
 @freezed
 class Cocktail extends HiveObject with _$Cocktail {
   Cocktail._(); // private constructor
-  @HiveType(typeId: 0)
+  @HiveType(typeId: 0, adapterName: 'CocktailClassAdapter')
   factory Cocktail({
     @HiveField(0) required String id,
     @HiveField(1) required String title,
