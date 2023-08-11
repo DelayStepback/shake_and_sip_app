@@ -3,7 +3,7 @@ import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
 import 'package:shake_and_sip_app/features/data/cocktail/cocktails_dio.dart';
 
 import 'cocktails_hive_database.dart';
-
+//
 class CocktailRepository {
   final CocktailsHiveDatabase localDatabase = CocktailsHiveDatabase();
 
@@ -15,8 +15,8 @@ class CocktailRepository {
     } else {
       //HttpCocktailRepository hcr = HttpCocktailRepository();
       DioCocktailsClient dcc = DioCocktailsClient();
-
-      return dcc.fetchCocktails(id);
+      List<Cocktail>? cocktails = await dcc.fetchCocktails(id);
+      return cocktails;
     }
   }
 
@@ -29,7 +29,7 @@ class CocktailRepository {
   }
 
   Future<List<Cocktail>> getCocktailsFavourite() async {
-    final List<Cocktail> cachedCocktails = localDatabase.getCocktails();
+    List<Cocktail> cachedCocktails = localDatabase.getCocktails();
     return cachedCocktails;
   }
 
