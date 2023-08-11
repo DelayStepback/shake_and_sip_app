@@ -20,23 +20,14 @@ Cocktail _$CocktailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Cocktail {
-  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
-  @HiveField(2)
   String get difficulty => throw _privateConstructorUsedError;
-  @HiveField(3)
   String get image => throw _privateConstructorUsedError;
-  @HiveField(4)
   String? get portion => throw _privateConstructorUsedError;
-  @HiveField(5)
   String? get time => throw _privateConstructorUsedError;
-  @HiveField(6)
   String? get description => throw _privateConstructorUsedError;
-  @HiveField(7)
   List<String>? get ingredients => throw _privateConstructorUsedError;
-  @HiveField(8)
   List<Map<String, String>>? get method => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,15 +42,15 @@ abstract class $CocktailCopyWith<$Res> {
       _$CocktailCopyWithImpl<$Res, Cocktail>;
   @useResult
   $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String title,
-      @HiveField(2) String difficulty,
-      @HiveField(3) String image,
-      @HiveField(4) String? portion,
-      @HiveField(5) String? time,
-      @HiveField(6) String? description,
-      @HiveField(7) List<String>? ingredients,
-      @HiveField(8) List<Map<String, String>>? method});
+      {String id,
+      String title,
+      String difficulty,
+      String image,
+      String? portion,
+      String? time,
+      String? description,
+      List<String>? ingredients,
+      List<Map<String, String>>? method});
 }
 
 /// @nodoc
@@ -134,15 +125,15 @@ abstract class _$$_CocktailCopyWith<$Res> implements $CocktailCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String title,
-      @HiveField(2) String difficulty,
-      @HiveField(3) String image,
-      @HiveField(4) String? portion,
-      @HiveField(5) String? time,
-      @HiveField(6) String? description,
-      @HiveField(7) List<String>? ingredients,
-      @HiveField(8) List<Map<String, String>>? method});
+      {String id,
+      String title,
+      String difficulty,
+      String image,
+      String? portion,
+      String? time,
+      String? description,
+      List<String>? ingredients,
+      List<Map<String, String>>? method});
 }
 
 /// @nodoc
@@ -209,18 +200,17 @@ class __$$_CocktailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-@HiveType(typeId: 0, adapterName: 'CocktailClassAdapter')
 class _$_Cocktail extends _Cocktail {
   _$_Cocktail(
-      {@HiveField(0) required this.id,
-      @HiveField(1) required this.title,
-      @HiveField(2) required this.difficulty,
-      @HiveField(3) required this.image,
-      @HiveField(4) this.portion,
-      @HiveField(5) this.time,
-      @HiveField(6) this.description,
-      @HiveField(7) final List<String>? ingredients,
-      @HiveField(8) final List<Map<String, String>>? method})
+      {required this.id,
+      required this.title,
+      required this.difficulty,
+      required this.image,
+      this.portion,
+      this.time,
+      this.description,
+      final List<String>? ingredients,
+      final List<Map<String, String>>? method})
       : _ingredients = ingredients,
         _method = method,
         super._();
@@ -229,29 +219,21 @@ class _$_Cocktail extends _Cocktail {
       _$$_CocktailFromJson(json);
 
   @override
-  @HiveField(0)
   final String id;
   @override
-  @HiveField(1)
   final String title;
   @override
-  @HiveField(2)
   final String difficulty;
   @override
-  @HiveField(3)
   final String image;
   @override
-  @HiveField(4)
   final String? portion;
   @override
-  @HiveField(5)
   final String? time;
   @override
-  @HiveField(6)
   final String? description;
   final List<String>? _ingredients;
   @override
-  @HiveField(7)
   List<String>? get ingredients {
     final value = _ingredients;
     if (value == null) return null;
@@ -262,7 +244,6 @@ class _$_Cocktail extends _Cocktail {
 
   final List<Map<String, String>>? _method;
   @override
-  @HiveField(8)
   List<Map<String, String>>? get method {
     final value = _method;
     if (value == null) return null;
@@ -325,45 +306,36 @@ class _$_Cocktail extends _Cocktail {
 
 abstract class _Cocktail extends Cocktail {
   factory _Cocktail(
-      {@HiveField(0) required final String id,
-      @HiveField(1) required final String title,
-      @HiveField(2) required final String difficulty,
-      @HiveField(3) required final String image,
-      @HiveField(4) final String? portion,
-      @HiveField(5) final String? time,
-      @HiveField(6) final String? description,
-      @HiveField(7) final List<String>? ingredients,
-      @HiveField(8) final List<Map<String, String>>? method}) = _$_Cocktail;
+      {required final String id,
+      required final String title,
+      required final String difficulty,
+      required final String image,
+      final String? portion,
+      final String? time,
+      final String? description,
+      final List<String>? ingredients,
+      final List<Map<String, String>>? method}) = _$_Cocktail;
   _Cocktail._() : super._();
 
   factory _Cocktail.fromJson(Map<String, dynamic> json) = _$_Cocktail.fromJson;
 
   @override
-  @HiveField(0)
   String get id;
   @override
-  @HiveField(1)
   String get title;
   @override
-  @HiveField(2)
   String get difficulty;
   @override
-  @HiveField(3)
   String get image;
   @override
-  @HiveField(4)
   String? get portion;
   @override
-  @HiveField(5)
   String? get time;
   @override
-  @HiveField(6)
   String? get description;
   @override
-  @HiveField(7)
   List<String>? get ingredients;
   @override
-  @HiveField(8)
   List<Map<String, String>>? get method;
   @override
   @JsonKey(ignore: true)

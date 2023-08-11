@@ -1,33 +1,31 @@
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
 
 
 class CocktailsHiveDatabase {
-  late Box<Cocktail> _cocktails;
+  late Box _cocktails;
 
   Future<void> init() async {
-    _cocktails = await Hive.openBox<Cocktail>("_cocktailsBox");
+    _cocktails = await Hive.openBox("_cocktailsBox");
   }
 
   List<Cocktail> getCocktails() {
-    return _cocktails.values.toList();
+    List<Cocktail> cocktails = _cocktails.values.map((i) => Cocktail.fromJson(i)).toList();
+    return cocktails;
   }
 
-  void addCocktail(Cocktail cocktail) {
-    _cocktails.add(cocktail);
+  void addCocktail(Cocktail cocktail) async {
+    await _cocktails.put(cocktail.id.toString(), cocktail.toJson());
   }
 
   Future<void> removeCocktail(Cocktail cocktail) async {
     final cocktailToRemove =
-    _cocktails.values.firstWhere((element) => _eqTwoCocktails(element, cocktail));
+    _cocktails.values.firstWhere((element) => _eqTwoCocktails(Cocktail.fromJson(element), cocktail));
     await cocktailToRemove.delete();
   }
 
   Future<void> updateCocktail(Cocktail oldCocktail, Cocktail newCocktail) async {
-    final cocktailToUpdate =
-    _cocktails.values.firstWhere((element) => _eqTwoCocktails(element, oldCocktail));
-    final index = cocktailToUpdate.key as int;
-    await _cocktails.put(index, newCocktail);
+    await _cocktails.put(oldCocktail.id.toString(), newCocktail);
   }
 }
 
