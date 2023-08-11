@@ -28,7 +28,7 @@ class FilterCocktailsEvent extends CocktailsEvent {
   });
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [cocktails, filter];
 }
 
 class AddFavouriteCocktailsEvent extends CocktailsEvent {
