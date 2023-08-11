@@ -209,7 +209,7 @@ class __$$_CocktailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-@HiveType(typeId: 0)
+@HiveType(typeId: 0, adapterName: 'CocktailClassAdapter')
 class _$_Cocktail extends _Cocktail {
   _$_Cocktail(
       {@HiveField(0) required this.id,
