@@ -4,7 +4,6 @@ import '../../data/cocktail/model/cocktail.dart';
 
 abstract class CocktailsEvent extends Equatable {
   const CocktailsEvent();
-
   @override
   List<Object?> get props => [];
 }
