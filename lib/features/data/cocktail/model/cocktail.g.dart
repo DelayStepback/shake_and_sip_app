@@ -20,6 +20,7 @@ _$_Cocktail _$$_CocktailFromJson(Map<String, dynamic> json) => _$_Cocktail(
       method: (json['method'] as List<dynamic>?)
           ?.map((e) => Map<String, String>.from(e as Map))
           .toList(),
+      favourite: json['favourite'] as bool?,
     );
 
 Map<String, dynamic> _$$_CocktailToJson(_$_Cocktail instance) =>
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$_CocktailToJson(_$_Cocktail instance) =>
       'description': instance.description,
       'ingredients': instance.ingredients,
       'method': instance.method,
+      'favourite': instance.favourite,
     };

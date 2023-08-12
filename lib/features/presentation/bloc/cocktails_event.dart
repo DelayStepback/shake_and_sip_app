@@ -31,13 +31,14 @@ class FilterCocktailsEvent extends CocktailsEvent {
   List<Object?> get props => [cocktails, filter];
 }
 
-class AddFavouriteCocktailsEvent extends CocktailsEvent {
+class FavouriteCocktailsEvent extends CocktailsEvent {
   final Cocktail cocktail;
+  final List<Cocktail> cocktails;
 
-  const AddFavouriteCocktailsEvent({required this.cocktail});
+  const FavouriteCocktailsEvent({required this.cocktail, required this.cocktails});
 
   @override
-  List<Object?> get props => [cocktail];
+  List<Object?> get props => [cocktail, cocktails];
 }
 
 class UpdateFavouriteCocktailsEvent extends CocktailsEvent {
@@ -51,13 +52,4 @@ class UpdateFavouriteCocktailsEvent extends CocktailsEvent {
 
   @override
   List<Object?> get props => [oldCocktail, newCocktail];
-}
-
-class DeleteFavouriteCocktailsEvent extends CocktailsEvent {
-  final Cocktail cocktail;
-
-  const DeleteFavouriteCocktailsEvent({required this.cocktail});
-
-  @override
-  List<Object?> get props => [cocktail];
 }

@@ -13,18 +13,18 @@ class CocktailsBloc extends Bloc<CocktailsEvent, CocktailsState> {
     on<FilterCocktailsEvent>(_onFilterCocktailsEvent);
 
     on<LoadFavouriteCocktailsEvent>(_onLoadFavouriteCocktailsEvent);
-    on<AddFavouriteCocktailsEvent>(_onAddFavouriteCocktailsEvent);
+    on<FavouriteCocktailsEvent>(_onFavouriteCocktailsEvent);
     on<UpdateFavouriteCocktailsEvent>(_onUpdateFavouriteCocktailsEvent);
-    on<DeleteFavouriteCocktailsEvent>(_onDeleteFavouriteCocktailsEvent);
   }
 
   Future<void> _onLoadCocktailsEvent(LoadCocktailsEvent event, emit) async {
-    if (state is CocktailsLoadingState){
-    final List<Cocktail>? allCocktails = await _cocktailRepository.fetchCocktails('none');
-    emit(CocktailsLoadedState(allCocktails: allCocktails));
-
+    if (state is CocktailsLoadingState) {
+      _cocktailRepository.init();
+      List<Cocktail>? allCocktails =
+          await _cocktailRepository.fetchCocktails('none');
+      allCocktails = _cocktailRepository.moveCheckListFavourite(allCocktails!);
+      emit(CocktailsLoadedState(allCocktails: allCocktails));
     }
-
   }
 
   Future<void> _onFilterCocktailsEvent(FilterCocktailsEvent event, emit) async {
@@ -44,19 +44,26 @@ class CocktailsBloc extends Bloc<CocktailsEvent, CocktailsState> {
         allFavouriteCocktails: allFavouriteCocktails));
   }
 
-  Future<void> _onAddFavouriteCocktailsEvent(
-      AddFavouriteCocktailsEvent event, emit) async {
-    _cocktailRepository.addCocktailFavourite(event.cocktail);
+  Future<void> _onFavouriteCocktailsEvent(
+      FavouriteCocktailsEvent event, emit) async {
+      int ind = event.cocktails.indexOf(event.cocktail);
+      bool isFav = event.cocktail.favourite ?? false;
+
+      if (isFav) {
+        _cocktailRepository.addCocktailFavourite(event.cocktail);
+      } else {
+        _cocktailRepository.removeCocktailFavourite(event.cocktail);
+      }
+
+      List<Cocktail> newCocktails = List.from(event.cocktails);
+      newCocktails[ind] = event.cocktail.copyWith(favourite: !isFav);
+
+      emit(CocktailsLoadedState(allCocktails: newCocktails));
   }
 
   Future<void> _onUpdateFavouriteCocktailsEvent(
       UpdateFavouriteCocktailsEvent event, emit) async {
     _cocktailRepository.updateCocktailFavourite(
         event.oldCocktail, event.newCocktail);
-  }
-
-  Future<void> _onDeleteFavouriteCocktailsEvent(
-      DeleteFavouriteCocktailsEvent event, emit) async {
-    _cocktailRepository.removeCocktailFavourite(event.cocktail);
   }
 }

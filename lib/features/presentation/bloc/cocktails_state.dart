@@ -18,6 +18,12 @@ class CocktailsLoadedState extends CocktailsState {
 
   CocktailsLoadedState({required this.allCocktails});
 
+  CocktailsLoadedState copyWith(
+      {List<Cocktail>? listCocktails,}) {
+    return CocktailsLoadedState(
+        allCocktails: listCocktails ?? allCocktails);
+  }
+
   @override
   List<Object?> get props => [allCocktails];
 }

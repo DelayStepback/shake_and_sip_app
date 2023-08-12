@@ -35,37 +35,18 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 textTheme: TextTheme(
                   titleLarge: TextStyle(
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(2.0.r, 2.0.r),
-                          blurRadius: 3.0.r,
-                          color: const Color.fromARGB(255, 0, 0, 0),
-                        )
-                      ],
                       color: MyColor.textColor,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w900,
                       fontFamily: 'Inter'),
                   titleMedium: TextStyle(
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(2.0.r, 2.0.r),
-                          blurRadius: 3.0.r,
-                          color: const Color.fromARGB(255, 0, 0, 0),
-                        )
-                      ],
+
                       color: MyColor.textColor,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'Inter'),
                   bodySmall: TextStyle(
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(2.0.r, 2.0.r),
-                          blurRadius: 3.0.r,
-                          color: const Color.fromARGB(255, 0, 0, 0),
-                        )
-                      ],
+
                       color: MyColor.textColor,
                       fontSize: 14.sp,
                       fontFamily: 'Inter'),
