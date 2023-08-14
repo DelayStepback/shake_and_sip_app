@@ -15,8 +15,7 @@ class CocktailsBloc extends Bloc<CocktailsEvent, CocktailsState> {
   Future<void> _onLoadingAllCocktailsEvent(event, emit) async {
     _cocktailRepository.init();
     List<Cocktail>? allCocktails = await _cocktailRepository.fetchCocktails();
-    allCocktails = _cocktailRepository.moveCheckListFavourite(allCocktails!);
-    emit(CocktailsState.loadedAll(allCocktails: allCocktails));
+    emit(CocktailsState.loadedAll(allCocktails: allCocktails!));
   }
 
 }

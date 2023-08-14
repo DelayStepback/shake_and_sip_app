@@ -10,10 +10,6 @@ class CocktailsFavBloc extends Bloc<CocktailsFavEvent, CocktailsFavState> {
 
   CocktailsFavBloc(this._cocktailRepository) : super(const CocktailsFavState.loadingFav()) {
     on<LoadingFavCocktailsEvent>(_onLoadingFavCocktailsEvent);
-
-    on<AddFavCocktailEvent>(_onAddFavCocktailEvent);
-    on<DeleteFavCocktailEvent>(_onDeleteFavCocktailEvent);
-    on<UpdateFavCocktailEvent>(_onUpdateFavCocktailEvent);
     on<FilterAllCocktailsEvent>(_onFilterAllCocktailsEvent);
   }
 
@@ -27,10 +23,4 @@ class CocktailsFavBloc extends Bloc<CocktailsFavEvent, CocktailsFavState> {
   }
 
   Future<void> _onFilterAllCocktailsEvent(event, emit) async {}
-
-  Future<void> _onAddFavCocktailEvent(event, emit) async {}
-
-  Future<void> _onDeleteFavCocktailEvent(event, emit) async {}
-
-  Future<void> _onUpdateFavCocktailEvent(event, emit) async {}
 }

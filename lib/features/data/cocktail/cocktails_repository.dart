@@ -8,7 +8,7 @@ import 'cocktails_hive_database.dart';
 class CocktailRepository {
   final CocktailsHiveDatabase localDatabase = CocktailsHiveDatabase();
 
-  String mode = 'testing'; // 'release'
+  String mode = 'release'; // 'release'
   Future<List<Cocktail>?> fetchCocktails() async {
     String id = 'none';
     if (mode == 'testing') {
@@ -38,10 +38,9 @@ class CocktailRepository {
     await localDatabase.init();
   }
 
-  Future<void> addCocktailFavourite(String cocktailId) async {
+  Future<void> addCocktailFavourite(Cocktail cocktail) async {
     // save to local detailed
-    Cocktail? cocktail = await fetchSingleCocktail(cocktailId);
-    cocktail = cocktail!.copyWith(favourite: true);
+    cocktail = cocktail.copyWith(favourite: true);
     localDatabase.addCocktail(cocktail);
   }
   Future<void> updateCocktailFavourite(Cocktail oldCocktail,
@@ -69,9 +68,7 @@ class CocktailRepository {
     return true;
   }
 
-  List<Cocktail> moveCheckListFavourite(List<Cocktail> cocktails) {
-    return cocktails.map((e) => e.copyWith(favourite: _idInFavourite(e.id))).toList();
-  }
+
 
 }
 

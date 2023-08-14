@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
     routes: [
       GoRoute(
           path: "/",
+          name: 'home',
           builder: (context, state) {
             return const HomePage();
           }),
@@ -92,6 +93,15 @@ class MyApp extends StatelessWidget {
                   bodySmall: TextStyle(
                       color: MyColor.textColor,
                       fontSize: 14.sp,
+                      fontFamily: 'Inter'),
+                  displayLarge: TextStyle(
+                      color: MyColor.textColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20.sp,
+                      fontFamily: 'Inter'),
+                  bodyMedium: TextStyle(
+                      color: MyColor.textColor,
+                      fontSize: 16.sp,
                       fontFamily: 'Inter'),
                 ),
               ),
