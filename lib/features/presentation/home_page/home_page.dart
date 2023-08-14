@@ -6,8 +6,6 @@ import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/
 import 'package:shake_and_sip_app/features/presentation/home_page/widgets/list_of_loaded_cocktails.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 
-import '../bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -27,7 +25,7 @@ class HomePage extends StatelessWidget {
             ),
         GestureDetector(
           onTap: () => {
-            context.go("/favourite"),
+            context.goNamed("allFav"),
           },
           child: Container(
             height: 30.h,
