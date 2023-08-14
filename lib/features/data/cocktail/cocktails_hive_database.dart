@@ -27,8 +27,9 @@ class CocktailsHiveDatabase {
     await _cocktails.put(cocktail.id.toString(), cocktail.toJson());
   }
 
-  Future<void> removeCocktail(Cocktail cocktail) async {
-    await _cocktails.delete(cocktail.id);
+  Future<void> removeCocktail(String cocktailId) async {
+
+    await _cocktails.delete(cocktailId);
   }
 
   Future<void> updateCocktail(

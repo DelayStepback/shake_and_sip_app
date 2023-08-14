@@ -21,6 +21,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   hive_flutter:
   equatable:
+  go_router: ^10.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
