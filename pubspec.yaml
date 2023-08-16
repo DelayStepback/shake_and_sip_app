@@ -22,6 +22,7 @@ dependencies:
   hive_flutter:
   equatable:
   go_router: ^10.0.0
+  flutter_animate: ^4.2.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

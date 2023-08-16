@@ -22,15 +22,21 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
+
+
   final GoRouter _router = GoRouter(
     initialLocation: "/",
     routes: [
       GoRoute(
           path: "/",
           name: 'home',
-          builder: (context, state) {
-            return const HomePage();
-          }),
+          builder: (context, state) => const HomePage(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          child: const HomePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(opacity: animation, child: child),
+        ),
+          ),
       GoRoute(
         path: "/allFav",
         name: "allFav",

@@ -11,38 +11,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColor.lightBlack,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                'Good \$morning for drinking',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            GestureDetector(
-              onTap: () => {
-                context.goNamed("allFav"),
-              },
-              child: Container(
-                height: 30.h,
-                width: 60.w,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  color: MyColor.mainColor,
-                ),
-                child: Center(
-                    child: Text(
-                  "FAV's",
-                  style: Theme.of(context).textTheme.titleMedium,
-                )),
-              ),
-            ),
-            const ListOfLoadedCocktails(),
-          ],
-        ),
-      ),
+      body: ListOfLoadedCocktails(),
+
     );
   }
 }

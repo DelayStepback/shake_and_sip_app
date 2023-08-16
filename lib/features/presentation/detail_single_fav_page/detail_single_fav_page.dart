@@ -8,6 +8,7 @@ import 'package:shake_and_sip_app/utils/colors.dart';
 import '../../data/cocktail/model/cocktail.dart';
 import '../bloc/detail_bloc/detail_bloc.dart';
 import '../bloc/detail_bloc/detail_state.dart';
+import '../loading_screen/loading_screen.dart';
 
 class DetailSingleFavPage extends StatelessWidget {
   const DetailSingleFavPage({super.key, required this.id});
@@ -19,7 +20,7 @@ class DetailSingleFavPage extends StatelessWidget {
     final state = context.watch<DetailBloc>().state;
     context.read<DetailBloc>().add(DetailEvent.initDetailPage(id: id!));
     return state.when(
-        loading: () => const CircularProgressIndicator(),
+        loading: () => const LoadingScreen(),
         loaded: (cocktail) => _DetailLoaded(cocktail: cocktail),
         error: (error) => Text('error to load $error'));
   }
@@ -41,7 +42,6 @@ class _DetailLoaded extends StatelessWidget {
             elevation: 0,
             leading: GestureDetector(
               onTap: () => {
-                print('asdasdas'),
                 context.goNamed('home'),
               },
               child: const Icon(Icons.arrow_back_ios),
@@ -53,7 +53,7 @@ class _DetailLoaded extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 131.h,
+                  //height: 131.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: MyColor.accentColor,
@@ -62,28 +62,33 @@ class _DetailLoaded extends StatelessWidget {
                             bottomRight: Radius.circular(30))
                         .r,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            cocktail.title,
-                            style: Theme.of(context).textTheme.displayLarge,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0).r,
+                        child: Text(cocktail.title.toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(8).r,
+                        height: 30.h,
+                        width: 80.w,
+                        decoration: BoxDecoration(
+                          color: MyColor.accentColor2,
+                          borderRadius: BorderRadius.only(
+
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30)).r,
                           ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [Icon(Icons.favorite, size: 17.r, color: MyColor.iconsColor,), Text('Add to fav', style: Theme.of(context).textTheme.bodySmall,)],
                         ),
-                        Container(
-                          color: Colors.yellow,
-                          height: 30,
-                          width: 100,
-                          child: Row(
-                            children: [Icon(Icons.favorite), Text('Add to fav')],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                      ),
+                    ],
+                  )
                 ),
                 const _columnConnector(),
                 Container(
@@ -93,7 +98,7 @@ class _DetailLoaded extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(30)).r,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0).r,
                     child: Column(
                       children: [
                         Row(
@@ -101,7 +106,7 @@ class _DetailLoaded extends StatelessWidget {
                           children: [
                             const Icon(Icons.timer_sharp),
                             Flexible(
-                                child: Text(cocktail.time!,
+                                child: Text(cocktail.time.toString(),
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium)),
@@ -112,7 +117,7 @@ class _DetailLoaded extends StatelessWidget {
                           children: [
                             const Icon(Icons.person),
                             Flexible(
-                                child: Text(cocktail.portion!,
+                                child: Text(cocktail.portion.toString(),
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium)),
@@ -131,7 +136,7 @@ class _DetailLoaded extends StatelessWidget {
                 _ContainerTitleSubTitle(
                     width: 250,
                     title: 'Description',
-                    subWidget: Text(cocktail.description!,
+                    subWidget: Text(cocktail.description.toString(),
                         style: Theme.of(context).textTheme.bodyMedium)),
                 const _columnConnector(),
                 _ContainerTitleSubTitle(

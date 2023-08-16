@@ -82,7 +82,7 @@ class TestCocktailRepository {
   ''';
       var myJson = json.decode(api) as List;
       List<Cocktail> myList = myJson.map((i) => Cocktail.fromJson(i)).toList();
-      await Future.delayed(const Duration(milliseconds: 1500));
+      await Future.delayed(const Duration(milliseconds: 10000));
     if (id == 'none'){
       return myList;
     }
