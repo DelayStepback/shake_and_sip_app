@@ -45,7 +45,7 @@ class _DetailLoaded extends StatelessWidget {
                 onTap: () => {
                   context.goNamed('home'),
                 },
-                child: const Icon(Icons.arrow_back_ios),
+                child: Icon(Icons.arrow_back_ios, size: 25.r,),
               ),
               centerTitle: true,
               title: Text(cocktail.title.toString(),

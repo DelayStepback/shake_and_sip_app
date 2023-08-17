@@ -44,15 +44,15 @@ class _ListViewCocktails extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0).r,
             child: GestureDetector(
               onTap: () => context.goNamed('allFav'),
               child: Container(
                 decoration: BoxDecoration(
                     color: MyColor.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                    borderRadius: BorderRadius.all(Radius.circular(10)).r),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0).r,
                   child: Text(
                     'Favourite',
                     style: TextStyle(
@@ -87,7 +87,7 @@ class _ListViewCocktails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20).r,
                           child: SizedBox.fromSize(
                               size: Size.fromRadius(40.r),
                               child: Image.network(cocktails[index].image,
@@ -95,7 +95,7 @@ class _ListViewCocktails extends StatelessWidget {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(4).r,
+                            padding: EdgeInsets.all(4.r),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,8 +139,8 @@ class _ListViewCocktails extends StatelessWidget {
               TextButton(
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.all(16.0),
-                  textStyle: const TextStyle(fontSize: 20),
+                  padding: EdgeInsets.all(16.0.r),
+                  textStyle:TextStyle(fontSize: 20.sp),
                 ),
                 onPressed: () {
                   context.read<CocktailsBloc>().add(
@@ -163,8 +163,8 @@ class _ListViewCocktails extends StatelessWidget {
               TextButton(
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.all(16.0),
-                  textStyle: const TextStyle(fontSize: 20),
+                  padding: EdgeInsets.all(16.0.r),
+                  textStyle: TextStyle(fontSize: 20.sp),
                 ),
                 onPressed: () {
                   context.read<CocktailsBloc>().add(

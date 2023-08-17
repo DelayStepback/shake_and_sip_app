@@ -33,15 +33,15 @@ class _ListViewCocktails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0).r,
+            padding: const EdgeInsets.all(8.0).r,
             child: GestureDetector(
               onTap: () => context.goNamed('home'),
               child: Container(
                 decoration: BoxDecoration(
                     color: MyColor.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)).r),
                 child: Padding(
-                  padding:  EdgeInsets.all(8.0).r,
+                  padding:  const EdgeInsets.all(8.0).r,
                   child: Text(
                     'Home',
                     style: TextStyle(

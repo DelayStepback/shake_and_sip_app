@@ -20,32 +20,37 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       backgroundColor: MyColor.white,
       body: SafeArea(
-        child: Stack(
-          children: [
-            PageView(
-              controller: _pageController,
-              onPageChanged: (newPage) {
-                setState(() {
-                  page = newPage;
-                });
-              },
+        child:SingleChildScrollView(
+          child: SizedBox(
+            height: 800.h,
+            child: Stack(
               children: [
-                const _Page1(),
-                const _Page2(),
-                const _Page3(),
-                const Text('asdas'),
+                PageView(
+                  controller: _pageController,
+                  onPageChanged: (newPage) {
+                    setState(() {
+                      page = newPage;
+                    });
+                  },
+                  children: [
+                    const _Page1(),
+                    const _Page2(),
+                    const _Page3(),
+                    const Text('asdas'),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24).r,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: _indicators(4, page)),
+                  ),
+                ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 24).r,
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: _indicators(4, page)),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -227,10 +232,14 @@ class _descriptionForCocktail extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-             text,
-              style: Theme.of(context).textTheme.bodyMedium,
-
+            Expanded(
+              child: Text(
+               text,
+                style: Theme.of(context).textTheme.bodyMedium,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                maxLines: 1,
+              ),
             ),
             Icon(icon),
           ],
