@@ -10,4 +10,6 @@ class MyColor {
   static const Color deepBlack = Color(0xFF303030);
   static const Color lightBlack = Color(0xFF495A73);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color darkWhite = Color(0xFFC4C4C4);
+
 }

@@ -3,12 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:shake_and_sip_app/features/data/auth/repositories/auth_repository.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/favourite_page.dart';
 import 'package:shake_and_sip_app/features/presentation/home_page/home_page.dart';
+import 'package:shake_and_sip_app/features/presentation/welcome_page/welcome_page.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 
 import 'features/data/cocktail/cocktails_repository.dart';
+import 'features/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'features/presentation/bloc/cocktails_bloc/cocktails_bloc.dart';
 import 'features/presentation/bloc/detail_bloc/detail_bloc.dart';
 import 'features/presentation/detail_single_fav_page/detail_single_fav_page.dart';
@@ -25,8 +28,18 @@ class MyApp extends StatelessWidget {
 
 
   final GoRouter _router = GoRouter(
-    initialLocation: "/",
+    initialLocation: "/welcome",
     routes: [
+      GoRoute(
+        path: "/welcome",
+        name: 'welcome',
+        builder: (context, state) => WelcomePage(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          child: WelcomePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(opacity: animation, child: child),
+        ),
+      ),
       GoRoute(
           path: "/",
           name: 'home',
@@ -72,13 +85,25 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return RepositoryProvider(
-          create: (context) => CocktailRepository(),
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider(
+              create: (context) => CocktailRepository(),
+            ),
+            RepositoryProvider(
+              create: (context) => AuthRepository(),
+            )
+          ],
+
           child: MultiBlocProvider(
             providers: [
               BlocProvider(
                 create: (context) => CocktailsBloc(
                     RepositoryProvider.of<CocktailRepository>(context)),
+              ),
+              BlocProvider(
+                create: (context) => AuthBloc(
+                    RepositoryProvider.of<AuthRepository>(context)),
               ),
             ],
             child: MaterialApp.router(
