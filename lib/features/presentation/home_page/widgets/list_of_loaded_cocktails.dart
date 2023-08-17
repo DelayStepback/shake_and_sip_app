@@ -71,7 +71,6 @@ class _ListViewCocktails extends StatelessWidget {
             itemCount: itemCount,
             itemBuilder: (BuildContext context, int indexList) {
               int index = indexList + 5 * pagination;
-              print(pagination);
               return GestureDetector(
                 onTap: () => context.goNamed('fav',
                     pathParameters: {'id': cocktails[index].id}),

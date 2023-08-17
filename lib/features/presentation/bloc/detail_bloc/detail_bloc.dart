@@ -17,22 +17,22 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
     on<UpdateFavCocktailEvent>(_onUpdateFavCocktailEvent);
   }
   Future<void> _onLoadingDetailsEvent(LoadingDetailsEvent event, emit) async {
-    _cocktailRepository.init();
+    await _cocktailRepository.init();
+    bool isFav = _cocktailRepository.idInFavourite(event.id);
     Cocktail? cocktailDetailed = await _cocktailRepository.fetchSingleCocktail(event.id);
-    emit(DetailState.loaded(cocktailDetailed: cocktailDetailed!));
+    emit(DetailState.loaded(cocktailDetailed: cocktailDetailed!, fav: isFav));
   }
 
   Future<void> _onAddFavCocktailEvent(AddFavCocktailEvent event, emit) async{
-    _cocktailRepository.addCocktailFavourite(event.cocktail);
-    Cocktail newCocktail = event.cocktail.copyWith(favourite: ! (event.cocktail.favourite ?? false));
-    emit(DetailState.loaded(cocktailDetailed: newCocktail));
+    await _cocktailRepository.addCocktailFavourite(event.cocktail);
+    emit(DetailState.loaded(cocktailDetailed: event.cocktail, fav: true));
   }
-  Future<void> _onDeleteFavCocktailEvent(event, emit) async{
-    _cocktailRepository.addCocktailFavourite(event.cocktailId);
-
+  Future<void> _onDeleteFavCocktailEvent(DeleteFavCocktailEvent event, emit) async{
+    await _cocktailRepository.removeCocktailFavourite(event.cocktail.id);
+    emit(DetailState.loaded(cocktailDetailed: event.cocktail, fav: false));
   }
   Future<void> _onUpdateFavCocktailEvent(UpdateFavCocktailEvent event, emit) async{
-    _cocktailRepository.updateCocktailFavourite(event.newCocktail, event.newCocktail);
+    await _cocktailRepository.updateCocktailFavourite(event.newCocktail, event.newCocktail);
   }
 
 }
