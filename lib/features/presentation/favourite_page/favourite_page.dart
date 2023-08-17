@@ -17,7 +17,7 @@ class FavouritePage extends StatelessWidget {
       BlocProvider.of<CocktailsFavBloc>(context)
         .add(const CocktailsFavEvent.initFavPage());
        return Scaffold(
-          body: ListOfLoadedFavCocktails(),
+          body: SafeArea(child: ListOfLoadedFavCocktails()),
     );
   }
 }

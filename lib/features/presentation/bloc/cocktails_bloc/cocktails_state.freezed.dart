@@ -19,21 +19,22 @@ mixin _$CocktailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingAll,
-    required TResult Function(List<Cocktail> allCocktails) loadedAll,
+    required TResult Function(List<Cocktail> allCocktails, int pagination)
+        loadedAll,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingAll,
-    TResult? Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult? Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingAll,
-    TResult Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +120,8 @@ class _$_CocktailsLoadingAll implements _CocktailsLoadingAll {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingAll,
-    required TResult Function(List<Cocktail> allCocktails) loadedAll,
+    required TResult Function(List<Cocktail> allCocktails, int pagination)
+        loadedAll,
     required TResult Function(String error) error,
   }) {
     return loadingAll();
@@ -129,7 +131,7 @@ class _$_CocktailsLoadingAll implements _CocktailsLoadingAll {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingAll,
-    TResult? Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult? Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult? Function(String error)? error,
   }) {
     return loadingAll?.call();
@@ -139,7 +141,7 @@ class _$_CocktailsLoadingAll implements _CocktailsLoadingAll {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingAll,
-    TResult Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -194,7 +196,7 @@ abstract class _$$_CocktailsLoadedAllCopyWith<$Res> {
           $Res Function(_$_CocktailsLoadedAll) then) =
       __$$_CocktailsLoadedAllCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Cocktail> allCocktails});
+  $Res call({List<Cocktail> allCocktails, int pagination});
 }
 
 /// @nodoc
@@ -209,12 +211,17 @@ class __$$_CocktailsLoadedAllCopyWithImpl<$Res>
   @override
   $Res call({
     Object? allCocktails = null,
+    Object? pagination = null,
   }) {
     return _then(_$_CocktailsLoadedAll(
       allCocktails: null == allCocktails
           ? _value._allCocktails
           : allCocktails // ignore: cast_nullable_to_non_nullable
               as List<Cocktail>,
+      pagination: null == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -222,7 +229,8 @@ class __$$_CocktailsLoadedAllCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CocktailsLoadedAll implements _CocktailsLoadedAll {
-  const _$_CocktailsLoadedAll({required final List<Cocktail> allCocktails})
+  const _$_CocktailsLoadedAll(
+      {required final List<Cocktail> allCocktails, required this.pagination})
       : _allCocktails = allCocktails;
 
   final List<Cocktail> _allCocktails;
@@ -234,8 +242,11 @@ class _$_CocktailsLoadedAll implements _CocktailsLoadedAll {
   }
 
   @override
+  final int pagination;
+
+  @override
   String toString() {
-    return 'CocktailsState.loadedAll(allCocktails: $allCocktails)';
+    return 'CocktailsState.loadedAll(allCocktails: $allCocktails, pagination: $pagination)';
   }
 
   @override
@@ -244,12 +255,14 @@ class _$_CocktailsLoadedAll implements _CocktailsLoadedAll {
         (other.runtimeType == runtimeType &&
             other is _$_CocktailsLoadedAll &&
             const DeepCollectionEquality()
-                .equals(other._allCocktails, _allCocktails));
+                .equals(other._allCocktails, _allCocktails) &&
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_allCocktails));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_allCocktails), pagination);
 
   @JsonKey(ignore: true)
   @override
@@ -262,32 +275,33 @@ class _$_CocktailsLoadedAll implements _CocktailsLoadedAll {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingAll,
-    required TResult Function(List<Cocktail> allCocktails) loadedAll,
+    required TResult Function(List<Cocktail> allCocktails, int pagination)
+        loadedAll,
     required TResult Function(String error) error,
   }) {
-    return loadedAll(allCocktails);
+    return loadedAll(allCocktails, pagination);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingAll,
-    TResult? Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult? Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult? Function(String error)? error,
   }) {
-    return loadedAll?.call(allCocktails);
+    return loadedAll?.call(allCocktails, pagination);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingAll,
-    TResult Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loadedAll != null) {
-      return loadedAll(allCocktails);
+      return loadedAll(allCocktails, pagination);
     }
     return orElse();
   }
@@ -329,9 +343,11 @@ class _$_CocktailsLoadedAll implements _CocktailsLoadedAll {
 
 abstract class _CocktailsLoadedAll implements CocktailsState {
   const factory _CocktailsLoadedAll(
-      {required final List<Cocktail> allCocktails}) = _$_CocktailsLoadedAll;
+      {required final List<Cocktail> allCocktails,
+      required final int pagination}) = _$_CocktailsLoadedAll;
 
   List<Cocktail> get allCocktails;
+  int get pagination;
   @JsonKey(ignore: true)
   _$$_CocktailsLoadedAllCopyWith<_$_CocktailsLoadedAll> get copyWith =>
       throw _privateConstructorUsedError;
@@ -402,7 +418,8 @@ class _$_CocktailsError implements _CocktailsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingAll,
-    required TResult Function(List<Cocktail> allCocktails) loadedAll,
+    required TResult Function(List<Cocktail> allCocktails, int pagination)
+        loadedAll,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -412,7 +429,7 @@ class _$_CocktailsError implements _CocktailsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingAll,
-    TResult? Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult? Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -422,7 +439,7 @@ class _$_CocktailsError implements _CocktailsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingAll,
-    TResult Function(List<Cocktail> allCocktails)? loadedAll,
+    TResult Function(List<Cocktail> allCocktails, int pagination)? loadedAll,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

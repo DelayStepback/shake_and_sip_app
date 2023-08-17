@@ -76,16 +76,12 @@ class _DetailLoaded extends StatelessWidget {
                         height: 30.h,
                         width: 80.w,
                         decoration: BoxDecoration(
-                          color: MyColor.accentColor2,
+                          color: MyColor.deepBlack,
                           borderRadius: BorderRadius.only(
 
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30)).r,
                           ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [Icon(Icons.favorite, size: 17.r, color: MyColor.iconsColor,), Text('Add to fav', style: Theme.of(context).textTheme.bodySmall,)],
-                        ),
                       ),
                     ],
                   )
