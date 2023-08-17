@@ -21,128 +21,132 @@ class DetailSingleFavPage extends StatelessWidget {
     context.read<DetailBloc>().add(DetailEvent.initDetailPage(id: id!));
     return state.when(
         loading: () => const LoadingScreen(),
-        loaded: (cocktail) => _DetailLoaded(cocktail: cocktail),
+        loaded: (cocktail, fav) => _DetailLoaded(cocktail: cocktail, isFav: fav),
         error: (error) => Text('error to load $error'));
   }
 }
 
 class _DetailLoaded extends StatelessWidget {
-  const _DetailLoaded({super.key, required this.cocktail});
-
+  const _DetailLoaded({super.key, required this.cocktail, required this.isFav});
+  final bool isFav;
   final Cocktail cocktail;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DetailBloc, DetailState>(
       builder: (context, state) {
-        return Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: GestureDetector(
-              onTap: () => {
-                context.goNamed('home'),
-              },
-              child: const Icon(Icons.arrow_back_ios),
+        return SafeArea(
+          child: Scaffold(
+            extendBodyBehindAppBar: false,
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: GestureDetector(
+                onTap: () => {
+                  context.goNamed('home'),
+                },
+                child: const Icon(Icons.arrow_back_ios),
+              ),
+              centerTitle: true,
+              title: Text(cocktail.title.toString(),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge,
+              ),
             ),
-          ),
-          backgroundColor: MyColor.lightBlack,
-          body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Container(
-                  //height: 131.h,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: MyColor.accentColor,
-                    borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                            bottomRight: Radius.circular(30))
-                        .r,
+            backgroundColor: MyColor.lightBlack,
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0).r,
-                        child: Text(cocktail.title.toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge),
+                  const _columnConnector(),
+                  GestureDetector(
+                    onTap: (){
+                      if (!isFav){
+                        context.read<DetailBloc>().add(DetailEvent.addFavCocktail(cocktail));
+                      }
+                      else{
+                        context.read<DetailBloc>().add(DetailEvent.deleteFavCocktail(cocktail));
+                      }
+                    },
+                    child: Container(
+                      width: 180.w,
+                      decoration: BoxDecoration(
+                        color: MyColor.white,
+                        borderRadius: const BorderRadius.all(Radius.circular(30)).r,
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8).r,
-                        height: 30.h,
-                        width: 80.w,
-                        decoration: BoxDecoration(
-                          color: MyColor.deepBlack,
-                          borderRadius: BorderRadius.only(
-
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30)).r,
-                          ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(isFav ? Icons.star :Icons.star_border, size: 20.r,),
+                          Text(isFav ? 'Already favourite':'Make favourite', style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium),
+                        ],
                       ),
-                    ],
-                  )
-                ),
-                const _columnConnector(),
-                Container(
-                  width: 250.w,
-                  decoration: BoxDecoration(
-                    color: MyColor.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(30)).r,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0).r,
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.timer_sharp),
-                            Flexible(
-                                child: Text(cocktail.time.toString(),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium)),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.person),
-                            Flexible(
-                                child: Text(cocktail.portion.toString(),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium)),
-                          ],
-                        ),
-                      ],
                     ),
                   ),
-                ),
-                const _columnConnector(),
-                _ContainerTitleSubTitle(
-                    width: 321,
-                    title: 'Ingredients',
-                    subWidget: ListViewOfIngredients(cocktail: cocktail)),
-                const _columnConnector(),
-                _ContainerTitleSubTitle(
-                    width: 250,
-                    title: 'Description',
-                    subWidget: Text(cocktail.description.toString(),
-                        style: Theme.of(context).textTheme.bodyMedium)),
-                const _columnConnector(),
-                _ContainerTitleSubTitle(
-                    width: 321,
-                    title: 'How to make?',
-                    subWidget: StepsOfCookingWidget(cocktail: cocktail)),
-                SizedBox(
-                  height: 200.h,
-                ),
-              ],
+                  const _columnConnector(),
+                  Container(
+                    width: 250.w,
+                    decoration: BoxDecoration(
+                      color: MyColor.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)).r,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0).r,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.timer_sharp),
+                              Flexible(
+                                  child: Text(cocktail.time.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium)),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.person),
+                              Flexible(
+                                  child: Text(cocktail.portion.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const _columnConnector(),
+                  _ContainerTitleSubTitle(
+                      width: 321,
+                      title: 'Ingredients',
+                      subWidget: ListViewOfIngredients(cocktail: cocktail)),
+                  const _columnConnector(),
+                  _ContainerTitleSubTitle(
+                      width: 250,
+                      title: 'Description',
+                      subWidget: Text(cocktail.description.toString(),
+                          style: Theme.of(context).textTheme.bodyMedium)),
+                  const _columnConnector(),
+                  _ContainerTitleSubTitle(
+                      width: 321,
+                      title: 'How to make?',
+                      subWidget: StepsOfCookingWidget(cocktail: cocktail)),
+                  SizedBox(
+                    height: 200.h,
+                  ),
+                ],
+              ),
             ),
           ),
         );

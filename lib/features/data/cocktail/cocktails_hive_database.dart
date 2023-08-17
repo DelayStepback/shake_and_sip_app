@@ -9,10 +9,20 @@ class CocktailsHiveDatabase {
   }
 
 
+  Future<Cocktail> getSingleCocktail(String id) async {
+    var json = await _cocktails.values
+        .firstWhere((i) => i['id'] == id);
+    Map<String, dynamic> retrieveCock = {};
+    for (var i in json.keys){
+      retrieveCock[i.toString()] = json[i];
+    }
+    return Cocktail.fromJson(retrieveCock);
+  }
+
   List<Cocktail> getCocktails() {
     List<Map<String, dynamic>> retriveCocktails = [];
     for (Map cock in _cocktails.values.toList()){
-      Map<String, dynamic> retrieveCock = Map();
+      Map<String, dynamic> retrieveCock = {};
       for (var i in cock.keys){
         retrieveCock[i.toString()] = cock[i];
       }
@@ -45,8 +55,4 @@ class CocktailsHiveDatabase {
     }
     return false;
   }
-}
-
-bool _eqTwoCocktails(Cocktail element, Cocktail cocktail) {
-  return element.id == cocktail.id;
 }

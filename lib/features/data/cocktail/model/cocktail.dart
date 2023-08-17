@@ -15,7 +15,6 @@ class Cocktail with _$Cocktail {
     String? description,
     List<String>? ingredients,
     List<Map<String, String>>? method,
-    bool? favourite,
   }) = _Cocktail;
 
   factory Cocktail.fromJson(Map<String, Object?> json) =>
