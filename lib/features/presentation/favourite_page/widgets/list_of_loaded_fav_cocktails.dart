@@ -24,19 +24,34 @@ class ListOfLoadedFavCocktails extends StatelessWidget {
 }
 
 class _ListViewCocktails extends StatelessWidget {
-  const _ListViewCocktails({super.key, required this.cocktails});
+  const _ListViewCocktails({required this.cocktails});
   final List<Cocktail> cocktails;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: MyColor.iconsColor),
-            onPressed: () => {
-              context.go('/'),
-            },
+          Padding(
+            padding: EdgeInsets.all(8.0).r,
+            child: GestureDetector(
+              onTap: () => context.goNamed('home'),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: MyColor.white,
+                    borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                child: Padding(
+                  padding:  EdgeInsets.all(8.0).r,
+                  child: Text(
+                    'Home',
+                    style: TextStyle(
+                        color: MyColor.deepBlack,
+                        fontSize: 18.sp,
+                        fontFamily: 'Inter'),
+                  ),
+                ),
+              ),
+            ),
           ),
 
           ListView.separated(
@@ -45,63 +60,67 @@ class _ListViewCocktails extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12).w,
             itemCount: cocktails.length,
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.r),
-                  color: MyColor.white,
-                ),
-                width: 365.r,
-                height: 103.r,
-                child: Padding(
-                  padding: EdgeInsets.all(11.r),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: SizedBox.fromSize(
-                            size: Size.fromRadius(40.r),
-                            child: Image.network(
-                                cocktails[index].image,
-                                fit: BoxFit.fitWidth)),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.r),
-                          child: Column(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                cocktails[index].title,
-                                style:
-                                Theme.of(context).textTheme.titleMedium,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'difficulty: ${cocktails[index].difficulty}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium,
-                                  ),
-                                ],
-                              )
-                            ],
+              return GestureDetector(
+                onTap: () => context.goNamed('fav',
+                    pathParameters: {'id': cocktails[index].id}),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.r),
+                    color: MyColor.white,
+                  ),
+                  width: 365.r,
+                  height: 103.r,
+                  child: Padding(
+                    padding: EdgeInsets.all(11.r),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20).r,
+                          child: SizedBox.fromSize(
+                              size: Size.fromRadius(40.r),
+                              child: Image.network(
+                                  cocktails[index].image,
+                                  fit: BoxFit.fitWidth)),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.r),
+                            child: Column(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  cocktails[index].title,
+                                  style:
+                                  Theme.of(context).textTheme.titleMedium,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'difficulty: ${cocktails[index].difficulty}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
             },
             separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: 30,
+              return SizedBox(
+                height: 30.h,
               );
             },
           ),

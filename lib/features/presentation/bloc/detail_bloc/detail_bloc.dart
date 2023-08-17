@@ -19,8 +19,14 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
   Future<void> _onLoadingDetailsEvent(LoadingDetailsEvent event, emit) async {
     await _cocktailRepository.init();
     bool isFav = _cocktailRepository.idInFavourite(event.id);
-    Cocktail? cocktailDetailed = await _cocktailRepository.fetchSingleCocktail(event.id);
-    emit(DetailState.loaded(cocktailDetailed: cocktailDetailed!, fav: isFav));
+    if (isFav){
+      Cocktail cocktailDetailed = await _cocktailRepository.fetchSingleCocktailHive(event.id);
+      emit(DetailState.loaded(cocktailDetailed: cocktailDetailed, fav: isFav));
+    }
+    else{
+      Cocktail? cocktailDetailed = await _cocktailRepository.fetchSingleCocktail(event.id);
+      emit(DetailState.loaded(cocktailDetailed: cocktailDetailed!, fav: isFav));
+    }
   }
 
   Future<void> _onAddFavCocktailEvent(AddFavCocktailEvent event, emit) async{

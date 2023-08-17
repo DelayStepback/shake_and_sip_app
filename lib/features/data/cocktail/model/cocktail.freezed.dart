@@ -29,7 +29,6 @@ mixin _$Cocktail {
   String? get description => throw _privateConstructorUsedError;
   List<String>? get ingredients => throw _privateConstructorUsedError;
   List<Map<String, String>>? get method => throw _privateConstructorUsedError;
-  bool? get favourite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,8 +50,7 @@ abstract class $CocktailCopyWith<$Res> {
       String? time,
       String? description,
       List<String>? ingredients,
-      List<Map<String, String>>? method,
-      bool? favourite});
+      List<Map<String, String>>? method});
 }
 
 /// @nodoc
@@ -77,7 +75,6 @@ class _$CocktailCopyWithImpl<$Res, $Val extends Cocktail>
     Object? description = freezed,
     Object? ingredients = freezed,
     Object? method = freezed,
-    Object? favourite = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -116,10 +113,6 @@ class _$CocktailCopyWithImpl<$Res, $Val extends Cocktail>
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as List<Map<String, String>>?,
-      favourite: freezed == favourite
-          ? _value.favourite
-          : favourite // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ) as $Val);
   }
 }
@@ -140,8 +133,7 @@ abstract class _$$_CocktailCopyWith<$Res> implements $CocktailCopyWith<$Res> {
       String? time,
       String? description,
       List<String>? ingredients,
-      List<Map<String, String>>? method,
-      bool? favourite});
+      List<Map<String, String>>? method});
 }
 
 /// @nodoc
@@ -164,7 +156,6 @@ class __$$_CocktailCopyWithImpl<$Res>
     Object? description = freezed,
     Object? ingredients = freezed,
     Object? method = freezed,
-    Object? favourite = freezed,
   }) {
     return _then(_$_Cocktail(
       id: null == id
@@ -203,10 +194,6 @@ class __$$_CocktailCopyWithImpl<$Res>
           ? _value._method
           : method // ignore: cast_nullable_to_non_nullable
               as List<Map<String, String>>?,
-      favourite: freezed == favourite
-          ? _value.favourite
-          : favourite // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -223,8 +210,7 @@ class _$_Cocktail extends _Cocktail {
       this.time,
       this.description,
       final List<String>? ingredients,
-      final List<Map<String, String>>? method,
-      this.favourite})
+      final List<Map<String, String>>? method})
       : _ingredients = ingredients,
         _method = method,
         super._();
@@ -267,11 +253,8 @@ class _$_Cocktail extends _Cocktail {
   }
 
   @override
-  final bool? favourite;
-
-  @override
   String toString() {
-    return 'Cocktail(id: $id, title: $title, difficulty: $difficulty, image: $image, portion: $portion, time: $time, description: $description, ingredients: $ingredients, method: $method, favourite: $favourite)';
+    return 'Cocktail(id: $id, title: $title, difficulty: $difficulty, image: $image, portion: $portion, time: $time, description: $description, ingredients: $ingredients, method: $method)';
   }
 
   @override
@@ -290,9 +273,7 @@ class _$_Cocktail extends _Cocktail {
                 other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._ingredients, _ingredients) &&
-            const DeepCollectionEquality().equals(other._method, _method) &&
-            (identical(other.favourite, favourite) ||
-                other.favourite == favourite));
+            const DeepCollectionEquality().equals(other._method, _method));
   }
 
   @JsonKey(ignore: true)
@@ -307,8 +288,7 @@ class _$_Cocktail extends _Cocktail {
       time,
       description,
       const DeepCollectionEquality().hash(_ingredients),
-      const DeepCollectionEquality().hash(_method),
-      favourite);
+      const DeepCollectionEquality().hash(_method));
 
   @JsonKey(ignore: true)
   @override
@@ -334,8 +314,7 @@ abstract class _Cocktail extends Cocktail {
       final String? time,
       final String? description,
       final List<String>? ingredients,
-      final List<Map<String, String>>? method,
-      final bool? favourite}) = _$_Cocktail;
+      final List<Map<String, String>>? method}) = _$_Cocktail;
   _Cocktail._() : super._();
 
   factory _Cocktail.fromJson(Map<String, dynamic> json) = _$_Cocktail.fromJson;
@@ -358,8 +337,6 @@ abstract class _Cocktail extends Cocktail {
   List<String>? get ingredients;
   @override
   List<Map<String, String>>? get method;
-  @override
-  bool? get favourite;
   @override
   @JsonKey(ignore: true)
   _$$_CocktailCopyWith<_$_Cocktail> get copyWith =>

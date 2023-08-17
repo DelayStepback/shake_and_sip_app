@@ -22,6 +22,11 @@ class CocktailRepository {
     return cocktails![0];
   }
 
+  Future<Cocktail> fetchSingleCocktailHive(String id) async {
+    Cocktail cocktail = await localDatabase.getSingleCocktail(id);
+    return cocktail;
+  }
+
   Future<void> init() async {
     await localDatabase.init();
   }
