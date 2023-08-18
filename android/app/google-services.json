@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "827582370341",
+    "project_id": "shakeandsipp",
+    "storage_bucket": "shakeandsipp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827582370341:android:7e69b3f47444a250dba5cc",
+        "android_client_info": {
+          "package_name": "com.example.shake_and_sip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827582370341-skrno39csu7g76jca3c178bb8sho3sis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBnaeuKrrzxk4oIUsZqQpaiCxctWUvOKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827582370341-skrno39csu7g76jca3c178bb8sho3sis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,8 +9,53 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
 
   AuthBloc(this._authRepository)
-      : super(const AuthState.unAuth()) {
+      : super(const AuthState.unAuthenticatedSignUp()) {
+    on<SignInRequested>((event, emit) async {
+      emit(const AuthState.loading());
+      try {
+        await _authRepository.signIn(
+            email: event.email, password: event.password);
+        emit(const AuthState.authenticated());
+      } catch (e) {
+        emit(AuthState.error(error: e.toString()));
+      }
+    });
+    on<SignUpRequested>((event, emit) async {
+      emit(const AuthState.loading());
+      try {
+        await _authRepository.signUp(
+            email: event.email, password: event.password);
+        emit(const AuthState.authenticated());
+      } catch (e) {
+        emit(AuthState.error(error: e.toString()));
 
+      }
+    });
+    // on<GoogleSignInRequested>((event, emit) async {
+    //   emit(Loading());
+    //   try {
+    //     await authRepository.signInWithGoogle();
+    //     emit(Authenticated());
+    //   } catch (e) {
+    //     emit(AuthError(e.toString()));
+    //     emit(UnAuthenticated());
+    //   }
+    // });
+    on<SignOutRequested>((event, emit) async {
+      emit(const AuthState.loading());
+
+      await _authRepository.signOut();
+      emit(const AuthState.unAuthenticatedSignIn());
+    });
+
+    on<LoadSignIn>((event, emit) async {
+      emit(const AuthState.loading());
+      emit(const AuthState.unAuthenticatedSignIn());
+    });
+    on<LoadSignUp>((event, emit) async {
+      emit(const AuthState.loading());
+      emit(const AuthState.unAuthenticatedSignUp());
+    });
   }
 
 }

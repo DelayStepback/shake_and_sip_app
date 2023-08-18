@@ -1,11 +1,11 @@
 {
-    "name": "shake_and_sip_app",
-    "short_name": "shake_and_sip_app",
+    "name": "shake_and_sip",
+    "short_name": "shake_and_sip",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "third intern project",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

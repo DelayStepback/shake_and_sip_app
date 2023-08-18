@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "shake_and_sip_app" "\0"
+            VALUE "FileDescription", "shake_and_sip" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "shake_and_sip_app" "\0"
+            VALUE "InternalName", "shake_and_sip" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "shake_and_sip_app.exe" "\0"
-            VALUE "ProductName", "shake_and_sip_app" "\0"
+            VALUE "OriginalFilename", "shake_and_sip.exe" "\0"
+            VALUE "ProductName", "shake_and_sip" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

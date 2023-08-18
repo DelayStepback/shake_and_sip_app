@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,8 +16,11 @@ import 'features/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'features/presentation/bloc/cocktails_bloc/cocktails_bloc.dart';
 import 'features/presentation/bloc/detail_bloc/detail_bloc.dart';
 import 'features/presentation/detail_single_fav_page/detail_single_fav_page.dart';
+import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
 
   runApp(MyApp());
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
 
 
   final GoRouter _router = GoRouter(
-    initialLocation: "/",
+    initialLocation: "/welcome",
     routes: [
       GoRoute(
         path: "/welcome",
@@ -132,6 +136,10 @@ class MyApp extends StatelessWidget {
                       fontFamily: 'Inter'),
                   bodyMedium: TextStyle(
                       color: MyColor.textColor,
+                      fontSize: 16.sp,
+                      fontFamily: 'Inter'),
+                  labelSmall: TextStyle(
+                      color: MyColor.white,
                       fontSize: 16.sp,
                       fontFamily: 'Inter'),
                 ),

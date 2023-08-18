@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>827582370341-08vv3f53048rfp1t6bhunaeokcl1kca5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.827582370341-08vv3f53048rfp1t6bhunaeokcl1kca5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMXAa8xFpPopLDkbtgQI6deCSw605PLPg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>827582370341</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.shakeAndSip.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>shakeandsipp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shakeandsipp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:827582370341:ios:2e52a8d7367a9b2bdba5cc</string>
+</dict>
+</plist>
