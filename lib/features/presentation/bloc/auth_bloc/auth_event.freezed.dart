@@ -19,6 +19,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -29,6 +30,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -39,6 +41,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -50,6 +53,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -60,6 +64,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -70,6 +75,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -134,6 +140,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -147,6 +154,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -160,6 +168,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -177,6 +186,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -190,6 +200,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -203,6 +214,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -219,6 +231,138 @@ class _$Loading implements Loading {
 
 abstract class Loading implements AuthEvent {
   const factory Loading() = _$Loading;
+}
+
+/// @nodoc
+abstract class _$$AlreadyLoggedCopyWith<$Res> {
+  factory _$$AlreadyLoggedCopyWith(
+          _$AlreadyLogged value, $Res Function(_$AlreadyLogged) then) =
+      __$$AlreadyLoggedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AlreadyLoggedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AlreadyLogged>
+    implements _$$AlreadyLoggedCopyWith<$Res> {
+  __$$AlreadyLoggedCopyWithImpl(
+      _$AlreadyLogged _value, $Res Function(_$AlreadyLogged) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AlreadyLogged implements AlreadyLogged {
+  const _$AlreadyLogged();
+
+  @override
+  String toString() {
+    return 'AuthEvent.alreadyLogged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AlreadyLogged);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() alreadyLogged,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function(String email, String password) signUpRequested,
+    required TResult Function() loadSignUp,
+    required TResult Function() loadSignIn,
+    required TResult Function() signOut,
+  }) {
+    return alreadyLogged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function(String email, String password)? signUpRequested,
+    TResult? Function()? loadSignUp,
+    TResult? Function()? loadSignIn,
+    TResult? Function()? signOut,
+  }) {
+    return alreadyLogged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? alreadyLogged,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function(String email, String password)? signUpRequested,
+    TResult Function()? loadSignUp,
+    TResult Function()? loadSignIn,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (alreadyLogged != null) {
+      return alreadyLogged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(LoadSignUp value) loadSignUp,
+    required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(SignOutRequested value) signOut,
+  }) {
+    return alreadyLogged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(LoadSignUp value)? loadSignUp,
+    TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(SignOutRequested value)? signOut,
+  }) {
+    return alreadyLogged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(LoadSignUp value)? loadSignUp,
+    TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(SignOutRequested value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (alreadyLogged != null) {
+      return alreadyLogged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlreadyLogged implements AuthEvent {
+  const factory AlreadyLogged() = _$AlreadyLogged;
 }
 
 /// @nodoc
@@ -295,6 +439,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -308,6 +453,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -321,6 +467,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -338,6 +485,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -351,6 +499,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -364,6 +513,7 @@ class _$SignInRequested implements SignInRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -464,6 +614,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -477,6 +628,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -490,6 +642,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -507,6 +660,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -520,6 +674,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -533,6 +688,7 @@ class _$SignUpRequested implements SignUpRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -598,6 +754,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -611,6 +768,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -624,6 +782,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -641,6 +800,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -654,6 +814,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -667,6 +828,7 @@ class _$LoadSignUp implements LoadSignUp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -724,6 +886,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -737,6 +900,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -750,6 +914,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -767,6 +932,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -780,6 +946,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -793,6 +960,7 @@ class _$LoadSignIn implements LoadSignIn {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
@@ -850,6 +1018,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() alreadyLogged,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
@@ -863,6 +1032,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
@@ -876,6 +1046,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? alreadyLogged,
     TResult Function(String email, String password)? signInRequested,
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
@@ -893,6 +1064,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
@@ -906,6 +1078,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
@@ -919,6 +1092,7 @@ class _$SignOutRequested implements SignOutRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,

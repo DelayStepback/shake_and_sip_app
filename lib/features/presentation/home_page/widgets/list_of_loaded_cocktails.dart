@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shake_and_sip_app/features/presentation/bloc/auth_bloc/auth_event.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cocktails_event.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cocktails_state.dart';
 import 'package:shake_and_sip_app/features/presentation/loading_screen/loading_screen.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 import '../../../data/cocktail/model/cocktail.dart';
+import '../../bloc/auth_bloc/auth_bloc.dart';
 import '../../bloc/cocktails_bloc/cocktails_bloc.dart';
 
 class ListOfLoadedCocktails extends StatelessWidget {
@@ -43,26 +45,54 @@ class _ListViewCocktails extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0).r,
-            child: GestureDetector(
-              onTap: () => context.goNamed('allFav'),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: MyColor.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10)).r),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0).r,
-                  child: Text(
-                    'Favourite',
-                    style: TextStyle(
-                        color: MyColor.deepBlack,
-                        fontSize: 18.sp,
-                        fontFamily: 'Inter'),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0).r,
+                child: GestureDetector(
+                  onTap: () {
+                    context.read<AuthBloc>().add(const AuthEvent.signOut());
+                    context.goNamed('welcome');
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: MyColor.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0).r,
+                      child: Text(
+                        'Logout',
+                        style: TextStyle(
+                            color: MyColor.deepBlack,
+                            fontSize: 18.sp,
+                            fontFamily: 'Inter'),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(8.0).r,
+                child: GestureDetector(
+                  onTap: () => context.goNamed('allFav'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: MyColor.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0).r,
+                      child: Text(
+                        'Favourite',
+                        style: TextStyle(
+                            color: MyColor.deepBlack,
+                            fontSize: 18.sp,
+                            fontFamily: 'Inter'),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           ListView.separated(
             physics: const NeverScrollableScrollPhysics(),

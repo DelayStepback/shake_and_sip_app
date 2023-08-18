@@ -56,6 +56,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.loading());
       emit(const AuthState.unAuthenticatedSignUp());
     });
+    on<AlreadyLogged>((event,emit) async {
+      emit(const AuthState.authenticated());
+    });
   }
 
 }

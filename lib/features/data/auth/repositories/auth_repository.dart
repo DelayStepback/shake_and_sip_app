@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthRepository {
   final _firebaseAuth = FirebaseAuth.instance;
 
+
   Future<void> signUp({required String email, required String password}) async {
     try {
       await FirebaseAuth.instance
@@ -11,7 +12,7 @@ class AuthRepository {
       if (e.code == 'weak-password') {
         throw Exception('This password is too weak');
       } else if (e.code == 'email-already-in-use') {
-        throw Exception('Account already existsss for that email');
+        throw Exception('Account already exists for that email');
       }
     } catch (e) {
       throw Exception(e.toString());
