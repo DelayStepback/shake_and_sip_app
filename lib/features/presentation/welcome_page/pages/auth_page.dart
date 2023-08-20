@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/loading_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/widgets/sign_in_widget.dart';
@@ -19,12 +20,12 @@ class Auth extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => context.go('/'),
                 child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(20)).r,
                     color: MyColor.darkWhite,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(60.0),
+                    padding: const EdgeInsets.all(60.0).r,
                     child: Text(
                       'Go to Cocktails',
                       style: Theme.of(context).textTheme.displayLarge,

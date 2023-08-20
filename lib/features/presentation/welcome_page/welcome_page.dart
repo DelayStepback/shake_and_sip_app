@@ -37,7 +37,7 @@ class _WelcomePageState extends State<WelcomePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: SizedBox(
-            height: 800.h,
+            height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
                 PageView(
@@ -55,7 +55,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 24).r,
+                  padding: const EdgeInsets.only(bottom: 34).r,
                   child: Container(
                     alignment: Alignment.bottomCenter,
                     child: Row(

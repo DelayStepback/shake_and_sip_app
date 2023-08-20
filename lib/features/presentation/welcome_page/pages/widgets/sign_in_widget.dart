@@ -137,8 +137,8 @@ class _SignInWidgetState extends State<SignInWidget> {
 
                     },
                     child: Container(
-                      width: 100,
-                      height: 60,
+                      width: 100.w,
+                      height: 60.h,
                       decoration: (
                           BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0).r,

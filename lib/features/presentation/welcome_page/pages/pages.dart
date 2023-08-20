@@ -114,54 +114,56 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'What about Cocktails???',
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          Container(
-            width: 350.w,
-            height: 550.h,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: MyColor.deepBlack),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _DescriptionForCocktail(
-                  text: 'TITLE: Cocktail',
-                  icon: Icons.ac_unit,
-                ),
-                _DescriptionForCocktail(
-                  text: 'DESCRIPTION: mmm.. so tasty',
-                  icon: Icons.ac_unit,
-                ),
-                _DescriptionForCocktail(
-                  text: 'PORTION: for 1-2 good guys/girls',
-                  icon: Icons.ac_unit,
-                ),
-                _DescriptionForCocktail(
-                  text: 'TIME: 1m and you ready :)',
-                  icon: Icons.ac_unit,
-                ),
-                _DescriptionForCocktail(
-                  text: 'INGREDIENTS: lime, vodka + vodka',
-                  icon: Icons.ac_unit,
-                ),
-                _DescriptionForCocktail(
-                  text: 'METHOD: Step 1: ...',
-                  icon: Icons.ac_unit,
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'What about Cocktails???',
+              style: Theme.of(context).textTheme.displayLarge,
             ),
-          ),
-        ],
+            SizedBox(
+              height: 30.h,
+            ),
+            Container(
+              width: 350.w,
+              height: 550.h,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: MyColor.deepBlack),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _DescriptionForCocktail(
+                    text: 'TITLE: Cocktail',
+                    icon: Icons.ac_unit,
+                  ),
+                  _DescriptionForCocktail(
+                    text: 'DESCRIPTION: mmm.. so tasty',
+                    icon: Icons.ac_unit,
+                  ),
+                  _DescriptionForCocktail(
+                    text: 'PORTION: for 1-2 good guys/girls',
+                    icon: Icons.ac_unit,
+                  ),
+                  _DescriptionForCocktail(
+                    text: 'TIME: 1m and you ready :)',
+                    icon: Icons.ac_unit,
+                  ),
+                  _DescriptionForCocktail(
+                    text: 'INGREDIENTS: lime, vodka + vodka',
+                    icon: Icons.ac_unit,
+                  ),
+                  _DescriptionForCocktail(
+                    text: 'METHOD: Step 1: ...',
+                    icon: Icons.ac_unit,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
