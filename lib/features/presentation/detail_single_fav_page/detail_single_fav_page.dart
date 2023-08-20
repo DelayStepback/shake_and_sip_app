@@ -11,9 +11,10 @@ import '../bloc/detail_bloc/detail_state.dart';
 import '../loading_screen/loading_screen.dart';
 
 class DetailSingleFavPage extends StatelessWidget {
-  const DetailSingleFavPage({super.key, required this.id});
+  const DetailSingleFavPage({super.key, required this.id, required this.connectivity});
 
   final String? id;
+  final bool connectivity;
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +22,16 @@ class DetailSingleFavPage extends StatelessWidget {
     context.read<DetailBloc>().add(DetailEvent.initDetailPage(id: id!));
     return state.when(
         loading: () => const LoadingScreen(),
-        loaded: (cocktail, fav) => _DetailLoaded(cocktail: cocktail, isFav: fav),
+        loaded: (cocktail, fav) => _DetailLoaded(cocktail: cocktail, isFav: fav, connectivity: connectivity,),
         error: (error) => Text('error to load $error'));
   }
 }
 
 class _DetailLoaded extends StatelessWidget {
-  const _DetailLoaded({super.key, required this.cocktail, required this.isFav});
+  const _DetailLoaded({super.key, required this.cocktail, required this.isFav, required this.connectivity});
   final bool isFav;
   final Cocktail cocktail;
+  final bool connectivity;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,12 @@ class _DetailLoaded extends StatelessWidget {
               elevation: 0,
               leading: GestureDetector(
                 onTap: () => {
-                  context.goNamed('home'),
+                  if (connectivity){
+                    context.goNamed('home'),
+                  }
+                  else{
+                    context.goNamed('allFavLostConnectivity'),
+                  }
                 },
                 child: Icon(Icons.arrow_back_ios, size: 25.r,),
               ),

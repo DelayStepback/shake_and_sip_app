@@ -62,7 +62,17 @@ class MyApp extends StatelessWidget {
             create: (context) => CocktailsFavBloc(
                 RepositoryProvider.of<CocktailRepository>(context)),
           )
-        ], child: const FavouritePage()),
+        ], child: const FavouritePage(connectivity: true,)),
+      ),
+      GoRoute(
+        path: "/allFavLostConnectivity",
+        name: "allFavLostConnectivity",
+        builder: (context, state) => MultiBlocProvider(providers: [
+          BlocProvider(
+            create: (context) => CocktailsFavBloc(
+                RepositoryProvider.of<CocktailRepository>(context)),
+          )
+        ], child: const FavouritePage(connectivity: false)),
       ),
       GoRoute(
         path: "/fav/:id",
@@ -76,6 +86,23 @@ class MyApp extends StatelessWidget {
           ],
           child: DetailSingleFavPage(
             id: state.pathParameters['id'],
+            connectivity: true,
+          ),
+        ),
+      ),
+      GoRoute(
+        path: "/favLostConnectivity/:id",
+        name: "favLostConnectivity",
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => DetailBloc(
+                  RepositoryProvider.of<CocktailRepository>(context)),
+            ),
+          ],
+          child: DetailSingleFavPage(
+            id: state.pathParameters['id'],
+            connectivity: false,
           ),
         ),
       ),

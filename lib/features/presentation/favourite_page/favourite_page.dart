@@ -9,16 +9,18 @@ import '../bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import '../bloc/cocktails_fav_bloc/cocktails_fav_event.dart';
 
 class FavouritePage extends StatelessWidget {
-  const FavouritePage({super.key});
-
+  const FavouritePage({super.key, required this.connectivity});
+  final bool connectivity;
 
   @override
   Widget build(BuildContext context) {
       BlocProvider.of<CocktailsFavBloc>(context)
         .add(const CocktailsFavEvent.initFavPage());
-       return const Scaffold(
+       return Scaffold(
          backgroundColor: MyColor.lightBlack,
-          body: SafeArea(child: ListOfLoadedFavCocktails()),
+          body: SafeArea(child: ListOfLoadedFavCocktails(
+            connectivity: connectivity,
+          )),
     );
   }
 }

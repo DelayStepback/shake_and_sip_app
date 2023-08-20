@@ -50,7 +50,7 @@ class Auth extends StatelessWidget {
                   Text("but you can check your saved favourite's cocktails", style: Theme.of(context).textTheme.bodySmall),
                   GestureDetector(
                     onTap: ()=>{
-                      context.goNamed('allFav')
+                      context.goNamed('allFavLostConnectivity')
                     },
                     child: Container(
                       decoration: BoxDecoration(

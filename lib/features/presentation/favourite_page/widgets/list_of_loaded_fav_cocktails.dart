@@ -9,23 +9,33 @@ import '../../bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import '../../loading_screen/loading_screen.dart';
 
 class ListOfLoadedFavCocktails extends StatelessWidget {
-  const ListOfLoadedFavCocktails({super.key});
+  const ListOfLoadedFavCocktails({super.key, required this.connectivity});
+
+  final bool connectivity;
 
   @override
   Widget build(BuildContext context) {
     final state = context.watch<CocktailsFavBloc>().state;
     return state.when(
         loadingFav: () {
-          context.read<CocktailsFavBloc>().add(const LoadingFavCocktailsEvent());
-          return const LoadingScreen();},
-        loadedFav: (favCocktails) => _ListViewCocktails(cocktails: favCocktails),
+          context
+              .read<CocktailsFavBloc>()
+              .add(const LoadingFavCocktailsEvent());
+          return const LoadingScreen();
+        },
+        loadedFav: (favCocktails) => _ListViewCocktails(
+            cocktails: favCocktails, connectivity: connectivity),
         error: (error) => Text('error to load $error'));
   }
 }
 
 class _ListViewCocktails extends StatelessWidget {
-  const _ListViewCocktails({required this.cocktails});
+  const _ListViewCocktails(
+      {required this.cocktails, required this.connectivity});
+
   final List<Cocktail> cocktails;
+  final bool connectivity;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,15 +45,18 @@ class _ListViewCocktails extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0).r,
             child: GestureDetector(
-              onTap: () => context.goNamed('home'),
+              onTap: () => connectivity
+                  ? context.goNamed('home')
+                  : context.goNamed('allFavLostConnectivity'),
               child: Container(
                 decoration: BoxDecoration(
                     color: MyColor.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(10)).r),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(10)).r),
                 child: Padding(
-                  padding:  const EdgeInsets.all(8.0).r,
+                  padding: const EdgeInsets.all(8.0).r,
                   child: Text(
-                    'Home',
+                    connectivity ? 'Home' : 'Favourite',
                     style: TextStyle(
                         color: MyColor.deepBlack,
                         fontSize: 18.sp,
@@ -53,7 +66,6 @@ class _ListViewCocktails extends StatelessWidget {
               ),
             ),
           ),
-
           ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -61,8 +73,11 @@ class _ListViewCocktails extends StatelessWidget {
             itemCount: cocktails.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: () => context.goNamed('fav',
-                    pathParameters: {'id': cocktails[index].id}),
+                onTap: () => connectivity
+                    ? context.goNamed('fav',
+                        pathParameters: {'id': cocktails[index].id})
+                    : context.goNamed('favLostConnectivity',
+                        pathParameters: {'id': cocktails[index].id}),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
@@ -79,26 +94,24 @@ class _ListViewCocktails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20).r,
                           child: SizedBox.fromSize(
                               size: Size.fromRadius(40.r),
-                              child: Image.network(
-                                  cocktails[index].image,
+                              child: Image.network(cocktails[index].image,
                                   fit: BoxFit.fitWidth)),
                         ),
                         Expanded(
                           child: Padding(
                             padding: EdgeInsets.all(8.r),
                             child: Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   cocktails[index].title,
                                   style:
-                                  Theme.of(context).textTheme.titleMedium,
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       'difficulty: ${cocktails[index].difficulty}',
@@ -127,6 +140,5 @@ class _ListViewCocktails extends StatelessWidget {
         ],
       ),
     );
-
   }
 }
