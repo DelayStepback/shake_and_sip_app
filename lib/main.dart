@@ -24,9 +24,6 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
 
-
-
-
   runApp(MyApp());
 }
 
@@ -39,23 +36,23 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: "/welcome",
         name: 'welcome',
-        builder: (context, state) => WelcomePage(),
+        builder: (context, state) => const WelcomePage(),
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: WelcomePage(),
+          child: const WelcomePage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
         ),
       ),
       GoRoute(
-          path: "/",
-          name: 'home',
-          builder: (context, state) => const HomePage(),
+        path: "/",
+        name: 'home',
+        builder: (context, state) => const HomePage(),
         pageBuilder: (context, state) => CustomTransitionPage(
           child: const HomePage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
         ),
-          ),
+      ),
       GoRoute(
         path: "/allFav",
         name: "allFav",
@@ -100,7 +97,6 @@ class MyApp extends StatelessWidget {
               create: (context) => AuthRepository(),
             )
           ],
-
           child: MultiBlocProvider(
             providers: [
               BlocProvider(
@@ -109,7 +105,9 @@ class MyApp extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => AuthBloc(
-                    RepositoryProvider.of<AuthRepository>(context)),
+                  RepositoryProvider.of<AuthRepository>(context),
+                  RepositoryProvider.of<CocktailRepository>(context),
+                ),
               ),
             ],
             child: MaterialApp.router(

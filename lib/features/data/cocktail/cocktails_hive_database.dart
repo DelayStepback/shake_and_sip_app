@@ -55,4 +55,14 @@ class CocktailsHiveDatabase {
     }
     return false;
   }
+
+  Future<void> storeCocktails(List<Cocktail> cocktails) async {
+    for (Cocktail cocktail in cocktails){
+      await _cocktails.put(cocktail.id.toString(), cocktail.toJson());
+    }
+  }
+  Future<void> deleteBox() async{
+    await _cocktails.deleteFromDisk();
+    _cocktails = await Hive.openBox("_cocktailsBox");
+  }
 }
