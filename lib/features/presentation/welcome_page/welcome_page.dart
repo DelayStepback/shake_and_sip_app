@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/auth_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/pages.dart';
 import '../../../utils/colors.dart';
@@ -19,6 +23,8 @@ class _WelcomePageState extends State<WelcomePage> {
   final PageController _pageController = PageController(initialPage: 0);
   int page = 0;
 
+
+
   @override
   void initState() {
 
@@ -26,6 +32,7 @@ class _WelcomePageState extends State<WelcomePage> {
     }
     else{
       context.read<AuthBloc>().add(const AuthEvent.alreadyLogged());
+
     }
     super.initState();
   }
@@ -36,8 +43,9 @@ class _WelcomePageState extends State<WelcomePage> {
       backgroundColor: MyColor.white,
       body: SafeArea(
         child: SingleChildScrollView(
+          dragStartBehavior: DragStartBehavior.down,
           child: SizedBox(
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height-60.h,
             child: Stack(
               children: [
                 PageView(
@@ -54,14 +62,11 @@ class _WelcomePageState extends State<WelcomePage> {
                     Page3(),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 34).r,
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: _indicators(4, page)),
-                  ),
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: _indicators(4, page)),
                 ),
               ],
             ),

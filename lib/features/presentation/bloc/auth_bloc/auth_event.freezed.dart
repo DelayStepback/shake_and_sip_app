@@ -24,6 +24,7 @@ mixin _$AuthEvent {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +36,7 @@ mixin _$AuthEvent {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +48,7 @@ mixin _$AuthEvent {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) =>
@@ -58,6 +61,7 @@ mixin _$AuthEvent {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +73,7 @@ mixin _$AuthEvent {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +85,7 @@ mixin _$AuthEvent {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) =>
@@ -145,6 +151,7 @@ class _$Loading implements Loading {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return loading();
@@ -159,6 +166,7 @@ class _$Loading implements Loading {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return loading?.call();
@@ -173,6 +181,7 @@ class _$Loading implements Loading {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -191,6 +200,7 @@ class _$Loading implements Loading {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return loading(this);
@@ -205,6 +215,7 @@ class _$Loading implements Loading {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return loading?.call(this);
@@ -219,6 +230,7 @@ class _$Loading implements Loading {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -277,6 +289,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return alreadyLogged();
@@ -291,6 +304,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return alreadyLogged?.call();
@@ -305,6 +319,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -323,6 +338,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return alreadyLogged(this);
@@ -337,6 +353,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return alreadyLogged?.call(this);
@@ -351,6 +368,7 @@ class _$AlreadyLogged implements AlreadyLogged {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -444,6 +462,7 @@ class _$SignInRequested implements SignInRequested {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return signInRequested(email, password);
@@ -458,6 +477,7 @@ class _$SignInRequested implements SignInRequested {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return signInRequested?.call(email, password);
@@ -472,6 +492,7 @@ class _$SignInRequested implements SignInRequested {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -490,6 +511,7 @@ class _$SignInRequested implements SignInRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return signInRequested(this);
@@ -504,6 +526,7 @@ class _$SignInRequested implements SignInRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return signInRequested?.call(this);
@@ -518,6 +541,7 @@ class _$SignInRequested implements SignInRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -619,6 +643,7 @@ class _$SignUpRequested implements SignUpRequested {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return signUpRequested(email, password);
@@ -633,6 +658,7 @@ class _$SignUpRequested implements SignUpRequested {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return signUpRequested?.call(email, password);
@@ -647,6 +673,7 @@ class _$SignUpRequested implements SignUpRequested {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -665,6 +692,7 @@ class _$SignUpRequested implements SignUpRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return signUpRequested(this);
@@ -679,6 +707,7 @@ class _$SignUpRequested implements SignUpRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return signUpRequested?.call(this);
@@ -693,6 +722,7 @@ class _$SignUpRequested implements SignUpRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -759,6 +789,7 @@ class _$LoadSignUp implements LoadSignUp {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return loadSignUp();
@@ -773,6 +804,7 @@ class _$LoadSignUp implements LoadSignUp {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return loadSignUp?.call();
@@ -787,6 +819,7 @@ class _$LoadSignUp implements LoadSignUp {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -805,6 +838,7 @@ class _$LoadSignUp implements LoadSignUp {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return loadSignUp(this);
@@ -819,6 +853,7 @@ class _$LoadSignUp implements LoadSignUp {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return loadSignUp?.call(this);
@@ -833,6 +868,7 @@ class _$LoadSignUp implements LoadSignUp {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -891,6 +927,7 @@ class _$LoadSignIn implements LoadSignIn {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return loadSignIn();
@@ -905,6 +942,7 @@ class _$LoadSignIn implements LoadSignIn {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return loadSignIn?.call();
@@ -919,6 +957,7 @@ class _$LoadSignIn implements LoadSignIn {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -937,6 +976,7 @@ class _$LoadSignIn implements LoadSignIn {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return loadSignIn(this);
@@ -951,6 +991,7 @@ class _$LoadSignIn implements LoadSignIn {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return loadSignIn?.call(this);
@@ -965,6 +1006,7 @@ class _$LoadSignIn implements LoadSignIn {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {
@@ -977,6 +1019,177 @@ class _$LoadSignIn implements LoadSignIn {
 
 abstract class LoadSignIn implements AuthEvent {
   const factory LoadSignIn() = _$LoadSignIn;
+}
+
+/// @nodoc
+abstract class _$$ChangePasswordCopyWith<$Res> {
+  factory _$$ChangePasswordCopyWith(
+          _$ChangePassword value, $Res Function(_$ChangePassword) then) =
+      __$$ChangePasswordCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$ChangePasswordCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$ChangePassword>
+    implements _$$ChangePasswordCopyWith<$Res> {
+  __$$ChangePasswordCopyWithImpl(
+      _$ChangePassword _value, $Res Function(_$ChangePassword) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$ChangePassword(
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePassword implements ChangePassword {
+  const _$ChangePassword({required this.password});
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.changePassword(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePassword &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePasswordCopyWith<_$ChangePassword> get copyWith =>
+      __$$ChangePasswordCopyWithImpl<_$ChangePassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() alreadyLogged,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function(String email, String password) signUpRequested,
+    required TResult Function() loadSignUp,
+    required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
+    required TResult Function() signOut,
+  }) {
+    return changePassword(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function()? alreadyLogged,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function(String email, String password)? signUpRequested,
+    TResult? Function()? loadSignUp,
+    TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
+    TResult? Function()? signOut,
+  }) {
+    return changePassword?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? alreadyLogged,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function(String email, String password)? signUpRequested,
+    TResult Function()? loadSignUp,
+    TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
+    required TResult Function(AlreadyLogged value) alreadyLogged,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(LoadSignUp value) loadSignUp,
+    required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
+    required TResult Function(SignOutRequested value) signOut,
+  }) {
+    return changePassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
+    TResult? Function(AlreadyLogged value)? alreadyLogged,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(LoadSignUp value)? loadSignUp,
+    TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
+    TResult? Function(SignOutRequested value)? signOut,
+  }) {
+    return changePassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(AlreadyLogged value)? alreadyLogged,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(LoadSignUp value)? loadSignUp,
+    TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
+    TResult Function(SignOutRequested value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangePassword implements AuthEvent {
+  const factory ChangePassword({required final String password}) =
+      _$ChangePassword;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$ChangePasswordCopyWith<_$ChangePassword> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1023,6 +1236,7 @@ class _$SignOutRequested implements SignOutRequested {
     required TResult Function(String email, String password) signUpRequested,
     required TResult Function() loadSignUp,
     required TResult Function() loadSignIn,
+    required TResult Function(String password) changePassword,
     required TResult Function() signOut,
   }) {
     return signOut();
@@ -1037,6 +1251,7 @@ class _$SignOutRequested implements SignOutRequested {
     TResult? Function(String email, String password)? signUpRequested,
     TResult? Function()? loadSignUp,
     TResult? Function()? loadSignIn,
+    TResult? Function(String password)? changePassword,
     TResult? Function()? signOut,
   }) {
     return signOut?.call();
@@ -1051,6 +1266,7 @@ class _$SignOutRequested implements SignOutRequested {
     TResult Function(String email, String password)? signUpRequested,
     TResult Function()? loadSignUp,
     TResult Function()? loadSignIn,
+    TResult Function(String password)? changePassword,
     TResult Function()? signOut,
     required TResult orElse(),
   }) {
@@ -1069,6 +1285,7 @@ class _$SignOutRequested implements SignOutRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(LoadSignUp value) loadSignUp,
     required TResult Function(LoadSignIn value) loadSignIn,
+    required TResult Function(ChangePassword value) changePassword,
     required TResult Function(SignOutRequested value) signOut,
   }) {
     return signOut(this);
@@ -1083,6 +1300,7 @@ class _$SignOutRequested implements SignOutRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(LoadSignUp value)? loadSignUp,
     TResult? Function(LoadSignIn value)? loadSignIn,
+    TResult? Function(ChangePassword value)? changePassword,
     TResult? Function(SignOutRequested value)? signOut,
   }) {
     return signOut?.call(this);
@@ -1097,6 +1315,7 @@ class _$SignOutRequested implements SignOutRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(LoadSignUp value)? loadSignUp,
     TResult Function(LoadSignIn value)? loadSignIn,
+    TResult Function(ChangePassword value)? changePassword,
     TResult Function(SignOutRequested value)? signOut,
     required TResult orElse(),
   }) {

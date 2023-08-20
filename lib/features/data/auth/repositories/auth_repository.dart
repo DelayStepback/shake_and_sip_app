@@ -42,6 +42,10 @@ class AuthRepository {
       throw Exception(e);
     }
   }
+  Future<void> changePassword(String password) async{
+    var user = FirebaseAuth.instance.currentUser!;
+    await user.updatePassword(password);
+  }
 
   // Future<void> signInWithGoogle() async {
   //   try {

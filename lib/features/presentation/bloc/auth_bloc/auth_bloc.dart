@@ -63,6 +63,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AlreadyLogged>((event,emit) async {
       emit(const AuthState.authenticated());
     });
+
+    on<ChangePassword>((ChangePassword event, emit) async{
+      await _authRepository.changePassword(event.password);
+    });
   }
 
 }

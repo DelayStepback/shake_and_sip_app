@@ -9,6 +9,7 @@ import 'package:shake_and_sip_app/features/data/auth/repositories/auth_repositor
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/favourite_page.dart';
 import 'package:shake_and_sip_app/features/presentation/home_page/home_page.dart';
+import 'package:shake_and_sip_app/features/presentation/setiings_page/settings_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/welcome_page.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 
@@ -77,6 +78,11 @@ class MyApp extends StatelessWidget {
             id: state.pathParameters['id'],
           ),
         ),
+      ),
+      GoRoute(
+        path: "/settings",
+        name: "settings",
+        builder: (context, state) => const SettingsPage(),
       ),
     ],
   );

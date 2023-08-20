@@ -51,7 +51,7 @@ class _SignInWidgetState extends State<SignInWidget> {
           ),
           Container(
             width: 350.w,
-            height: 340.h,
+            height: 360.h,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: MyColor.deepBlack),

@@ -44,9 +44,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           ),
           Container(
             width: 350.w,
-            height: 340.h,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+            height: 360.h,
+            decoration:  BoxDecoration(
+                borderRadius: BorderRadius.all(const Radius.circular(20).r),
                 color: MyColor.deepBlack),
             child: Form(
               key: _formKey,
@@ -130,8 +130,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
                     },
                     child: Container(
-                      width: 100,
-                      height: 60,
+                      width: 100.w,
+                      height: 60.h,
                       decoration: (
                           BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0).r,

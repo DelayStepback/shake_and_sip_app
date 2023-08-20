@@ -51,8 +51,7 @@ class _ListViewCocktails extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0).r,
                 child: GestureDetector(
                   onTap: () {
-                    context.read<AuthBloc>().add(const AuthEvent.signOut());
-                    context.goNamed('welcome');
+                    context.goNamed('settings');
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -61,7 +60,7 @@ class _ListViewCocktails extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Text(
-                        'Logout',
+                        'Settings',
                         style: TextStyle(
                             color: MyColor.deepBlack,
                             fontSize: 18.sp,
@@ -78,7 +77,7 @@ class _ListViewCocktails extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         color: MyColor.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)).r),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Text(

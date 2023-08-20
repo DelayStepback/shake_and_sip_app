@@ -21,7 +21,7 @@ class CocktailsHiveDatabase {
 
   List<Cocktail> getCocktails() {
     List<Map<String, dynamic>> retriveCocktails = [];
-    for (Map cock in _cocktails.values.toList()){
+     for (Map cock in _cocktails.values.toList()){
       Map<String, dynamic> retrieveCock = {};
       for (var i in cock.keys){
         retrieveCock[i.toString()] = cock[i];

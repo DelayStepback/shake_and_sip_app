@@ -15,7 +15,7 @@ class CocktailsFavBloc extends Bloc<CocktailsFavEvent, CocktailsFavState> {
 
   Future<void> _onLoadingFavCocktailsEvent(event, emit) async {
     emit(const CocktailsFavState.loadingFav());
-    _cocktailRepository.init();
+    await _cocktailRepository.init();
     final List<Cocktail> favCocktails =
     _cocktailRepository.getCocktailsFavourite();
     emit(CocktailsFavState.loadedFav(
