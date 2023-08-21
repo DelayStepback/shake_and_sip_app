@@ -50,7 +50,7 @@ class _ListViewCocktails extends StatelessWidget {
                   : context.goNamed('allFavLostConnectivity'),
               child: Container(
                 decoration: BoxDecoration(
-                    color: MyColor.white,
+                    color: MyColor.deepBlack,
                     borderRadius:
                         const BorderRadius.all(Radius.circular(10)).r),
                 child: Padding(
@@ -58,7 +58,7 @@ class _ListViewCocktails extends StatelessWidget {
                   child: Text(
                     connectivity ? 'Home' : 'Favourite',
                     style: TextStyle(
-                        color: MyColor.deepBlack,
+                        color: MyColor.white,
                         fontSize: 18.sp,
                         fontFamily: 'Inter'),
                   ),
@@ -81,7 +81,7 @@ class _ListViewCocktails extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    color: MyColor.white,
+                    color: MyColor.deepBlack,
                   ),
                   width: 365.r,
                   height: 103.r,
@@ -99,7 +99,7 @@ class _ListViewCocktails extends StatelessWidget {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(8.r),
+                            padding: EdgeInsets.all(12.r),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +107,7 @@ class _ListViewCocktails extends StatelessWidget {
                                 Text(
                                   cocktails[index].title,
                                   style:
-                                      Theme.of(context).textTheme.titleMedium,
+                                      Theme.of(context).textTheme.labelSmall,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -117,7 +117,7 @@ class _ListViewCocktails extends StatelessWidget {
                                       'difficulty: ${cocktails[index].difficulty}',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .titleMedium,
+                                          .labelSmall,
                                     ),
                                   ],
                                 )

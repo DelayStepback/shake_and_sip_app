@@ -48,24 +48,18 @@ class _ListViewCocktails extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0).r,
+                padding: const EdgeInsets.all(12.0).r,
                 child: GestureDetector(
                   onTap: () {
                     context.goNamed('settings');
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                        color: MyColor.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)).r),
+                        color: MyColor.deepBlack,
+                        borderRadius: const BorderRadius.all(Radius.circular(10)).r),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
-                      child: Text(
-                        'Settings',
-                        style: TextStyle(
-                            color: MyColor.deepBlack,
-                            fontSize: 18.sp,
-                            fontFamily: 'Inter'),
-                      ),
+                      child: Icon(Icons.settings, size: 24.r, color: MyColor.white),
                     ),
                   ),
                 ),
@@ -76,14 +70,14 @@ class _ListViewCocktails extends StatelessWidget {
                   onTap: () => context.goNamed('allFav'),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: MyColor.white,
+                        color: MyColor.deepBlack,
                         borderRadius: const BorderRadius.all(Radius.circular(10)).r),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Text(
                         'Favourite',
                         style: TextStyle(
-                            color: MyColor.deepBlack,
+                            color: MyColor.white,
                             fontSize: 18.sp,
                             fontFamily: 'Inter'),
                       ),
@@ -106,10 +100,10 @@ class _ListViewCocktails extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    color: MyColor.white,
+                    color: MyColor.deepBlack,
                   ),
                   width: 365.r,
-                  height: 103.r,
+                  height: 100.r,
                   child: Padding(
                     padding: EdgeInsets.all(11.r),
                     child: Row(
@@ -124,7 +118,7 @@ class _ListViewCocktails extends StatelessWidget {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(4.r),
+                            padding: EdgeInsets.all(10.r),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +126,7 @@ class _ListViewCocktails extends StatelessWidget {
                                 Text(
                                   cocktails[index].title,
                                   style:
-                                      Theme.of(context).textTheme.titleMedium,
+                                      Theme.of(context).textTheme.labelSmall,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -142,7 +136,7 @@ class _ListViewCocktails extends StatelessWidget {
                                       'difficulty: ${cocktails[index].difficulty}',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .titleMedium,
+                                          .labelSmall,
                                     ),
                                   ],
                                 )

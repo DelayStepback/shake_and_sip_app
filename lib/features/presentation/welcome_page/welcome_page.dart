@@ -59,14 +59,13 @@ class _WelcomePageState extends State<WelcomePage> {
                     Auth(),
                     Page1(),
                     Page2(),
-                    Page3(),
                   ],
                 ),
                 Container(
                   alignment: Alignment.bottomCenter,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: _indicators(4, page)),
+                      children: _indicators(3, page)),
                 ),
               ],
             ),

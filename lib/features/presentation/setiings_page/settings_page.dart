@@ -14,7 +14,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColor.lightBlack,
+      backgroundColor: MyColor.deepBlack,
       body: SafeArea(child: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -22,7 +22,7 @@ class SettingsPage extends StatelessWidget {
               Text('${FirebaseAuth.instance.currentUser?.email}', style: Theme
                   .of(context)
                   .textTheme
-                  .displayLarge,),
+                  .titleLarge,),
               SizedBox(height: 10.h,),
               const _ChangePasswordButton(),
               SizedBox(height: 20.h,),
@@ -49,7 +49,7 @@ class _ChangePasswordButton extends StatefulWidget {
 
 class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
 
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -63,7 +63,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
           return
             Padding(
               padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom).r,
+                  bottom: MediaQuery.of(context).viewInsets.bottom).h ,
               child: SizedBox(
                 height: 300.h,
                 child: Column(
@@ -73,27 +73,23 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
                         color: MyColor.deepBlack,
                         fontSize: 18.sp,
                         fontFamily: 'Inter'),),
-                    Padding(
-                      padding: const EdgeInsets.all(25.0).r,
-                      child: TextFormField(
-
-                        autofocus: true,
-                        controller: _passwordController,
-                        style: TextStyle(
-                          color: const Color(0xFF171010),
-                          fontSize: 16.sp,
+                    TextFormField(
+                      autofocus: true,
+                      controller: _passwordController,
+                      style: TextStyle(
+                        color: const Color(0xFF171010),
+                        fontSize: 16.sp,
+                        fontFamily: 'Jost',
+                        fontWeight: FontWeight.w500,
+                      ),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: 'new password',
+                        labelStyle:  TextStyle(
+                          color: const Color(0xFF4E4343),
+                          fontSize: 13.sp,
                           fontFamily: 'Jost',
-                          fontWeight: FontWeight.w500,
-                        ),
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          labelText: 'new password',
-                          labelStyle:  TextStyle(
-                            color: const Color(0xFF4E4343),
-                            fontSize: 13.sp,
-                            fontFamily: 'Jost',
-                            fontWeight: FontWeight.w400,
-                          ),
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
@@ -106,7 +102,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: MyColor.deepBlack,
+                            color: MyColor.white,
                             borderRadius: const BorderRadius
                                 .all(Radius.circular(10))
                                 .r),
@@ -115,7 +111,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
                           child: Text(
                             'Confirm',
                             style: TextStyle(
-                                color: MyColor.white,
+                                color: MyColor.deepBlack,
                                 fontSize: 18.sp,
                                 fontFamily: 'Inter'),
                           ),
@@ -131,7 +127,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: MyColor.deepBlack,
+            color: MyColor.white,
             borderRadius: const BorderRadius
                 .all(Radius.circular(10))
                 .r),
@@ -140,7 +136,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
           child: Text(
             'Change password',
             style: TextStyle(
-                color: MyColor.white,
+                color: MyColor.deepBlack,
                 fontSize: 18.sp,
                 fontFamily: 'Inter'),
           ),
@@ -163,7 +159,7 @@ class _LogoutButton extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: MyColor.deepBlack,
+            color: MyColor.white,
             borderRadius: const BorderRadius
                 .all(Radius.circular(10))
                 .r),
@@ -194,7 +190,7 @@ class _HomeButton extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: MyColor.deepBlack,
+            color: MyColor.white,
             borderRadius: const BorderRadius
                 .all(Radius.circular(10))
                 .r),
