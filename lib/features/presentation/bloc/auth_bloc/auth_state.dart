@@ -9,6 +9,7 @@ class AuthState with _$AuthState {
   const factory AuthState.authenticated() = _Authenticated;
 
   const factory AuthState.unAuthenticatedSignUp() = _unAuthenticatedSignUp;
+
   const factory AuthState.unAuthenticatedSignIn() = _unAuthenticatedSignIn;
 
   const factory AuthState.error({required String error}) = _Error;

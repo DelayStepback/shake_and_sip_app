@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'cocktail.freezed.dart';
+
 part 'cocktail.g.dart';
 
 @freezed

@@ -8,6 +8,7 @@ import '../../../bloc/auth_bloc/auth_event.dart';
 
 class SignUpWidget extends StatefulWidget {
   const SignUpWidget({super.key, required this.error});
+
   final String error;
 
   @override
@@ -21,7 +22,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
   bool isValidEmail(String email) {
     return RegExp(
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
         .hasMatch(email);
   }
 
@@ -45,7 +46,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           Container(
             width: 350.w,
             height: 360.h,
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(const Radius.circular(20).r),
                 color: MyColor.deepBlack),
             child: Form(
@@ -53,7 +54,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   SizedBox(
                     height: 20.h,
                   ),
@@ -64,7 +64,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
                         }
-                        if (!isValidEmail(value)){
+                        if (!isValidEmail(value)) {
                           return 'Wrong email format';
                         }
                         return null;
@@ -103,7 +103,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         ),
                         filled: true,
                         hintStyle:
-                        TextStyle(color: Colors.grey[800], fontSize: 16.r),
+                            TextStyle(color: Colors.grey[800], fontSize: 16.r),
                         hintText: "Password",
                         fillColor: Colors.white70,
                       ),
@@ -111,7 +111,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   ),
                   TextButton(
                       onPressed: () {
-                        context.read<AuthBloc>().add(const AuthEvent.loadSignIn());
+                        context
+                            .read<AuthBloc>()
+                            .add(const AuthEvent.loadSignIn());
                       },
                       child: Text(
                         'Sign In',
@@ -127,18 +129,15 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             email: _emailController.text,
                             password: _passwordController.text));
                       }
-
                     },
                     child: Container(
                       width: 100.w,
                       height: 60.h,
-                      decoration: (
-                          BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0).r,
-                            color: MyColor.darkWhite,
-                          )
-                      ),
-                      child:                 Center(
+                      decoration: (BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0).r,
+                        color: MyColor.darkWhite,
+                      )),
+                      child: Center(
                         child: Text(
                           'Sign up',
                           style: Theme.of(context).textTheme.displayLarge,

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/detail_bloc/detail_event.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-
 import '../../data/cocktail/model/cocktail.dart';
 import '../bloc/detail_bloc/detail_bloc.dart';
 import '../loading_screen/loading_screen.dart';
@@ -21,13 +20,14 @@ class DetailSingleFavPage extends StatelessWidget {
     final state = context.watch<DetailBloc>().state;
     context.read<DetailBloc>().add(DetailEvent.initDetailPage(id: id!));
     return state.when(
-        loading: () => const LoadingScreen(),
-        loaded: (cocktail, fav) => _DetailLoaded(
-              cocktail: cocktail,
-              isFav: fav,
-              connectivity: connectivity,
-            ),
-        error: (error) => Text('error to load $error'));
+      loading: () => const LoadingScreen(),
+      loaded: (cocktail, fav) => _DetailLoaded(
+        cocktail: cocktail,
+        isFav: fav,
+        connectivity: connectivity,
+      ),
+      error: (error) => Text('error to load $error'),
+    );
   }
 }
 
@@ -61,13 +61,14 @@ class _DetailLoadedState extends State<_DetailLoaded> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-
                 PageView(
                   controller: _pageController,
                   onPageChanged: (newPage) {
-                    setState(() {
-                      page = newPage;
-                    });
+                    setState(
+                      () {
+                        page = newPage;
+                      },
+                    );
                   },
                   children: [
                     _TimeAndServes(
@@ -78,35 +79,40 @@ class _DetailLoadedState extends State<_DetailLoaded> {
                     _StepsToCook(cocktail: widget.cocktail),
                   ],
                 ),
-
                 Positioned(
                   bottom: 0,
                   child: Column(
                     children: [
-
                       GestureDetector(
-                        onTap: (){
-                          if (!widget.isFav){
-                            context.read<DetailBloc>().add(DetailEvent.addFavCocktail(widget.cocktail));
-                          }
-                          else{
-                            context.read<DetailBloc>().add(DetailEvent.deleteFavCocktail(widget.cocktail));
+                        onTap: () {
+                          if (!widget.isFav) {
+                            context.read<DetailBloc>().add(
+                                DetailEvent.addFavCocktail(widget.cocktail));
+                          } else {
+                            context.read<DetailBloc>().add(
+                                DetailEvent.deleteFavCocktail(widget.cocktail));
                           }
                         },
                         child: Container(
                           width: 180.w,
                           decoration: BoxDecoration(
                             color: MyColor.white,
-                            borderRadius: const BorderRadius.all(Radius.circular(30)).r,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30)).r,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(widget.isFav ? Icons.star :Icons.star_border, size: 20.r,),
-                              Text(widget.isFav? 'Already favourite':'Make favourite', style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium),
-
+                              Icon(
+                                widget.isFav ? Icons.star : Icons.star_border,
+                                size: 20.r,
+                              ),
+                              Text(
+                                  widget.isFav
+                                      ? 'Already favourite'
+                                      : 'Make favourite',
+                                  style:
+                                      Theme.of(context).textTheme.bodyMedium),
                             ],
                           ),
                         ),
@@ -123,14 +129,21 @@ class _DetailLoadedState extends State<_DetailLoaded> {
                   left: 10.w,
                   child: InkWell(
                       onTap: () => {
-                        if (widget.connectivity){
-                          context.goNamed('home'),
-                        }
-                        else{
-                          context.goNamed('allFavLostConnectivity'),
-                        }
-                      },
-                      child: Icon(Icons.navigate_before, size: 34.r, color: MyColor.deepBlack,)),),
+                            if (widget.connectivity)
+                              {
+                                context.goNamed('home'),
+                              }
+                            else
+                              {
+                                context.goNamed('allFavLostConnectivity'),
+                              }
+                          },
+                      child: Icon(
+                        Icons.navigate_before,
+                        size: 34.r,
+                        color: MyColor.deepBlack,
+                      )),
+                ),
               ],
             ),
           ),
@@ -149,7 +162,6 @@ List<Widget> _indicators(imagesLength, currentIndex) {
       height: 10.h,
       decoration: BoxDecoration(
         color: MyColor.deepBlack,
-//          shape: currentIndex == index ? BoxShape.rectangle : BoxShape.circle,
         borderRadius: currentIndex == index
             ? const BorderRadius.all(Radius.circular(39)).w
             : const BorderRadius.all(Radius.circular(51)).w,
@@ -231,44 +243,46 @@ class _Ingredients extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20.0).r,
-            child: Text('Ingredients',
-                style: Theme.of(context).textTheme.displayLarge),
-          ),
-          Container(
-            width: 320.w,
-            height: 400.h,
-            decoration: BoxDecoration(
-              color: MyColor.deepBlack,
-              borderRadius: const BorderRadius.all(Radius.circular(30)).r,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0).r,
+              child: Text('Ingredients',
+                  style: Theme.of(context).textTheme.displayLarge),
             ),
-            child: Padding(
-              padding: EdgeInsets.all(20).r,
-              child: Center(
-                child: ListView.builder(
-                  padding: const EdgeInsets.all(0),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: cocktail.ingredients!.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        '+ ${cocktail.ingredients![index]}',
-                        style: Theme.of(context).textTheme.labelSmall,
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  },
+            Container(
+              width: 320.w,
+              height: 400.h,
+              decoration: BoxDecoration(
+                color: MyColor.deepBlack,
+                borderRadius: const BorderRadius.all(Radius.circular(30)).r,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20).r,
+                child: Center(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(0),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: cocktail.ingredients!.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0).r,
+                        child: Text(
+                          '+ ${cocktail.ingredients![index]}',
+                          style: Theme.of(context).textTheme.labelSmall,
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -298,13 +312,14 @@ class _Description extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)).r,
             ),
             child: Padding(
-                padding: const EdgeInsets.all(24.0).r,
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Text(cocktail.description.toString(),
-                        style: Theme.of(context).textTheme.labelSmall),
-                  ),
-                )),
+              padding: const EdgeInsets.all(24.0).r,
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Text(cocktail.description.toString(),
+                      style: Theme.of(context).textTheme.labelSmall),
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -329,42 +344,58 @@ class _StepsToCook extends StatelessWidget {
                 Text('Steps', style: Theme.of(context).textTheme.displayLarge),
           ),
           SizedBox(
-            height: 400.h,
+            height: 370.h,
             width: 300.w,
             child: PageView.builder(
               itemCount: cocktail.method?.length,
               itemBuilder: (context, position) {
-                return
-                  Container(
+                return Container(
                   decoration: BoxDecoration(
                     color: MyColor.deepBlack,
                     borderRadius: const BorderRadius.all(Radius.circular(30)).r,
                   ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Center(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(position != (cocktail.method!.length - 1) ? Icons.navigate_next:Icons.navigate_before, size: 24.r, color: MyColor.white,),
-
-                                  Text('Step ${position+1}',style:Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center, ),
-                                  Icon(position != (cocktail.method!.length - 1) ? Icons.navigate_next:Icons.navigate_before, size: 24.r, color: MyColor.white,),
-
-                                ],
-                              ),
-                              SizedBox(height: 20.h,),
-                              Text('${cocktail.method?[position].values}',style:Theme.of(context).textTheme.labelSmall, ),
-
-                            ],
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24).r,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  position != (cocktail.method!.length - 1)
+                                      ? Icons.navigate_next
+                                      : Icons.navigate_before,
+                                  size: 24.r,
+                                  color: MyColor.white,
+                                ),
+                                Text(
+                                  'Step ${position + 1}',
+                                  style: Theme.of(context).textTheme.titleLarge,
+                                  textAlign: TextAlign.center,
+                                ),
+                                Icon(
+                                  position != (cocktail.method!.length - 1)
+                                      ? Icons.navigate_next
+                                      : Icons.navigate_before,
+                                  size: 24.r,
+                                  color: MyColor.white,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Text(
+                              '${cocktail.method?[position].values}',
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
+                          ],
                         ),
                       ),
                     ),
+                  ),
                 );
               },
             ),

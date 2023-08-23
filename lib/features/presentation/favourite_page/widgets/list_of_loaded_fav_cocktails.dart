@@ -17,15 +17,14 @@ class ListOfLoadedFavCocktails extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<CocktailsFavBloc>().state;
     return state.when(
-        loadingFav: () {
-          context
-              .read<CocktailsFavBloc>()
-              .add(const LoadingFavCocktailsEvent());
-          return const LoadingScreen();
-        },
-        loadedFav: (favCocktails) => _ListViewCocktails(
-            cocktails: favCocktails, connectivity: connectivity),
-        error: (error) => Text('error to load $error'));
+      loadingFav: () {
+        context.read<CocktailsFavBloc>().add(const LoadingFavCocktailsEvent());
+        return const LoadingScreen();
+      },
+      loadedFav: (favCocktails) => _ListViewCocktails(
+          cocktails: favCocktails, connectivity: connectivity),
+      error: (error) => Text('error to load $error'),
+    );
   }
 }
 
@@ -100,28 +99,32 @@ class _ListViewCocktails extends StatelessWidget {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsets.all(12.r),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  cocktails[index].title,
-                                  style:
-                                      Theme.of(context).textTheme.labelSmall,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'difficulty: ${cocktails[index].difficulty}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .labelSmall,
-                                    ),
-                                  ],
-                                )
-                              ],
+                            child: SingleChildScrollView(
+                              physics: const NeverScrollableScrollPhysics(),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    cocktails[index].title,
+                                    style:
+                                        Theme.of(context).textTheme.labelSmall,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'difficulty: ${cocktails[index].difficulty}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelSmall,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),

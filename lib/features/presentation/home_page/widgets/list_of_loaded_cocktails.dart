@@ -56,10 +56,12 @@ class _ListViewCocktails extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         color: MyColor.deepBlack,
-                        borderRadius: const BorderRadius.all(Radius.circular(10)).r),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)).r),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
-                      child: Icon(Icons.settings, size: 24.r, color: MyColor.white),
+                      child: Icon(Icons.settings,
+                          size: 24.r, color: MyColor.white),
                     ),
                   ),
                 ),
@@ -71,7 +73,8 @@ class _ListViewCocktails extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         color: MyColor.deepBlack,
-                        borderRadius: const BorderRadius.all(Radius.circular(10)).r),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)).r),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Text(
@@ -119,28 +122,32 @@ class _ListViewCocktails extends StatelessWidget {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsets.all(10.r),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  cocktails[index].title,
-                                  style:
-                                      Theme.of(context).textTheme.labelSmall,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'difficulty: ${cocktails[index].difficulty}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .labelSmall,
-                                    ),
-                                  ],
-                                )
-                              ],
+                            child: SingleChildScrollView(
+                              physics: const NeverScrollableScrollPhysics(),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    cocktails[index].title,
+                                    style:
+                                        Theme.of(context).textTheme.labelSmall,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'difficulty: ${cocktails[index].difficulty}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelSmall,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -163,7 +170,7 @@ class _ListViewCocktails extends StatelessWidget {
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
                   padding: EdgeInsets.all(16.0.r),
-                  textStyle:TextStyle(fontSize: 20.sp),
+                  textStyle: TextStyle(fontSize: 20.sp),
                 ),
                 onPressed: () {
                   context.read<CocktailsBloc>().add(
@@ -191,8 +198,9 @@ class _ListViewCocktails extends StatelessWidget {
                 ),
                 onPressed: () {
                   context.read<CocktailsBloc>().add(
-                      NextPaginationAllCocktailsEvent(
-                          cocktails: cocktails, pagination: pagination));
+                        NextPaginationAllCocktailsEvent(
+                            cocktails: cocktails, pagination: pagination),
+                      );
                 },
                 child: Text(
                   'Next',

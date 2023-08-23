@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/cocktails_firebase_repository.dart';
+import 'package:shake_and_sip_app/features/data/cocktail/repository/cocktails_firebase_repository.dart';
 import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/cocktails_dio.dart';
+import 'package:shake_and_sip_app/features/data/cocktail/repository/cocktails_dio.dart';
 
 import 'cocktails_hive_database.dart';
 
-//
 class CocktailRepository {
   final CocktailsHiveDatabase localDatabase = CocktailsHiveDatabase();
   final CocktailsFirebaseApi firebaseApi = CocktailsFirebaseApi();
@@ -18,9 +17,8 @@ class CocktailRepository {
   Future<void> syncCocktail() async {
     final email = FirebaseAuth.instance.currentUser?.email;
 
-    List<Cocktail> cocktails =
-          (await firebaseApi.readCocktails(email: email!));
-        localDatabase.storeCocktails(cocktails);
+    List<Cocktail> cocktails = (await firebaseApi.readCocktails(email: email!));
+    localDatabase.storeCocktails(cocktails);
   }
 
   Future<void> addCocktailFavourite(Cocktail cocktail) async {
@@ -74,7 +72,7 @@ class CocktailRepository {
     return true;
   }
 
-  Future<void> deleteFromDisk()async {
+  Future<void> deleteFromDisk() async {
     localDatabase.deleteBox();
   }
 }

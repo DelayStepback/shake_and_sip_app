@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -43,38 +42,39 @@ class Auth extends StatelessWidget {
               );
             }
             if (status == ConnectivityStatus.offline) {
-              return Center(child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("check your internet connection ;c", style: Theme.of(context).textTheme.displayLarge),
-                  Text("but you can check your saved favourite's cocktails", style: Theme.of(context).textTheme.bodySmall),
-                  GestureDetector(
-                    onTap: ()=>{
-                      context.goNamed('allFavLostConnectivity')
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                        const BorderRadius.all(Radius.circular(20)).r,
-                        color: MyColor.deepBlack,
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("check your internet connection ;c",
+                        style: Theme.of(context).textTheme.displayLarge),
+                    Text("but you can check your saved favourite's cocktails",
+                        style: Theme.of(context).textTheme.bodySmall),
+                    GestureDetector(
+                      onTap: () => {context.goNamed('allFavLostConnectivity')},
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)).r,
+                          color: MyColor.deepBlack,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0).r,
+                          child: Text("Favourite",
+                              style: Theme.of(context).textTheme.titleLarge),
+                        ),
                       ),
-                    child:
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Favourite", style: Theme.of(context).textTheme.titleLarge),
                     ),
-
-                    ),
-                  ),
-                ],
-              ));
+                  ],
+                ),
+              );
             } else {
               // status == ConnectivityStatus.checking
-              return const Center(
+              return Center(
                 child: SizedBox(
-                  width: 25,
-                  height: 25,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+                  width: 25.r,
+                  height: 25.r,
+                  child: const CircularProgressIndicator(strokeWidth: 2),
                 ),
               );
             }

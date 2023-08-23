@@ -8,12 +8,10 @@ class CocktailsHiveDatabase {
     _cocktails = await Hive.openBox("_cocktailsBox");
   }
 
-
   Future<Cocktail> getSingleCocktail(String id) async {
-    var json = await _cocktails.values
-        .firstWhere((i) => i['id'] == id);
+    var json = await _cocktails.values.firstWhere((i) => i['id'] == id);
     Map<String, dynamic> retrieveCock = {};
-    for (var i in json.keys){
+    for (var i in json.keys) {
       retrieveCock[i.toString()] = json[i];
     }
     return Cocktail.fromJson(retrieveCock);
@@ -21,9 +19,9 @@ class CocktailsHiveDatabase {
 
   List<Cocktail> getCocktails() {
     List<Map<String, dynamic>> retriveCocktails = [];
-     for (Map cock in _cocktails.values.toList()){
+    for (Map cock in _cocktails.values.toList()) {
       Map<String, dynamic> retrieveCock = {};
-      for (var i in cock.keys){
+      for (var i in cock.keys) {
         retrieveCock[i.toString()] = cock[i];
       }
       retriveCocktails.add(retrieveCock);
@@ -38,7 +36,6 @@ class CocktailsHiveDatabase {
   }
 
   Future<void> removeCocktail(String cocktailId) async {
-
     await _cocktails.delete(cocktailId);
   }
 
@@ -57,11 +54,12 @@ class CocktailsHiveDatabase {
   }
 
   Future<void> storeCocktails(List<Cocktail> cocktails) async {
-    for (Cocktail cocktail in cocktails){
+    for (Cocktail cocktail in cocktails) {
       await _cocktails.put(cocktail.id.toString(), cocktail.toJson());
     }
   }
-  Future<void> deleteBox() async{
+
+  Future<void> deleteBox() async {
     await _cocktails.deleteFromDisk();
     _cocktails = await Hive.openBox("_cocktailsBox");
   }

@@ -21,16 +21,25 @@ Cocktail _$CocktailFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Cocktail {
   String get id => throw _privateConstructorUsedError;
+
   String get title => throw _privateConstructorUsedError;
+
   String get difficulty => throw _privateConstructorUsedError;
+
   String get image => throw _privateConstructorUsedError;
+
   String? get portion => throw _privateConstructorUsedError;
+
   String? get time => throw _privateConstructorUsedError;
+
   String? get description => throw _privateConstructorUsedError;
+
   List<String>? get ingredients => throw _privateConstructorUsedError;
+
   List<Map<String, String>>? get method => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $CocktailCopyWith<Cocktail> get copyWith =>
       throw _privateConstructorUsedError;
@@ -40,6 +49,7 @@ mixin _$Cocktail {
 abstract class $CocktailCopyWith<$Res> {
   factory $CocktailCopyWith(Cocktail value, $Res Function(Cocktail) then) =
       _$CocktailCopyWithImpl<$Res, Cocktail>;
+
   @useResult
   $Res call(
       {String id,
@@ -60,6 +70,7 @@ class _$CocktailCopyWithImpl<$Res, $Val extends Cocktail>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -122,6 +133,7 @@ abstract class _$$_CocktailCopyWith<$Res> implements $CocktailCopyWith<$Res> {
   factory _$$_CocktailCopyWith(
           _$_Cocktail value, $Res Function(_$_Cocktail) then) =
       __$$_CocktailCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -233,6 +245,7 @@ class _$_Cocktail extends _Cocktail {
   @override
   final String? description;
   final List<String>? _ingredients;
+
   @override
   List<String>? get ingredients {
     final value = _ingredients;
@@ -243,6 +256,7 @@ class _$_Cocktail extends _Cocktail {
   }
 
   final List<Map<String, String>>? _method;
+
   @override
   List<Map<String, String>>? get method {
     final value = _method;
@@ -315,28 +329,38 @@ abstract class _Cocktail extends Cocktail {
       final String? description,
       final List<String>? ingredients,
       final List<Map<String, String>>? method}) = _$_Cocktail;
+
   _Cocktail._() : super._();
 
   factory _Cocktail.fromJson(Map<String, dynamic> json) = _$_Cocktail.fromJson;
 
   @override
   String get id;
+
   @override
   String get title;
+
   @override
   String get difficulty;
+
   @override
   String get image;
+
   @override
   String? get portion;
+
   @override
   String? get time;
+
   @override
   String? get description;
+
   @override
   List<String>? get ingredients;
+
   @override
   List<Map<String, String>>? get method;
+
   @override
   @JsonKey(ignore: true)
   _$$_CocktailCopyWith<_$_Cocktail> get copyWith =>

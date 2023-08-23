@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../utils/colors.dart';
+
 class Page1 extends StatelessWidget {
   const Page1({super.key});
 

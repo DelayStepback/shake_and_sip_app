@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:shake_and_sip_app/features/data/auth/repositories/auth_repository.dart';
+
+import 'package:shake_and_sip_app/features/data/auth/repository/auth_repository.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/favourite_page.dart';
 import 'package:shake_and_sip_app/features/presentation/home_page/home_page.dart';
@@ -13,7 +14,7 @@ import 'package:shake_and_sip_app/features/presentation/setiings_page/settings_p
 import 'package:shake_and_sip_app/features/presentation/welcome_page/welcome_page.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 
-import 'features/data/cocktail/cocktails_repository.dart';
+import 'features/data/cocktail/repository/cocktails_repository.dart';
 import 'features/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'features/presentation/bloc/cocktails_bloc/cocktails_bloc.dart';
 import 'features/presentation/bloc/detail_bloc/detail_bloc.dart';

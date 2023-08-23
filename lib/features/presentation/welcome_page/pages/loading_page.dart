@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../utils/colors.dart';
+
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key, required this.error});
 

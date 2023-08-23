@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/auth_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/pages.dart';
 import '../../../utils/colors.dart';
@@ -23,16 +20,11 @@ class _WelcomePageState extends State<WelcomePage> {
   final PageController _pageController = PageController(initialPage: 0);
   int page = 0;
 
-
-
   @override
   void initState() {
-
-    if(FirebaseAuth.instance.currentUser == null){
-    }
-    else{
+    if (FirebaseAuth.instance.currentUser == null) {
+    } else {
       context.read<AuthBloc>().add(const AuthEvent.alreadyLogged());
-
     }
     super.initState();
   }
@@ -45,7 +37,7 @@ class _WelcomePageState extends State<WelcomePage> {
         child: SingleChildScrollView(
           dragStartBehavior: DragStartBehavior.down,
           child: SizedBox(
-            height: MediaQuery.of(context).size.height-60.h,
+            height: MediaQuery.of(context).size.height - 60.h,
             child: Stack(
               children: [
                 PageView(
@@ -76,25 +68,23 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 }
 
-
-
-
-
-
 List<Widget> _indicators(imagesLength, currentIndex) {
-  return List<Widget>.generate(imagesLength, (index) {
-    return AnimatedContainer(
-      duration: const Duration(seconds: 2),
-      margin: const EdgeInsets.all(3).w,
-      width: currentIndex == index ? 30.w : 10.w,
-      height: 10.h,
-      decoration: BoxDecoration(
-        color: MyColor.deepBlack,
+  return List<Widget>.generate(
+    imagesLength,
+    (index) {
+      return AnimatedContainer(
+        duration: const Duration(seconds: 2),
+        margin: const EdgeInsets.all(3).w,
+        width: currentIndex == index ? 30.w : 10.w,
+        height: 10.h,
+        decoration: BoxDecoration(
+          color: MyColor.deepBlack,
 //          shape: currentIndex == index ? BoxShape.rectangle : BoxShape.circle,
-        borderRadius: currentIndex == index
-            ? const BorderRadius.all(Radius.circular(39)).w
-            : const BorderRadius.all(Radius.circular(51)).w,
-      ),
-    );
-  });
+          borderRadius: currentIndex == index
+              ? const BorderRadius.all(Radius.circular(39)).w
+              : const BorderRadius.all(Radius.circular(51)).w,
+        ),
+      );
+    },
+  );
 }

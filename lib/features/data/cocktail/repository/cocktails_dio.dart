@@ -8,22 +8,20 @@ class DioCocktailsClient {
   }));
   final _baseUrl = 'https://the-cocktail-db3.p.rapidapi.com/';
 
-
   Future<List<Cocktail>?> fetchCocktails(String id) async {
     List<Cocktail>? cocktails;
     try {
       if (id == 'none') {
         Response cocktailsData = await _dio.get(_baseUrl);
-        List<Cocktail> cocktailsList = List<Cocktail>.from(cocktailsData.data.map((i) => Cocktail.fromJson(i)));
+        List<Cocktail> cocktailsList = List<Cocktail>.from(
+            cocktailsData.data.map((i) => Cocktail.fromJson(i)));
         cocktails = cocktailsList;
-      }
-      else {
+      } else {
         Response cocktailData = await _dio.get('$_baseUrl$id');
         Cocktail cocktail = Cocktail.fromJson(cocktailData.data);
         cocktails = [cocktail];
       }
-    }
-    on DioException catch (e) {
+    } on DioException catch (e) {
       if (e.response != null) {
         print('Dio error!');
         print('STATUS: ${e.response?.statusCode}');
