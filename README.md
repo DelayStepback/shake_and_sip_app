@@ -1,5 +1,28 @@
-# shake_and_sip_app
+# Shake and Sip
 
-third intern project
+Приложение для просмотра актуальных коктейлей и их приготовления. 
 
-## Getting Started
+## Диаграмма экранов
+
+![image](https://github.com/DelayStepback/shake_and_sip_app/assets/79159215/401fba77-9882-4f91-a9a8-ea46e20863ca)
+
+
+## Функционал
+
+1. Пользователь регистрируется/авторизовывается в приложении (Firebase).
+2. В главном меню отображаются все коктейли, подтянутые из API: https://rapidapi.com/rapihub-rapihub-default/api/the-cocktail-db3.
+3. При выборе конкретного коктейля, выводится вся информация о нем, с возможностью добавить в избранное.
+4. Избранные коктейли сохраняются в локальную базу HIVE.
+5. При отключенном от сети, авторизованном пользователе, происходит переход к уже сохраненным локально избранным коктейлям.
+6. В меню настроек можно изменить пароль (Firebase).
+
+## Стэк-технологий
+
+* Flutter bloc
+* Freezed
+* Dio
+* Screenutil
+* Hive
+* GoRouter
+* FirebaseCore/FirebaseAuth
+* Internet Connectivity Checker
