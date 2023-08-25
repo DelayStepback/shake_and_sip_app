@@ -1,5 +1,5 @@
 import 'package:hive_flutter/adapters.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
 
 class CocktailsHiveDatabase {
   late Box _cocktails;

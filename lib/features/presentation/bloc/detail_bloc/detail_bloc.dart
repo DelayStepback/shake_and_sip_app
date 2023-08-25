@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/cocktail/repository/cocktails_repository.dart';
-import '../../../data/cocktail/model/cocktail.dart';
+import '../../../data/repository/cocktails_repository.dart';
+import '../../../data/models/cocktail.dart';
 import 'detail_event.dart';
 import 'detail_state.dart';
 

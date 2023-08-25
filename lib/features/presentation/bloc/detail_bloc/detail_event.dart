@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../data/cocktail/model/cocktail.dart';
+import '../../../data/models/cocktail.dart';
 
 part 'detail_event.freezed.dart';
 

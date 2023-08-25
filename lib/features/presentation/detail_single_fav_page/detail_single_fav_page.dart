@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/detail_bloc/detail_event.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../data/cocktail/model/cocktail.dart';
+import '../../data/models/cocktail.dart';
 import '../bloc/detail_bloc/detail_bloc.dart';
 import '../loading_screen/loading_screen.dart';
 
@@ -265,7 +265,6 @@ class _Ingredients extends StatelessWidget {
                   child: ListView.builder(
                     padding: const EdgeInsets.all(0),
                     shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: cocktail.ingredients!.length,
                     itemBuilder: (context, index) {
                       return Padding(

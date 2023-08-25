@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_event.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../../data/cocktail/model/cocktail.dart';
+import '../../../data/models/cocktail.dart';
 import '../../bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import '../../loading_screen/loading_screen.dart';
 

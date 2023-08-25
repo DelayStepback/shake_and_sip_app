@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 

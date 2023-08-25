@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 
-import '../../../data/cocktail/model/cocktail.dart';
-import '../../../data/cocktail/repository/cocktails_repository.dart';
+import '../../../data/models/cocktail.dart';
+import '../../../data/repository/cocktails_repository.dart';
 import 'cocktails_event.dart';
 import 'cocktails_state.dart';
 

@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/repository/cocktails_firebase_repository.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/model/cocktail.dart';
-import 'package:shake_and_sip_app/features/data/cocktail/repository/cocktails_dio.dart';
 
-import 'cocktails_hive_database.dart';
+import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/datasource/cocktails_dio.dart';
+
+import '../datasource/cocktails_firebase_repository.dart';
+import '../datasource/cocktails_hive_database.dart';
 
 class CocktailRepository {
   final CocktailsHiveDatabase localDatabase = CocktailsHiveDatabase();

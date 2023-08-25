@@ -7,7 +7,7 @@ import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cock
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cocktails_state.dart';
 import 'package:shake_and_sip_app/features/presentation/loading_screen/loading_screen.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../../data/cocktail/model/cocktail.dart';
+import '../../../data/models/cocktail.dart';
 import '../../bloc/auth_bloc/auth_bloc.dart';
 import '../../bloc/cocktails_bloc/cocktails_bloc.dart';
 
