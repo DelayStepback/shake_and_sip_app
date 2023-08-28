@@ -70,7 +70,6 @@ class Auth extends StatelessWidget {
                 ),
               );
             } else {
-              // status == ConnectivityStatus.checking
               return const LoadingScreen();
             }
           },

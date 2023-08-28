@@ -110,15 +110,16 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     ),
                   ),
                   TextButton(
-                      onPressed: () {
-                        context
-                            .read<AuthBloc>()
-                            .add(const AuthEvent.loadSignIn());
-                      },
-                      child: Text(
-                        'Sign In',
-                        style: Theme.of(context).textTheme.labelSmall,
-                      )),
+                    onPressed: () {
+                      context
+                          .read<AuthBloc>()
+                          .add(const AuthEvent.loadSignIn());
+                    },
+                    child: Text(
+                      'Sign In',
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                  ),
                   GestureDetector(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
@@ -133,10 +134,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     child: Container(
                       width: 100.w,
                       height: 60.h,
-                      decoration: (BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0).r,
                         color: MyColor.darkWhite,
-                      )),
+                      ),
                       child: Center(
                         child: Text(
                           'Sign up',

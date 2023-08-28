@@ -27,6 +27,7 @@ dependencies:
   firebase_auth: ^4.7.3
   cloud_firestore: ^4.8.5
   internet_connectivity_checker: ^1.0.1
+  flutter_launcher_icons: ^0.13.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -36,6 +37,10 @@ dev_dependencies:
   freezed: ^2.4.2
   json_serializable: ^6.7.1
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
 
 flutter:
 

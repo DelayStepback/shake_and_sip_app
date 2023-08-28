@@ -36,9 +36,9 @@ class _ListViewCocktails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int itemCount =
+    final int itemCount =
         5 * (pagination + 1) < cocktails.length ? 5 : (cocktails.length % 5);
-    int pages = (cocktails.length / 5).ceil() - 1;
+    final int pages = (cocktails.length / 5).ceil() - 1;
     return SingleChildScrollView(
       child: Column(
         children: [

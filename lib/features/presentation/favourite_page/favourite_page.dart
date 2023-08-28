@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/widgets/list_of_loaded_fav_cocktails.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 

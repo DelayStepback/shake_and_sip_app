@@ -128,21 +128,22 @@ class _DetailLoadedState extends State<_DetailLoaded> {
                   top: 10.h,
                   left: 10.w,
                   child: InkWell(
-                      onTap: () => {
-                            if (widget.connectivity)
-                              {
-                                context.goNamed('home'),
-                              }
-                            else
-                              {
-                                context.goNamed('allFavLostConnectivity'),
-                              }
-                          },
-                      child: Icon(
-                        Icons.navigate_before,
-                        size: 34.r,
-                        color: MyColor.deepBlack,
-                      )),
+                    onTap: () => {
+                      if (widget.connectivity)
+                        {
+                          context.goNamed('home'),
+                        }
+                      else
+                        {
+                          context.goNamed('allFavLostConnectivity'),
+                        }
+                    },
+                    child: Icon(
+                      Icons.navigate_before,
+                      size: 34.r,
+                      color: MyColor.deepBlack,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -154,20 +155,23 @@ class _DetailLoadedState extends State<_DetailLoaded> {
 }
 
 List<Widget> _indicators(imagesLength, currentIndex) {
-  return List<Widget>.generate(imagesLength, (index) {
-    return AnimatedContainer(
-      duration: const Duration(seconds: 2),
-      margin: const EdgeInsets.all(3).w,
-      width: currentIndex == index ? 30.w : 10.w,
-      height: 10.h,
-      decoration: BoxDecoration(
-        color: MyColor.deepBlack,
-        borderRadius: currentIndex == index
-            ? const BorderRadius.all(Radius.circular(39)).w
-            : const BorderRadius.all(Radius.circular(51)).w,
-      ),
-    );
-  });
+  return List<Widget>.generate(
+    imagesLength,
+    (index) {
+      return AnimatedContainer(
+        duration: const Duration(seconds: 2),
+        margin: const EdgeInsets.all(3).w,
+        width: currentIndex == index ? 30.w : 10.w,
+        height: 10.h,
+        decoration: BoxDecoration(
+          color: MyColor.deepBlack,
+          borderRadius: currentIndex == index
+              ? const BorderRadius.all(Radius.circular(39)).w
+              : const BorderRadius.all(Radius.circular(51)).w,
+        ),
+      );
+    },
+  );
 }
 
 class _TimeAndServes extends StatelessWidget {

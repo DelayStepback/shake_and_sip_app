@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="shake_and_sip"
+        android:label="Shake and Sip"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

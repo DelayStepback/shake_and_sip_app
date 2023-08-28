@@ -2,9 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 
 part 'cocktail_dto.freezed.dart';
+
 part 'cocktail_dto.g.dart';
+
 @freezed
-class CocktailDto with _$CocktailDto implements CocktailEntity{
+class CocktailDto with _$CocktailDto implements CocktailEntity {
   const factory CocktailDto({
     required String id,
     required String title,

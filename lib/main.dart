@@ -6,16 +6,13 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:shake_and_sip_app/features/data/datasource/cocktails_firebase_api.dart';
 import 'package:shake_and_sip_app/features/data/datasource/cocktails_hive_database.dart';
-
 import 'package:shake_and_sip_app/features/data/repository/auth_repository_impl.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/favourite_page.dart';
 import 'package:shake_and_sip_app/features/presentation/home_page/home_page.dart';
 import 'package:shake_and_sip_app/features/presentation/setiings_page/settings_page.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/auth_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/welcome_page.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-
 import 'features/data/repository/cocktails_repository_impl.dart';
 import 'features/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'features/presentation/bloc/cocktails_bloc/cocktails_bloc.dart';

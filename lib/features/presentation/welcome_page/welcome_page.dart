@@ -43,9 +43,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 PageView(
                   controller: _pageController,
                   onPageChanged: (newPage) {
-                    setState(() {
-                      page = newPage;
-                    });
+                    setState(() => page = newPage);
                   },
                   children: const [
                     Auth(),
@@ -79,7 +77,6 @@ List<Widget> _indicators(imagesLength, currentIndex) {
         height: 10.h,
         decoration: BoxDecoration(
           color: MyColor.deepBlack,
-//          shape: currentIndex == index ? BoxShape.rectangle : BoxShape.circle,
           borderRadius: currentIndex == index
               ? const BorderRadius.all(Radius.circular(39)).w
               : const BorderRadius.all(Radius.circular(51)).w,

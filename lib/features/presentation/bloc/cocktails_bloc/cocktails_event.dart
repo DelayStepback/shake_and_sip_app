@@ -1,8 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 
-import '../../../data/models/cocktail_dto.dart';
-
 part 'cocktails_event.freezed.dart';
 
 @freezed

@@ -1,4 +1,4 @@
-class CocktailEntity{
+class CocktailEntity {
   final String id;
   final String title;
   final String difficulty;
@@ -8,6 +8,7 @@ class CocktailEntity{
   final String? description;
   final List<String>? ingredients;
   final List<Map<String, String>>? method;
+
   const CocktailEntity({
     required this.id,
     required this.title,
