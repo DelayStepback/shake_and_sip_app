@@ -19,25 +19,22 @@ mixin _$DetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) initDetailPage,
-    required TResult Function(Cocktail cocktail) addFavCocktail,
-    required TResult Function(Cocktail cocktail) deleteFavCocktail,
-    required TResult Function(Cocktail newCocktail) updateFavCocktail,
+    required TResult Function(CocktailEntity cocktail) addFavCocktail,
+    required TResult Function(CocktailEntity cocktail) deleteFavCocktail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? initDetailPage,
-    TResult? Function(Cocktail cocktail)? addFavCocktail,
-    TResult? Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult? Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? deleteFavCocktail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? initDetailPage,
-    TResult Function(Cocktail cocktail)? addFavCocktail,
-    TResult Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult Function(CocktailEntity cocktail)? deleteFavCocktail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +43,6 @@ mixin _$DetailEvent {
     required TResult Function(LoadingDetailsEvent value) initDetailPage,
     required TResult Function(AddFavCocktailEvent value) addFavCocktail,
     required TResult Function(DeleteFavCocktailEvent value) deleteFavCocktail,
-    required TResult Function(UpdateFavCocktailEvent value) updateFavCocktail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +50,6 @@ mixin _$DetailEvent {
     TResult? Function(LoadingDetailsEvent value)? initDetailPage,
     TResult? Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult? Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult? Function(UpdateFavCocktailEvent value)? updateFavCocktail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +57,6 @@ mixin _$DetailEvent {
     TResult Function(LoadingDetailsEvent value)? initDetailPage,
     TResult Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult Function(UpdateFavCocktailEvent value)? updateFavCocktail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,9 +146,8 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) initDetailPage,
-    required TResult Function(Cocktail cocktail) addFavCocktail,
-    required TResult Function(Cocktail cocktail) deleteFavCocktail,
-    required TResult Function(Cocktail newCocktail) updateFavCocktail,
+    required TResult Function(CocktailEntity cocktail) addFavCocktail,
+    required TResult Function(CocktailEntity cocktail) deleteFavCocktail,
   }) {
     return initDetailPage(id);
   }
@@ -163,9 +156,8 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? initDetailPage,
-    TResult? Function(Cocktail cocktail)? addFavCocktail,
-    TResult? Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult? Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? deleteFavCocktail,
   }) {
     return initDetailPage?.call(id);
   }
@@ -174,9 +166,8 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? initDetailPage,
-    TResult Function(Cocktail cocktail)? addFavCocktail,
-    TResult Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult Function(CocktailEntity cocktail)? deleteFavCocktail,
     required TResult orElse(),
   }) {
     if (initDetailPage != null) {
@@ -191,7 +182,6 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
     required TResult Function(LoadingDetailsEvent value) initDetailPage,
     required TResult Function(AddFavCocktailEvent value) addFavCocktail,
     required TResult Function(DeleteFavCocktailEvent value) deleteFavCocktail,
-    required TResult Function(UpdateFavCocktailEvent value) updateFavCocktail,
   }) {
     return initDetailPage(this);
   }
@@ -202,7 +192,6 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
     TResult? Function(LoadingDetailsEvent value)? initDetailPage,
     TResult? Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult? Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult? Function(UpdateFavCocktailEvent value)? updateFavCocktail,
   }) {
     return initDetailPage?.call(this);
   }
@@ -213,7 +202,6 @@ class _$LoadingDetailsEvent implements LoadingDetailsEvent {
     TResult Function(LoadingDetailsEvent value)? initDetailPage,
     TResult Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult Function(UpdateFavCocktailEvent value)? updateFavCocktail,
     required TResult orElse(),
   }) {
     if (initDetailPage != null) {
@@ -239,9 +227,7 @@ abstract class _$$AddFavCocktailEventCopyWith<$Res> {
           $Res Function(_$AddFavCocktailEvent) then) =
       __$$AddFavCocktailEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({Cocktail cocktail});
-
-  $CocktailCopyWith<$Res> get cocktail;
+  $Res call({CocktailEntity cocktail});
 }
 
 /// @nodoc
@@ -261,16 +247,8 @@ class __$$AddFavCocktailEventCopyWithImpl<$Res>
       null == cocktail
           ? _value.cocktail
           : cocktail // ignore: cast_nullable_to_non_nullable
-              as Cocktail,
+              as CocktailEntity,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CocktailCopyWith<$Res> get cocktail {
-    return $CocktailCopyWith<$Res>(_value.cocktail, (value) {
-      return _then(_value.copyWith(cocktail: value));
-    });
   }
 }
 
@@ -280,7 +258,7 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
   const _$AddFavCocktailEvent(this.cocktail);
 
   @override
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   String toString() {
@@ -310,9 +288,8 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) initDetailPage,
-    required TResult Function(Cocktail cocktail) addFavCocktail,
-    required TResult Function(Cocktail cocktail) deleteFavCocktail,
-    required TResult Function(Cocktail newCocktail) updateFavCocktail,
+    required TResult Function(CocktailEntity cocktail) addFavCocktail,
+    required TResult Function(CocktailEntity cocktail) deleteFavCocktail,
   }) {
     return addFavCocktail(cocktail);
   }
@@ -321,9 +298,8 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? initDetailPage,
-    TResult? Function(Cocktail cocktail)? addFavCocktail,
-    TResult? Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult? Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? deleteFavCocktail,
   }) {
     return addFavCocktail?.call(cocktail);
   }
@@ -332,9 +308,8 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? initDetailPage,
-    TResult Function(Cocktail cocktail)? addFavCocktail,
-    TResult Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult Function(CocktailEntity cocktail)? deleteFavCocktail,
     required TResult orElse(),
   }) {
     if (addFavCocktail != null) {
@@ -349,7 +324,6 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
     required TResult Function(LoadingDetailsEvent value) initDetailPage,
     required TResult Function(AddFavCocktailEvent value) addFavCocktail,
     required TResult Function(DeleteFavCocktailEvent value) deleteFavCocktail,
-    required TResult Function(UpdateFavCocktailEvent value) updateFavCocktail,
   }) {
     return addFavCocktail(this);
   }
@@ -360,7 +334,6 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
     TResult? Function(LoadingDetailsEvent value)? initDetailPage,
     TResult? Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult? Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult? Function(UpdateFavCocktailEvent value)? updateFavCocktail,
   }) {
     return addFavCocktail?.call(this);
   }
@@ -371,7 +344,6 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
     TResult Function(LoadingDetailsEvent value)? initDetailPage,
     TResult Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult Function(UpdateFavCocktailEvent value)? updateFavCocktail,
     required TResult orElse(),
   }) {
     if (addFavCocktail != null) {
@@ -382,10 +354,10 @@ class _$AddFavCocktailEvent implements AddFavCocktailEvent {
 }
 
 abstract class AddFavCocktailEvent implements DetailEvent {
-  const factory AddFavCocktailEvent(final Cocktail cocktail) =
+  const factory AddFavCocktailEvent(final CocktailEntity cocktail) =
       _$AddFavCocktailEvent;
 
-  Cocktail get cocktail;
+  CocktailEntity get cocktail;
   @JsonKey(ignore: true)
   _$$AddFavCocktailEventCopyWith<_$AddFavCocktailEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -397,9 +369,7 @@ abstract class _$$DeleteFavCocktailEventCopyWith<$Res> {
           $Res Function(_$DeleteFavCocktailEvent) then) =
       __$$DeleteFavCocktailEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({Cocktail cocktail});
-
-  $CocktailCopyWith<$Res> get cocktail;
+  $Res call({CocktailEntity cocktail});
 }
 
 /// @nodoc
@@ -419,16 +389,8 @@ class __$$DeleteFavCocktailEventCopyWithImpl<$Res>
       null == cocktail
           ? _value.cocktail
           : cocktail // ignore: cast_nullable_to_non_nullable
-              as Cocktail,
+              as CocktailEntity,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CocktailCopyWith<$Res> get cocktail {
-    return $CocktailCopyWith<$Res>(_value.cocktail, (value) {
-      return _then(_value.copyWith(cocktail: value));
-    });
   }
 }
 
@@ -438,7 +400,7 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
   const _$DeleteFavCocktailEvent(this.cocktail);
 
   @override
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   String toString() {
@@ -468,9 +430,8 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) initDetailPage,
-    required TResult Function(Cocktail cocktail) addFavCocktail,
-    required TResult Function(Cocktail cocktail) deleteFavCocktail,
-    required TResult Function(Cocktail newCocktail) updateFavCocktail,
+    required TResult Function(CocktailEntity cocktail) addFavCocktail,
+    required TResult Function(CocktailEntity cocktail) deleteFavCocktail,
   }) {
     return deleteFavCocktail(cocktail);
   }
@@ -479,9 +440,8 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? initDetailPage,
-    TResult? Function(Cocktail cocktail)? addFavCocktail,
-    TResult? Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult? Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult? Function(CocktailEntity cocktail)? deleteFavCocktail,
   }) {
     return deleteFavCocktail?.call(cocktail);
   }
@@ -490,9 +450,8 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? initDetailPage,
-    TResult Function(Cocktail cocktail)? addFavCocktail,
-    TResult Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult Function(Cocktail newCocktail)? updateFavCocktail,
+    TResult Function(CocktailEntity cocktail)? addFavCocktail,
+    TResult Function(CocktailEntity cocktail)? deleteFavCocktail,
     required TResult orElse(),
   }) {
     if (deleteFavCocktail != null) {
@@ -507,7 +466,6 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
     required TResult Function(LoadingDetailsEvent value) initDetailPage,
     required TResult Function(AddFavCocktailEvent value) addFavCocktail,
     required TResult Function(DeleteFavCocktailEvent value) deleteFavCocktail,
-    required TResult Function(UpdateFavCocktailEvent value) updateFavCocktail,
   }) {
     return deleteFavCocktail(this);
   }
@@ -518,7 +476,6 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
     TResult? Function(LoadingDetailsEvent value)? initDetailPage,
     TResult? Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult? Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult? Function(UpdateFavCocktailEvent value)? updateFavCocktail,
   }) {
     return deleteFavCocktail?.call(this);
   }
@@ -529,7 +486,6 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
     TResult Function(LoadingDetailsEvent value)? initDetailPage,
     TResult Function(AddFavCocktailEvent value)? addFavCocktail,
     TResult Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult Function(UpdateFavCocktailEvent value)? updateFavCocktail,
     required TResult orElse(),
   }) {
     if (deleteFavCocktail != null) {
@@ -540,169 +496,11 @@ class _$DeleteFavCocktailEvent implements DeleteFavCocktailEvent {
 }
 
 abstract class DeleteFavCocktailEvent implements DetailEvent {
-  const factory DeleteFavCocktailEvent(final Cocktail cocktail) =
+  const factory DeleteFavCocktailEvent(final CocktailEntity cocktail) =
       _$DeleteFavCocktailEvent;
 
-  Cocktail get cocktail;
+  CocktailEntity get cocktail;
   @JsonKey(ignore: true)
   _$$DeleteFavCocktailEventCopyWith<_$DeleteFavCocktailEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdateFavCocktailEventCopyWith<$Res> {
-  factory _$$UpdateFavCocktailEventCopyWith(_$UpdateFavCocktailEvent value,
-          $Res Function(_$UpdateFavCocktailEvent) then) =
-      __$$UpdateFavCocktailEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Cocktail newCocktail});
-
-  $CocktailCopyWith<$Res> get newCocktail;
-}
-
-/// @nodoc
-class __$$UpdateFavCocktailEventCopyWithImpl<$Res>
-    extends _$DetailEventCopyWithImpl<$Res, _$UpdateFavCocktailEvent>
-    implements _$$UpdateFavCocktailEventCopyWith<$Res> {
-  __$$UpdateFavCocktailEventCopyWithImpl(_$UpdateFavCocktailEvent _value,
-      $Res Function(_$UpdateFavCocktailEvent) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? newCocktail = null,
-  }) {
-    return _then(_$UpdateFavCocktailEvent(
-      null == newCocktail
-          ? _value.newCocktail
-          : newCocktail // ignore: cast_nullable_to_non_nullable
-              as Cocktail,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CocktailCopyWith<$Res> get newCocktail {
-    return $CocktailCopyWith<$Res>(_value.newCocktail, (value) {
-      return _then(_value.copyWith(newCocktail: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UpdateFavCocktailEvent implements UpdateFavCocktailEvent {
-  const _$UpdateFavCocktailEvent(this.newCocktail);
-
-  @override
-  final Cocktail newCocktail;
-
-  @override
-  String toString() {
-    return 'DetailEvent.updateFavCocktail(newCocktail: $newCocktail)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateFavCocktailEvent &&
-            (identical(other.newCocktail, newCocktail) ||
-                other.newCocktail == newCocktail));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, newCocktail);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateFavCocktailEventCopyWith<_$UpdateFavCocktailEvent> get copyWith =>
-      __$$UpdateFavCocktailEventCopyWithImpl<_$UpdateFavCocktailEvent>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) initDetailPage,
-    required TResult Function(Cocktail cocktail) addFavCocktail,
-    required TResult Function(Cocktail cocktail) deleteFavCocktail,
-    required TResult Function(Cocktail newCocktail) updateFavCocktail,
-  }) {
-    return updateFavCocktail(newCocktail);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? initDetailPage,
-    TResult? Function(Cocktail cocktail)? addFavCocktail,
-    TResult? Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult? Function(Cocktail newCocktail)? updateFavCocktail,
-  }) {
-    return updateFavCocktail?.call(newCocktail);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? initDetailPage,
-    TResult Function(Cocktail cocktail)? addFavCocktail,
-    TResult Function(Cocktail cocktail)? deleteFavCocktail,
-    TResult Function(Cocktail newCocktail)? updateFavCocktail,
-    required TResult orElse(),
-  }) {
-    if (updateFavCocktail != null) {
-      return updateFavCocktail(newCocktail);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadingDetailsEvent value) initDetailPage,
-    required TResult Function(AddFavCocktailEvent value) addFavCocktail,
-    required TResult Function(DeleteFavCocktailEvent value) deleteFavCocktail,
-    required TResult Function(UpdateFavCocktailEvent value) updateFavCocktail,
-  }) {
-    return updateFavCocktail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadingDetailsEvent value)? initDetailPage,
-    TResult? Function(AddFavCocktailEvent value)? addFavCocktail,
-    TResult? Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult? Function(UpdateFavCocktailEvent value)? updateFavCocktail,
-  }) {
-    return updateFavCocktail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadingDetailsEvent value)? initDetailPage,
-    TResult Function(AddFavCocktailEvent value)? addFavCocktail,
-    TResult Function(DeleteFavCocktailEvent value)? deleteFavCocktail,
-    TResult Function(UpdateFavCocktailEvent value)? updateFavCocktail,
-    required TResult orElse(),
-  }) {
-    if (updateFavCocktail != null) {
-      return updateFavCocktail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UpdateFavCocktailEvent implements DetailEvent {
-  const factory UpdateFavCocktailEvent(final Cocktail newCocktail) =
-      _$UpdateFavCocktailEvent;
-
-  Cocktail get newCocktail;
-  @JsonKey(ignore: true)
-  _$$UpdateFavCocktailEventCopyWith<_$UpdateFavCocktailEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/models/cocktail_dto.dart';
 
 class DioCocktailsClient {
   final Dio _dio = Dio(BaseOptions(headers: {
@@ -8,20 +8,20 @@ class DioCocktailsClient {
   }));
   final _baseUrl = 'https://the-cocktail-db3.p.rapidapi.com/';
 
-  Future<List<Cocktail>?> fetchCocktails(String id) async {
-    List<Cocktail>? cocktails;
+  Future<List<CocktailDto>?> fetchCocktails(String id) async {
+    List<CocktailDto>? cocktails;
     try {
       if (id == 'none') {
         Response cocktailsData = await _dio.get(_baseUrl);
-        List<Cocktail> cocktailsList = List<Cocktail>.from(
+        List<CocktailDto> cocktailsList = List<CocktailDto>.from(
           cocktailsData.data.map(
-            (i) => Cocktail.fromJson(i),
+            (i) => CocktailDto.fromJson(i),
           ),
         );
         cocktails = cocktailsList;
       } else {
         Response cocktailData = await _dio.get('$_baseUrl$id');
-        Cocktail cocktail = Cocktail.fromJson(cocktailData.data);
+        CocktailDto cocktail = CocktailDto.fromJson(cocktailData.data);
         cocktails = [cocktail];
       }
     } on DioException catch (e) {

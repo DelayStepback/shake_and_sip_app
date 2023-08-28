@@ -19,21 +19,21 @@ mixin _$DetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(Cocktail cocktailDetailed, bool fav) loaded,
+    required TResult Function(CocktailEntity cocktailDetailed, bool fav) loaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult? Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$_DetailLoading implements _DetailLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(Cocktail cocktailDetailed, bool fav) loaded,
+    required TResult Function(CocktailEntity cocktailDetailed, bool fav) loaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -129,7 +129,7 @@ class _$_DetailLoading implements _DetailLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult? Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -139,7 +139,7 @@ class _$_DetailLoading implements _DetailLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -194,9 +194,7 @@ abstract class _$$_DetailLoadedCopyWith<$Res> {
           _$_DetailLoaded value, $Res Function(_$_DetailLoaded) then) =
       __$$_DetailLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Cocktail cocktailDetailed, bool fav});
-
-  $CocktailCopyWith<$Res> get cocktailDetailed;
+  $Res call({CocktailEntity cocktailDetailed, bool fav});
 }
 
 /// @nodoc
@@ -217,20 +215,12 @@ class __$$_DetailLoadedCopyWithImpl<$Res>
       cocktailDetailed: null == cocktailDetailed
           ? _value.cocktailDetailed
           : cocktailDetailed // ignore: cast_nullable_to_non_nullable
-              as Cocktail,
+              as CocktailEntity,
       fav: null == fav
           ? _value.fav
           : fav // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CocktailCopyWith<$Res> get cocktailDetailed {
-    return $CocktailCopyWith<$Res>(_value.cocktailDetailed, (value) {
-      return _then(_value.copyWith(cocktailDetailed: value));
-    });
   }
 }
 
@@ -240,7 +230,7 @@ class _$_DetailLoaded implements _DetailLoaded {
   const _$_DetailLoaded({required this.cocktailDetailed, required this.fav});
 
   @override
-  final Cocktail cocktailDetailed;
+  final CocktailEntity cocktailDetailed;
   @override
   final bool fav;
 
@@ -272,7 +262,7 @@ class _$_DetailLoaded implements _DetailLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(Cocktail cocktailDetailed, bool fav) loaded,
+    required TResult Function(CocktailEntity cocktailDetailed, bool fav) loaded,
     required TResult Function(String error) error,
   }) {
     return loaded(cocktailDetailed, fav);
@@ -282,7 +272,7 @@ class _$_DetailLoaded implements _DetailLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult? Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult? Function(String error)? error,
   }) {
     return loaded?.call(cocktailDetailed, fav);
@@ -292,7 +282,7 @@ class _$_DetailLoaded implements _DetailLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -339,10 +329,10 @@ class _$_DetailLoaded implements _DetailLoaded {
 
 abstract class _DetailLoaded implements DetailState {
   const factory _DetailLoaded(
-      {required final Cocktail cocktailDetailed,
+      {required final CocktailEntity cocktailDetailed,
       required final bool fav}) = _$_DetailLoaded;
 
-  Cocktail get cocktailDetailed;
+  CocktailEntity get cocktailDetailed;
   bool get fav;
   @JsonKey(ignore: true)
   _$$_DetailLoadedCopyWith<_$_DetailLoaded> get copyWith =>
@@ -414,7 +404,7 @@ class _$_DetailError implements _DetailError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(Cocktail cocktailDetailed, bool fav) loaded,
+    required TResult Function(CocktailEntity cocktailDetailed, bool fav) loaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -424,7 +414,7 @@ class _$_DetailError implements _DetailError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult? Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -434,7 +424,7 @@ class _$_DetailError implements _DetailError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Cocktail cocktailDetailed, bool fav)? loaded,
+    TResult Function(CocktailEntity cocktailDetailed, bool fav)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

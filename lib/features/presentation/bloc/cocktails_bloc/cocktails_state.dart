@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../data/models/cocktail.dart';
+import '../../../domain/entities/cocktail_entity.dart';
 
 part 'cocktails_state.freezed.dart';
 
@@ -9,7 +8,7 @@ class CocktailsState with _$CocktailsState {
   const factory CocktailsState.loadingAll() = _CocktailsLoadingAll;
 
   const factory CocktailsState.loadedAll(
-      {required List<Cocktail> allCocktails,
+      {required List<CocktailEntity> allCocktails,
       required int pagination}) = _CocktailsLoadedAll;
 
   const factory CocktailsState.error({required String error}) = _CocktailsError;

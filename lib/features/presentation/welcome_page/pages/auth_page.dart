@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:internet_connectivity_checker/internet_connectivity_checker.dart';
+import 'package:shake_and_sip_app/features/presentation/loading_screen/loading_screen.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/loading_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/widgets/sign_in_widget.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/widgets/sign_up_widget.dart';
@@ -70,13 +71,7 @@ class Auth extends StatelessWidget {
               );
             } else {
               // status == ConnectivityStatus.checking
-              return Center(
-                child: SizedBox(
-                  width: 25.r,
-                  height: 25.r,
-                  child: const CircularProgressIndicator(strokeWidth: 2),
-                ),
-              );
+              return const LoadingScreen();
             }
           },
         );

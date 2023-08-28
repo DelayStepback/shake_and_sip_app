@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import '../../../data/repository/auth_repository.dart';
-import '../../../data/repository/cocktails_repository.dart';
+import '../../../domain/repository/auth_repository.dart';
+import '../../../domain/repository/cocktails_repository.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 

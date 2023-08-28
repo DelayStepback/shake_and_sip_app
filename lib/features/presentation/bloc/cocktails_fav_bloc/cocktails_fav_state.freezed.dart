@@ -19,21 +19,21 @@ mixin _$CocktailsFavState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingFav,
-    required TResult Function(List<Cocktail> favCocktails) loadedFav,
+    required TResult Function(List<CocktailEntity> favCocktails) loadedFav,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingFav,
-    TResult? Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult? Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingFav,
-    TResult Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$_CocktailsLoadingFav implements _CocktailsLoadingFav {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingFav,
-    required TResult Function(List<Cocktail> favCocktails) loadedFav,
+    required TResult Function(List<CocktailEntity> favCocktails) loadedFav,
     required TResult Function(String error) error,
   }) {
     return loadingFav();
@@ -129,7 +129,7 @@ class _$_CocktailsLoadingFav implements _CocktailsLoadingFav {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingFav,
-    TResult? Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult? Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult? Function(String error)? error,
   }) {
     return loadingFav?.call();
@@ -139,7 +139,7 @@ class _$_CocktailsLoadingFav implements _CocktailsLoadingFav {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingFav,
-    TResult Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -194,7 +194,7 @@ abstract class _$$_CocktailsLoadedFavCopyWith<$Res> {
           $Res Function(_$_CocktailsLoadedFav) then) =
       __$$_CocktailsLoadedFavCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Cocktail> favCocktails});
+  $Res call({List<CocktailEntity> favCocktails});
 }
 
 /// @nodoc
@@ -214,7 +214,7 @@ class __$$_CocktailsLoadedFavCopyWithImpl<$Res>
       favCocktails: null == favCocktails
           ? _value._favCocktails
           : favCocktails // ignore: cast_nullable_to_non_nullable
-              as List<Cocktail>,
+              as List<CocktailEntity>,
     ));
   }
 }
@@ -222,12 +222,13 @@ class __$$_CocktailsLoadedFavCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CocktailsLoadedFav implements _CocktailsLoadedFav {
-  const _$_CocktailsLoadedFav({required final List<Cocktail> favCocktails})
+  const _$_CocktailsLoadedFav(
+      {required final List<CocktailEntity> favCocktails})
       : _favCocktails = favCocktails;
 
-  final List<Cocktail> _favCocktails;
+  final List<CocktailEntity> _favCocktails;
   @override
-  List<Cocktail> get favCocktails {
+  List<CocktailEntity> get favCocktails {
     if (_favCocktails is EqualUnmodifiableListView) return _favCocktails;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_favCocktails);
@@ -262,7 +263,7 @@ class _$_CocktailsLoadedFav implements _CocktailsLoadedFav {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingFav,
-    required TResult Function(List<Cocktail> favCocktails) loadedFav,
+    required TResult Function(List<CocktailEntity> favCocktails) loadedFav,
     required TResult Function(String error) error,
   }) {
     return loadedFav(favCocktails);
@@ -272,7 +273,7 @@ class _$_CocktailsLoadedFav implements _CocktailsLoadedFav {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingFav,
-    TResult? Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult? Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult? Function(String error)? error,
   }) {
     return loadedFav?.call(favCocktails);
@@ -282,7 +283,7 @@ class _$_CocktailsLoadedFav implements _CocktailsLoadedFav {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingFav,
-    TResult Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -329,9 +330,10 @@ class _$_CocktailsLoadedFav implements _CocktailsLoadedFav {
 
 abstract class _CocktailsLoadedFav implements CocktailsFavState {
   const factory _CocktailsLoadedFav(
-      {required final List<Cocktail> favCocktails}) = _$_CocktailsLoadedFav;
+          {required final List<CocktailEntity> favCocktails}) =
+      _$_CocktailsLoadedFav;
 
-  List<Cocktail> get favCocktails;
+  List<CocktailEntity> get favCocktails;
   @JsonKey(ignore: true)
   _$$_CocktailsLoadedFavCopyWith<_$_CocktailsLoadedFav> get copyWith =>
       throw _privateConstructorUsedError;
@@ -403,7 +405,7 @@ class _$_CocktailsFavError implements _CocktailsFavError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingFav,
-    required TResult Function(List<Cocktail> favCocktails) loadedFav,
+    required TResult Function(List<CocktailEntity> favCocktails) loadedFav,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -413,7 +415,7 @@ class _$_CocktailsFavError implements _CocktailsFavError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingFav,
-    TResult? Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult? Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -423,7 +425,7 @@ class _$_CocktailsFavError implements _CocktailsFavError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingFav,
-    TResult Function(List<Cocktail> favCocktails)? loadedFav,
+    TResult Function(List<CocktailEntity> favCocktails)? loadedFav,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

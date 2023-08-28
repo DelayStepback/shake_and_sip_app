@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/detail_bloc/detail_event.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../data/models/cocktail.dart';
 import '../bloc/detail_bloc/detail_bloc.dart';
 import '../loading_screen/loading_screen.dart';
 
@@ -38,7 +38,7 @@ class _DetailLoaded extends StatefulWidget {
       required this.isFav,
       required this.connectivity});
 
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
   final bool isFav;
   final bool connectivity;
 
@@ -173,7 +173,7 @@ List<Widget> _indicators(imagesLength, currentIndex) {
 class _TimeAndServes extends StatelessWidget {
   const _TimeAndServes({super.key, required this.cocktail});
 
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   Widget build(BuildContext context) {
@@ -238,7 +238,7 @@ class _TimeAndServes extends StatelessWidget {
 class _Ingredients extends StatelessWidget {
   const _Ingredients({super.key, required this.cocktail});
 
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   Widget build(BuildContext context) {
@@ -290,7 +290,7 @@ class _Ingredients extends StatelessWidget {
 class _Description extends StatelessWidget {
   const _Description({super.key, required this.cocktail});
 
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   Widget build(BuildContext context) {
@@ -329,7 +329,7 @@ class _Description extends StatelessWidget {
 class _StepsToCook extends StatelessWidget {
   const _StepsToCook({super.key, required this.cocktail});
 
-  final Cocktail cocktail;
+  final CocktailEntity cocktail;
 
   @override
   Widget build(BuildContext context) {

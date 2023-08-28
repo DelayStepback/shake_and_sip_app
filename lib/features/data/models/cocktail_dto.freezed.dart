@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'cocktail.dart';
+part of 'cocktail_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,42 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Cocktail _$CocktailFromJson(Map<String, dynamic> json) {
-  return _Cocktail.fromJson(json);
+CocktailDto _$CocktailDtoFromJson(Map<String, dynamic> json) {
+  return _CocktailDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Cocktail {
+mixin _$CocktailDto {
   String get id => throw _privateConstructorUsedError;
-
   String get title => throw _privateConstructorUsedError;
-
   String get difficulty => throw _privateConstructorUsedError;
-
   String get image => throw _privateConstructorUsedError;
-
   String? get portion => throw _privateConstructorUsedError;
-
   String? get time => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   List<String>? get ingredients => throw _privateConstructorUsedError;
-
   List<Map<String, String>>? get method => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
-  $CocktailCopyWith<Cocktail> get copyWith =>
+  $CocktailDtoCopyWith<CocktailDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CocktailCopyWith<$Res> {
-  factory $CocktailCopyWith(Cocktail value, $Res Function(Cocktail) then) =
-      _$CocktailCopyWithImpl<$Res, Cocktail>;
-
+abstract class $CocktailDtoCopyWith<$Res> {
+  factory $CocktailDtoCopyWith(
+          CocktailDto value, $Res Function(CocktailDto) then) =
+      _$CocktailDtoCopyWithImpl<$Res, CocktailDto>;
   @useResult
   $Res call(
       {String id,
@@ -64,13 +55,12 @@ abstract class $CocktailCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CocktailCopyWithImpl<$Res, $Val extends Cocktail>
-    implements $CocktailCopyWith<$Res> {
-  _$CocktailCopyWithImpl(this._value, this._then);
+class _$CocktailDtoCopyWithImpl<$Res, $Val extends CocktailDto>
+    implements $CocktailDtoCopyWith<$Res> {
+  _$CocktailDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -129,11 +119,11 @@ class _$CocktailCopyWithImpl<$Res, $Val extends Cocktail>
 }
 
 /// @nodoc
-abstract class _$$_CocktailCopyWith<$Res> implements $CocktailCopyWith<$Res> {
-  factory _$$_CocktailCopyWith(
-          _$_Cocktail value, $Res Function(_$_Cocktail) then) =
-      __$$_CocktailCopyWithImpl<$Res>;
-
+abstract class _$$_CocktailDtoCopyWith<$Res>
+    implements $CocktailDtoCopyWith<$Res> {
+  factory _$$_CocktailDtoCopyWith(
+          _$_CocktailDto value, $Res Function(_$_CocktailDto) then) =
+      __$$_CocktailDtoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -149,11 +139,11 @@ abstract class _$$_CocktailCopyWith<$Res> implements $CocktailCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CocktailCopyWithImpl<$Res>
-    extends _$CocktailCopyWithImpl<$Res, _$_Cocktail>
-    implements _$$_CocktailCopyWith<$Res> {
-  __$$_CocktailCopyWithImpl(
-      _$_Cocktail _value, $Res Function(_$_Cocktail) _then)
+class __$$_CocktailDtoCopyWithImpl<$Res>
+    extends _$CocktailDtoCopyWithImpl<$Res, _$_CocktailDto>
+    implements _$$_CocktailDtoCopyWith<$Res> {
+  __$$_CocktailDtoCopyWithImpl(
+      _$_CocktailDto _value, $Res Function(_$_CocktailDto) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -169,7 +159,7 @@ class __$$_CocktailCopyWithImpl<$Res>
     Object? ingredients = freezed,
     Object? method = freezed,
   }) {
-    return _then(_$_Cocktail(
+    return _then(_$_CocktailDto(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -212,8 +202,8 @@ class __$$_CocktailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Cocktail extends _Cocktail {
-  _$_Cocktail(
+class _$_CocktailDto implements _CocktailDto {
+  const _$_CocktailDto(
       {required this.id,
       required this.title,
       required this.difficulty,
@@ -224,11 +214,10 @@ class _$_Cocktail extends _Cocktail {
       final List<String>? ingredients,
       final List<Map<String, String>>? method})
       : _ingredients = ingredients,
-        _method = method,
-        super._();
+        _method = method;
 
-  factory _$_Cocktail.fromJson(Map<String, dynamic> json) =>
-      _$$_CocktailFromJson(json);
+  factory _$_CocktailDto.fromJson(Map<String, dynamic> json) =>
+      _$$_CocktailDtoFromJson(json);
 
   @override
   final String id;
@@ -245,7 +234,6 @@ class _$_Cocktail extends _Cocktail {
   @override
   final String? description;
   final List<String>? _ingredients;
-
   @override
   List<String>? get ingredients {
     final value = _ingredients;
@@ -256,7 +244,6 @@ class _$_Cocktail extends _Cocktail {
   }
 
   final List<Map<String, String>>? _method;
-
   @override
   List<Map<String, String>>? get method {
     final value = _method;
@@ -268,14 +255,14 @@ class _$_Cocktail extends _Cocktail {
 
   @override
   String toString() {
-    return 'Cocktail(id: $id, title: $title, difficulty: $difficulty, image: $image, portion: $portion, time: $time, description: $description, ingredients: $ingredients, method: $method)';
+    return 'CocktailDto(id: $id, title: $title, difficulty: $difficulty, image: $image, portion: $portion, time: $time, description: $description, ingredients: $ingredients, method: $method)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Cocktail &&
+            other is _$_CocktailDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.difficulty, difficulty) ||
@@ -307,19 +294,19 @@ class _$_Cocktail extends _Cocktail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CocktailCopyWith<_$_Cocktail> get copyWith =>
-      __$$_CocktailCopyWithImpl<_$_Cocktail>(this, _$identity);
+  _$$_CocktailDtoCopyWith<_$_CocktailDto> get copyWith =>
+      __$$_CocktailDtoCopyWithImpl<_$_CocktailDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CocktailToJson(
+    return _$$_CocktailDtoToJson(
       this,
     );
   }
 }
 
-abstract class _Cocktail extends Cocktail {
-  factory _Cocktail(
+abstract class _CocktailDto implements CocktailDto {
+  const factory _CocktailDto(
       {required final String id,
       required final String title,
       required final String difficulty,
@@ -328,41 +315,31 @@ abstract class _Cocktail extends Cocktail {
       final String? time,
       final String? description,
       final List<String>? ingredients,
-      final List<Map<String, String>>? method}) = _$_Cocktail;
+      final List<Map<String, String>>? method}) = _$_CocktailDto;
 
-  _Cocktail._() : super._();
-
-  factory _Cocktail.fromJson(Map<String, dynamic> json) = _$_Cocktail.fromJson;
+  factory _CocktailDto.fromJson(Map<String, dynamic> json) =
+      _$_CocktailDto.fromJson;
 
   @override
   String get id;
-
   @override
   String get title;
-
   @override
   String get difficulty;
-
   @override
   String get image;
-
   @override
   String? get portion;
-
   @override
   String? get time;
-
   @override
   String? get description;
-
   @override
   List<String>? get ingredients;
-
   @override
   List<Map<String, String>>? get method;
-
   @override
   @JsonKey(ignore: true)
-  _$$_CocktailCopyWith<_$_Cocktail> get copyWith =>
+  _$$_CocktailDtoCopyWith<_$_CocktailDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

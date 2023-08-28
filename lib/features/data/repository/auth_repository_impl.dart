@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../domain/repository/auth_repository.dart';
 
-class AuthRepository {
+class AuthRepositoryImplementation extends AuthRepository{
   final _firebaseAuth = FirebaseAuth.instance;
 
+  @override
   Future<void> signUp({required String email, required String password}) async {
     try {
       await FirebaseAuth.instance
@@ -18,6 +20,7 @@ class AuthRepository {
     }
   }
 
+  @override
   Future<void> signIn({
     required String email,
     required String password,
@@ -34,6 +37,7 @@ class AuthRepository {
     }
   }
 
+  @override
   Future<void> signOut() async {
     try {
       await _firebaseAuth.signOut();
@@ -42,6 +46,7 @@ class AuthRepository {
     }
   }
 
+  @override
   Future<void> changePassword(String password) async {
     var user = FirebaseAuth.instance.currentUser!;
     await user.updatePassword(password);

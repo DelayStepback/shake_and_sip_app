@@ -19,24 +19,26 @@ mixin _$CocktailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initHomePage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         nextPage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         previousPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initHomePage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initHomePage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,9 +125,9 @@ class _$LoadingAllCocktailsEvent implements LoadingAllCocktailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initHomePage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         nextPage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         previousPage,
   }) {
     return initHomePage();
@@ -135,8 +137,9 @@ class _$LoadingAllCocktailsEvent implements LoadingAllCocktailsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initHomePage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
   }) {
     return initHomePage?.call();
   }
@@ -145,8 +148,9 @@ class _$LoadingAllCocktailsEvent implements LoadingAllCocktailsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initHomePage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
     required TResult orElse(),
   }) {
     if (initHomePage != null) {
@@ -202,7 +206,7 @@ abstract class _$$NextPaginationAllCocktailsEventCopyWith<$Res> {
           $Res Function(_$NextPaginationAllCocktailsEvent) then) =
       __$$NextPaginationAllCocktailsEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Cocktail> cocktails, int pagination});
+  $Res call({List<CocktailEntity> cocktails, int pagination});
 }
 
 /// @nodoc
@@ -225,7 +229,7 @@ class __$$NextPaginationAllCocktailsEventCopyWithImpl<$Res>
       cocktails: null == cocktails
           ? _value._cocktails
           : cocktails // ignore: cast_nullable_to_non_nullable
-              as List<Cocktail>,
+              as List<CocktailEntity>,
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -239,12 +243,12 @@ class __$$NextPaginationAllCocktailsEventCopyWithImpl<$Res>
 class _$NextPaginationAllCocktailsEvent
     implements NextPaginationAllCocktailsEvent {
   const _$NextPaginationAllCocktailsEvent(
-      {required final List<Cocktail> cocktails, required this.pagination})
+      {required final List<CocktailEntity> cocktails, required this.pagination})
       : _cocktails = cocktails;
 
-  final List<Cocktail> _cocktails;
+  final List<CocktailEntity> _cocktails;
   @override
-  List<Cocktail> get cocktails {
+  List<CocktailEntity> get cocktails {
     if (_cocktails is EqualUnmodifiableListView) return _cocktails;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cocktails);
@@ -284,9 +288,9 @@ class _$NextPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initHomePage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         nextPage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         previousPage,
   }) {
     return nextPage(cocktails, pagination);
@@ -296,8 +300,9 @@ class _$NextPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initHomePage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
   }) {
     return nextPage?.call(cocktails, pagination);
   }
@@ -306,8 +311,9 @@ class _$NextPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initHomePage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -354,10 +360,10 @@ class _$NextPaginationAllCocktailsEvent
 
 abstract class NextPaginationAllCocktailsEvent implements CocktailsEvent {
   const factory NextPaginationAllCocktailsEvent(
-      {required final List<Cocktail> cocktails,
+      {required final List<CocktailEntity> cocktails,
       required final int pagination}) = _$NextPaginationAllCocktailsEvent;
 
-  List<Cocktail> get cocktails;
+  List<CocktailEntity> get cocktails;
   int get pagination;
   @JsonKey(ignore: true)
   _$$NextPaginationAllCocktailsEventCopyWith<_$NextPaginationAllCocktailsEvent>
@@ -371,7 +377,7 @@ abstract class _$$PreviousPaginationAllCocktailsEventCopyWith<$Res> {
           $Res Function(_$PreviousPaginationAllCocktailsEvent) then) =
       __$$PreviousPaginationAllCocktailsEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Cocktail> cocktails, int pagination});
+  $Res call({List<CocktailEntity> cocktails, int pagination});
 }
 
 /// @nodoc
@@ -394,7 +400,7 @@ class __$$PreviousPaginationAllCocktailsEventCopyWithImpl<$Res>
       cocktails: null == cocktails
           ? _value._cocktails
           : cocktails // ignore: cast_nullable_to_non_nullable
-              as List<Cocktail>,
+              as List<CocktailEntity>,
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -408,12 +414,12 @@ class __$$PreviousPaginationAllCocktailsEventCopyWithImpl<$Res>
 class _$PreviousPaginationAllCocktailsEvent
     implements PreviousPaginationAllCocktailsEvent {
   const _$PreviousPaginationAllCocktailsEvent(
-      {required final List<Cocktail> cocktails, required this.pagination})
+      {required final List<CocktailEntity> cocktails, required this.pagination})
       : _cocktails = cocktails;
 
-  final List<Cocktail> _cocktails;
+  final List<CocktailEntity> _cocktails;
   @override
-  List<Cocktail> get cocktails {
+  List<CocktailEntity> get cocktails {
     if (_cocktails is EqualUnmodifiableListView) return _cocktails;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cocktails);
@@ -454,9 +460,9 @@ class _$PreviousPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initHomePage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         nextPage,
-    required TResult Function(List<Cocktail> cocktails, int pagination)
+    required TResult Function(List<CocktailEntity> cocktails, int pagination)
         previousPage,
   }) {
     return previousPage(cocktails, pagination);
@@ -466,8 +472,9 @@ class _$PreviousPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initHomePage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult? Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult? Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
   }) {
     return previousPage?.call(cocktails, pagination);
   }
@@ -476,8 +483,9 @@ class _$PreviousPaginationAllCocktailsEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initHomePage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? nextPage,
-    TResult Function(List<Cocktail> cocktails, int pagination)? previousPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)? nextPage,
+    TResult Function(List<CocktailEntity> cocktails, int pagination)?
+        previousPage,
     required TResult orElse(),
   }) {
     if (previousPage != null) {
@@ -524,10 +532,10 @@ class _$PreviousPaginationAllCocktailsEvent
 
 abstract class PreviousPaginationAllCocktailsEvent implements CocktailsEvent {
   const factory PreviousPaginationAllCocktailsEvent(
-      {required final List<Cocktail> cocktails,
+      {required final List<CocktailEntity> cocktails,
       required final int pagination}) = _$PreviousPaginationAllCocktailsEvent;
 
-  List<Cocktail> get cocktails;
+  List<CocktailEntity> get cocktails;
   int get pagination;
   @JsonKey(ignore: true)
   _$$PreviousPaginationAllCocktailsEventCopyWith<

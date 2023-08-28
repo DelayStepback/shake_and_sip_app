@@ -1,20 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:shake_and_sip_app/features/data/datasource/cocktails_firebase_api.dart';
+import 'package:shake_and_sip_app/features/data/datasource/cocktails_hive_database.dart';
 
-import 'package:shake_and_sip_app/features/data/repository/auth_repository.dart';
+import 'package:shake_and_sip_app/features/data/repository/auth_repository_impl.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import 'package:shake_and_sip_app/features/presentation/favourite_page/favourite_page.dart';
 import 'package:shake_and_sip_app/features/presentation/home_page/home_page.dart';
 import 'package:shake_and_sip_app/features/presentation/setiings_page/settings_page.dart';
+import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/auth_page.dart';
 import 'package:shake_and_sip_app/features/presentation/welcome_page/welcome_page.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
 
-import 'features/data/repository/cocktails_repository.dart';
+import 'features/data/repository/cocktails_repository_impl.dart';
 import 'features/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'features/presentation/bloc/cocktails_bloc/cocktails_bloc.dart';
 import 'features/presentation/bloc/detail_bloc/detail_bloc.dart';
@@ -38,32 +40,65 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: "/welcome",
         name: 'welcome',
-        builder: (context, state) => const WelcomePage(),
-        pageBuilder: (context, state) => CustomTransitionPage(
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => CocktailsBloc(
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                      context)),
+            ),
+            BlocProvider(
+              create: (context) => AuthBloc(
+                RepositoryProvider.of<AuthRepositoryImplementation>(context),
+                RepositoryProvider.of<CocktailRepositoryImplementation>(
+                    context),
+              ),
+            ),
+          ],
           child: const WelcomePage(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
         ),
       ),
       GoRoute(
         path: "/",
         name: 'home',
-        builder: (context, state) => const HomePage(),
-        pageBuilder: (context, state) => CustomTransitionPage(
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => CocktailsBloc(
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                      context)),
+            ),
+            BlocProvider(
+              create: (context) => AuthBloc(
+                RepositoryProvider.of<AuthRepositoryImplementation>(context),
+                RepositoryProvider.of<CocktailRepositoryImplementation>(
+                    context),
+              ),
+            ),
+          ],
           child: const HomePage(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
         ),
+        // pageBuilder: (context, state) => CustomTransitionPage(
+        //   child: const HomePage(),
+        //   transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        //       FadeTransition(opacity: animation, child: child),
+        // ),
       ),
       GoRoute(
         path: "/allFav",
         name: "allFav",
-        builder: (context, state) => MultiBlocProvider(providers: [
-          BlocProvider(
-            create: (context) => CocktailsFavBloc(
-                RepositoryProvider.of<CocktailRepository>(context)),
-          )
-        ], child: const FavouritePage(connectivity: true,)),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => CocktailsFavBloc(
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                      context)),
+            )
+          ],
+          child: const FavouritePage(
+            connectivity: true,
+          ),
+        ),
       ),
       GoRoute(
         path: "/allFavLostConnectivity",
@@ -71,7 +106,8 @@ class MyApp extends StatelessWidget {
         builder: (context, state) => MultiBlocProvider(providers: [
           BlocProvider(
             create: (context) => CocktailsFavBloc(
-                RepositoryProvider.of<CocktailRepository>(context)),
+                RepositoryProvider.of<CocktailRepositoryImplementation>(
+                    context)),
           )
         ], child: const FavouritePage(connectivity: false)),
       ),
@@ -82,7 +118,8 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => DetailBloc(
-                  RepositoryProvider.of<CocktailRepository>(context)),
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                      context)),
             ),
           ],
           child: DetailSingleFavPage(
@@ -98,7 +135,8 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => DetailBloc(
-                  RepositoryProvider.of<CocktailRepository>(context)),
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                      context)),
             ),
           ],
           child: DetailSingleFavPage(
@@ -110,7 +148,19 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: "/settings",
         name: "settings",
-        builder: (context, state) => const SettingsPage(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => AuthBloc(
+                  RepositoryProvider.of<AuthRepositoryImplementation>(
+                      context),
+                  RepositoryProvider.of<CocktailRepositoryImplementation>(
+                            context),
+              ),
+            ),
+          ],
+          child: const SettingsPage()
+        ),
       ),
     ],
   );
@@ -125,26 +175,32 @@ class MyApp extends StatelessWidget {
         return MultiRepositoryProvider(
           providers: [
             RepositoryProvider(
-              create: (context) => CocktailRepository(),
+              create: (context) => CocktailRepositoryImplementation(
+                  CocktailsHiveDatabase(), CocktailsFirebaseApi()),
             ),
             RepositoryProvider(
-              create: (context) => AuthRepository(),
+              create: (context) => AuthRepositoryImplementation(),
             )
           ],
-          child: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => CocktailsBloc(
-                    RepositoryProvider.of<CocktailRepository>(context)),
-              ),
-              BlocProvider(
-                create: (context) => AuthBloc(
-                  RepositoryProvider.of<AuthRepository>(context),
-                  RepositoryProvider.of<CocktailRepository>(context),
-                ),
-              ),
-            ],
-            child: MaterialApp.router(
+          child:
+          // MultiBlocProvider(
+          //   providers: [
+          //     BlocProvider(
+          //       create: (context) => CocktailsBloc(
+          //           RepositoryProvider.of<CocktailRepositoryImplementation>(
+          //               context)),
+          //     ),
+          //     BlocProvider(
+          //       create: (context) => AuthBloc(
+          //         RepositoryProvider.of<AuthRepositoryImplementation>(context),
+          //         RepositoryProvider.of<CocktailRepositoryImplementation>(
+          //             context),
+          //       ),
+          //     ),
+          //   ],
+          //   child:
+          //
+            MaterialApp.router(
               routerConfig: _router,
               title: 'Shake \& Sip',
               debugShowCheckedModeBanner: false,
@@ -179,7 +235,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          // ),
         );
       },
     );

@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cocktail.dart';
+part of 'cocktail_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Cocktail _$$_CocktailFromJson(Map<String, dynamic> json) => _$_Cocktail(
+_$_CocktailDto _$$_CocktailDtoFromJson(Map<String, dynamic> json) =>
+    _$_CocktailDto(
       id: json['id'] as String,
       title: json['title'] as String,
       difficulty: json['difficulty'] as String,
@@ -22,7 +23,7 @@ _$_Cocktail _$$_CocktailFromJson(Map<String, dynamic> json) => _$_Cocktail(
           .toList(),
     );
 
-Map<String, dynamic> _$$_CocktailToJson(_$_Cocktail instance) =>
+Map<String, dynamic> _$$_CocktailDtoToJson(_$_CocktailDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

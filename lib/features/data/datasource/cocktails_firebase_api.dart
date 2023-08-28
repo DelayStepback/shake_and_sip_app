@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
+import 'package:shake_and_sip_app/features/data/models/cocktail_dto.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class CocktailsFirebaseApi {
   Future<void> addCocktail({
-    required Cocktail cocktail,
+    required CocktailDto cocktail,
     required String email,
   }) async {
     final json = cocktail.toJson();
@@ -18,7 +18,7 @@ class CocktailsFirebaseApi {
   }
 
   Future<void> updateCocktail(
-      {required Cocktail newCocktail, required String email}) async {
+      {required CocktailDto newCocktail, required String email}) async {
     final json = newCocktail.toJson();
     await _firestore
         .collection('users')
@@ -38,7 +38,7 @@ class CocktailsFirebaseApi {
         .delete();
   }
 
-  Future<List<Cocktail>> readCocktails({required String email}) async {
+  Future<List<CocktailDto>> readCocktails({required String email}) async {
     QuerySnapshot querySnapshot = await _firestore
         .collection('users')
         .doc(email)
@@ -46,7 +46,7 @@ class CocktailsFirebaseApi {
         .get();
     final allData = querySnapshot.docs
         .map(
-          (doc) => Cocktail.fromJson(doc.data() as Map<String, dynamic>),
+          (doc) => CocktailDto.fromJson(doc.data() as Map<String, dynamic>),
         )
         .toList();
     return allData;

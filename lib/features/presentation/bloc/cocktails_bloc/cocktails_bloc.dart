@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 
-import '../../../data/models/cocktail.dart';
-import '../../../data/repository/cocktails_repository.dart';
+import '../../../domain/repository/cocktails_repository.dart';
 import 'cocktails_event.dart';
 import 'cocktails_state.dart';
 
@@ -18,7 +18,7 @@ class CocktailsBloc extends Bloc<CocktailsEvent, CocktailsState> {
 
   Future<void> _onLoadingAllCocktailsEvent(event, emit) async {
     _cocktailRepository.init();
-    List<Cocktail>? allCocktails = await _cocktailRepository.fetchCocktails();
+    List<CocktailEntity>? allCocktails = await _cocktailRepository.fetchCocktails();
     emit(
       CocktailsState.loadedAll(allCocktails: allCocktails!, pagination: 1),
     );

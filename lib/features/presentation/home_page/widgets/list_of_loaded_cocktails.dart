@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shake_and_sip_app/features/presentation/bloc/auth_bloc/auth_event.dart';
+import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cocktails_event.dart';
-import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_bloc/cocktails_state.dart';
 import 'package:shake_and_sip_app/features/presentation/loading_screen/loading_screen.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../../data/models/cocktail.dart';
-import '../../bloc/auth_bloc/auth_bloc.dart';
 import '../../bloc/cocktails_bloc/cocktails_bloc.dart';
 
 class ListOfLoadedCocktails extends StatelessWidget {
@@ -35,7 +32,7 @@ class _ListViewCocktails extends StatelessWidget {
       {super.key, required this.cocktails, required this.pagination});
 
   final int pagination;
-  final List<Cocktail> cocktails;
+  final List<CocktailEntity> cocktails;
 
   @override
   Widget build(BuildContext context) {

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 import 'package:shake_and_sip_app/features/presentation/bloc/cocktails_fav_bloc/cocktails_fav_event.dart';
 import 'package:shake_and_sip_app/utils/colors.dart';
-import '../../../data/models/cocktail.dart';
 import '../../bloc/cocktails_fav_bloc/cocktails_fav_bloc.dart';
 import '../../loading_screen/loading_screen.dart';
 
@@ -32,7 +32,7 @@ class _ListViewCocktails extends StatelessWidget {
   const _ListViewCocktails(
       {required this.cocktails, required this.connectivity});
 
-  final List<Cocktail> cocktails;
+  final List<CocktailEntity> cocktails;
   final bool connectivity;
 
   @override
