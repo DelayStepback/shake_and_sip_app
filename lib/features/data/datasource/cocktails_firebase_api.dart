@@ -45,7 +45,9 @@ class CocktailsFirebaseApi {
         .collection('cocktails')
         .get();
     final allData = querySnapshot.docs
-        .map((doc) => Cocktail.fromJson(doc.data() as Map<String, dynamic>))
+        .map(
+          (doc) => Cocktail.fromJson(doc.data() as Map<String, dynamic>),
+        )
         .toList();
     return allData;
   }

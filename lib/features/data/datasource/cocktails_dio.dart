@@ -14,7 +14,10 @@ class DioCocktailsClient {
       if (id == 'none') {
         Response cocktailsData = await _dio.get(_baseUrl);
         List<Cocktail> cocktailsList = List<Cocktail>.from(
-            cocktailsData.data.map((i) => Cocktail.fromJson(i)));
+          cocktailsData.data.map(
+            (i) => Cocktail.fromJson(i),
+          ),
+        );
         cocktails = cocktailsList;
       } else {
         Response cocktailData = await _dio.get('$_baseUrl$id');

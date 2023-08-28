@@ -18,7 +18,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _cocktailRepository.syncCocktail();
         emit(const AuthState.authenticated());
       } catch (e) {
-        emit(AuthState.error(error: e.toString()));
+        emit(
+          AuthState.error(error: e.toString()),
+        );
       }
     });
     on<SignUpRequested>((event, emit) async {
@@ -28,7 +30,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             email: event.email, password: event.password);
         emit(const AuthState.authenticated());
       } catch (e) {
-        emit(AuthState.error(error: e.toString()));
+        emit(
+          AuthState.error(error: e.toString()),
+        );
       }
     });
     on<SignOutRequested>((event, emit) async {
@@ -36,19 +40,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       await _authRepository.signOut();
       _cocktailRepository.deleteFromDisk();
-      emit(const AuthState.unAuthenticatedSignIn());
+      emit(
+        const AuthState.unAuthenticatedSignIn(),
+      );
     });
 
     on<LoadSignIn>((event, emit) async {
-      emit(const AuthState.loading());
-      emit(const AuthState.unAuthenticatedSignIn());
+      emit(
+        const AuthState.loading(),
+      );
+      emit(
+        const AuthState.unAuthenticatedSignIn(),
+      );
     });
     on<LoadSignUp>((event, emit) async {
-      emit(const AuthState.loading());
-      emit(const AuthState.unAuthenticatedSignUp());
+      emit(
+        const AuthState.loading(),
+      );
+      emit(
+        const AuthState.unAuthenticatedSignUp(),
+      );
     });
     on<AlreadyLogged>((event, emit) async {
-      emit(const AuthState.authenticated());
+      emit(
+        const AuthState.authenticated(),
+      );
     });
 
     on<ChangePassword>((ChangePassword event, emit) async {

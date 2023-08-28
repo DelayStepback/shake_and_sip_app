@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shake_and_sip_app/features/data/models/cocktail.dart';
 import 'package:shake_and_sip_app/features/data/datasource/cocktails_dio.dart';
 
-import '../datasource/cocktails_firebase_repository.dart';
+import '../datasource/cocktails_firebase_api.dart';
 import '../datasource/cocktails_hive_database.dart';
 
 class CocktailRepository {

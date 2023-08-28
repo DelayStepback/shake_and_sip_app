@@ -8,7 +8,10 @@ import 'detail_state.dart';
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
   final CocktailRepository _cocktailRepository;
 
-  DetailBloc(this._cocktailRepository) : super(const DetailState.loading()) {
+  DetailBloc(this._cocktailRepository)
+      : super(
+          const DetailState.loading(),
+        ) {
     on<LoadingDetailsEvent>(_onLoadingDetailsEvent);
 
     on<AddFavCocktailEvent>(_onAddFavCocktailEvent);
