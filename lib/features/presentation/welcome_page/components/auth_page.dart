@@ -83,7 +83,12 @@ class Auth extends StatelessWidget {
       unAuthenticatedSignIn: () => const SignInWidget(
         error: '',
       ),
-      error: (error) {
+      errorSignIn: (String error) {
+        return SignInWidget(
+          error: error,
+        );
+      },
+      errorSignUp: (String error) {
         return SignUpWidget(
           error: error,
         );

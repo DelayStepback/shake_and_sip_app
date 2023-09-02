@@ -22,7 +22,8 @@ mixin _$AuthState {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +32,8 @@ mixin _$AuthState {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +42,8 @@ mixin _$AuthState {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,7 +55,8 @@ mixin _$AuthState {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,7 +65,8 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +75,8 @@ mixin _$AuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +140,8 @@ class _$_Loading implements _Loading {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) {
     return loading();
   }
@@ -146,7 +153,8 @@ class _$_Loading implements _Loading {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) {
     return loading?.call();
   }
@@ -158,7 +166,8 @@ class _$_Loading implements _Loading {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -176,7 +185,8 @@ class _$_Loading implements _Loading {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) {
     return loading(this);
   }
@@ -188,7 +198,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) {
     return loading?.call(this);
   }
@@ -200,7 +211,8 @@ class _$_Loading implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -256,7 +268,8 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) {
     return authenticated();
   }
@@ -268,7 +281,8 @@ class _$_Authenticated implements _Authenticated {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) {
     return authenticated?.call();
   }
@@ -280,7 +294,8 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -298,7 +313,8 @@ class _$_Authenticated implements _Authenticated {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) {
     return authenticated(this);
   }
@@ -310,7 +326,8 @@ class _$_Authenticated implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) {
     return authenticated?.call(this);
   }
@@ -322,7 +339,8 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -378,7 +396,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) {
     return unAuthenticatedSignUp();
   }
@@ -390,7 +409,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) {
     return unAuthenticatedSignUp?.call();
   }
@@ -402,7 +422,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) {
     if (unAuthenticatedSignUp != null) {
@@ -420,7 +441,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) {
     return unAuthenticatedSignUp(this);
   }
@@ -432,7 +454,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) {
     return unAuthenticatedSignUp?.call(this);
   }
@@ -444,7 +467,8 @@ class _$_unAuthenticatedSignUp implements _unAuthenticatedSignUp {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) {
     if (unAuthenticatedSignUp != null) {
@@ -500,7 +524,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) {
     return unAuthenticatedSignIn();
   }
@@ -512,7 +537,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) {
     return unAuthenticatedSignIn?.call();
   }
@@ -524,7 +550,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) {
     if (unAuthenticatedSignIn != null) {
@@ -542,7 +569,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) {
     return unAuthenticatedSignIn(this);
   }
@@ -554,7 +582,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) {
     return unAuthenticatedSignIn?.call(this);
   }
@@ -566,7 +595,8 @@ class _$_unAuthenticatedSignIn implements _unAuthenticatedSignIn {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) {
     if (unAuthenticatedSignIn != null) {
@@ -581,18 +611,20 @@ abstract class _unAuthenticatedSignIn implements AuthState {
 }
 
 /// @nodoc
-abstract class _$$_ErrorCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorSignInCopyWith<$Res> {
+  factory _$$_ErrorSignInCopyWith(
+          _$_ErrorSignIn value, $Res Function(_$_ErrorSignIn) then) =
+      __$$_ErrorSignInCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+class __$$_ErrorSignInCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$_ErrorSignIn>
+    implements _$$_ErrorSignInCopyWith<$Res> {
+  __$$_ErrorSignInCopyWithImpl(
+      _$_ErrorSignIn _value, $Res Function(_$_ErrorSignIn) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -600,7 +632,7 @@ class __$$_ErrorCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$_Error(
+    return _then(_$_ErrorSignIn(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -611,22 +643,22 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error({required this.error});
+class _$_ErrorSignIn implements _ErrorSignIn {
+  const _$_ErrorSignIn({required this.error});
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'AuthState.error(error: $error)';
+    return 'AuthState.errorSignIn(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Error &&
+            other is _$_ErrorSignIn &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -636,8 +668,8 @@ class _$_Error implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+  _$$_ErrorSignInCopyWith<_$_ErrorSignIn> get copyWith =>
+      __$$_ErrorSignInCopyWithImpl<_$_ErrorSignIn>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -646,9 +678,10 @@ class _$_Error implements _Error {
     required TResult Function() authenticated,
     required TResult Function() unAuthenticatedSignUp,
     required TResult Function() unAuthenticatedSignIn,
-    required TResult Function(String error) error,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
   }) {
-    return error(this.error);
+    return errorSignIn(error);
   }
 
   @override
@@ -658,9 +691,10 @@ class _$_Error implements _Error {
     TResult? Function()? authenticated,
     TResult? Function()? unAuthenticatedSignUp,
     TResult? Function()? unAuthenticatedSignIn,
-    TResult? Function(String error)? error,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
   }) {
-    return error?.call(this.error);
+    return errorSignIn?.call(error);
   }
 
   @override
@@ -670,11 +704,12 @@ class _$_Error implements _Error {
     TResult Function()? authenticated,
     TResult Function()? unAuthenticatedSignUp,
     TResult Function()? unAuthenticatedSignIn,
-    TResult Function(String error)? error,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this.error);
+    if (errorSignIn != null) {
+      return errorSignIn(error);
     }
     return orElse();
   }
@@ -688,9 +723,10 @@ class _$_Error implements _Error {
         unAuthenticatedSignUp,
     required TResult Function(_unAuthenticatedSignIn value)
         unAuthenticatedSignIn,
-    required TResult Function(_Error value) error,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
   }) {
-    return error(this);
+    return errorSignIn(this);
   }
 
   @override
@@ -700,9 +736,10 @@ class _$_Error implements _Error {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult? Function(_Error value)? error,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
   }) {
-    return error?.call(this);
+    return errorSignIn?.call(this);
   }
 
   @override
@@ -712,21 +749,181 @@ class _$_Error implements _Error {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
     TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
-    TResult Function(_Error value)? error,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (errorSignIn != null) {
+      return errorSignIn(this);
     }
     return orElse();
   }
 }
 
-abstract class _Error implements AuthState {
-  const factory _Error({required final String error}) = _$_Error;
+abstract class _ErrorSignIn implements AuthState {
+  const factory _ErrorSignIn({required final String error}) = _$_ErrorSignIn;
 
   String get error;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+  _$$_ErrorSignInCopyWith<_$_ErrorSignIn> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorSignUpCopyWith<$Res> {
+  factory _$$_ErrorSignUpCopyWith(
+          _$_ErrorSignUp value, $Res Function(_$_ErrorSignUp) then) =
+      __$$_ErrorSignUpCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$_ErrorSignUpCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$_ErrorSignUp>
+    implements _$$_ErrorSignUpCopyWith<$Res> {
+  __$$_ErrorSignUpCopyWithImpl(
+      _$_ErrorSignUp _value, $Res Function(_$_ErrorSignUp) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$_ErrorSignUp(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ErrorSignUp implements _ErrorSignUp {
+  const _$_ErrorSignUp({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'AuthState.errorSignUp(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ErrorSignUp &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorSignUpCopyWith<_$_ErrorSignUp> get copyWith =>
+      __$$_ErrorSignUpCopyWithImpl<_$_ErrorSignUp>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() authenticated,
+    required TResult Function() unAuthenticatedSignUp,
+    required TResult Function() unAuthenticatedSignIn,
+    required TResult Function(String error) errorSignIn,
+    required TResult Function(String error) errorSignUp,
+  }) {
+    return errorSignUp(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function()? authenticated,
+    TResult? Function()? unAuthenticatedSignUp,
+    TResult? Function()? unAuthenticatedSignIn,
+    TResult? Function(String error)? errorSignIn,
+    TResult? Function(String error)? errorSignUp,
+  }) {
+    return errorSignUp?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? authenticated,
+    TResult Function()? unAuthenticatedSignUp,
+    TResult Function()? unAuthenticatedSignIn,
+    TResult Function(String error)? errorSignIn,
+    TResult Function(String error)? errorSignUp,
+    required TResult orElse(),
+  }) {
+    if (errorSignUp != null) {
+      return errorSignUp(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_unAuthenticatedSignUp value)
+        unAuthenticatedSignUp,
+    required TResult Function(_unAuthenticatedSignIn value)
+        unAuthenticatedSignIn,
+    required TResult Function(_ErrorSignIn value) errorSignIn,
+    required TResult Function(_ErrorSignUp value) errorSignUp,
+  }) {
+    return errorSignUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
+    TResult? Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
+    TResult? Function(_ErrorSignIn value)? errorSignIn,
+    TResult? Function(_ErrorSignUp value)? errorSignUp,
+  }) {
+    return errorSignUp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_unAuthenticatedSignUp value)? unAuthenticatedSignUp,
+    TResult Function(_unAuthenticatedSignIn value)? unAuthenticatedSignIn,
+    TResult Function(_ErrorSignIn value)? errorSignIn,
+    TResult Function(_ErrorSignUp value)? errorSignUp,
+    required TResult orElse(),
+  }) {
+    if (errorSignUp != null) {
+      return errorSignUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorSignUp implements AuthState {
+  const factory _ErrorSignUp({required final String error}) = _$_ErrorSignUp;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$_ErrorSignUpCopyWith<_$_ErrorSignUp> get copyWith =>
       throw _privateConstructorUsedError;
 }

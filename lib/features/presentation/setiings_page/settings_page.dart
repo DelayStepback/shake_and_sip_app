@@ -47,7 +47,7 @@ class SettingsPage extends StatelessWidget {
 }
 
 class _ChangePasswordButton extends StatefulWidget {
-  const _ChangePasswordButton({super.key});
+  const _ChangePasswordButton();
 
   @override
   State<_ChangePasswordButton> createState() => _ChangePasswordButtonState();
@@ -93,6 +93,7 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
                         fontWeight: FontWeight.w500,
                       ),
                       decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(9).r,
                         border: InputBorder.none,
                         labelText: 'new password',
                         labelStyle: TextStyle(
@@ -105,8 +106,10 @@ class _ChangePasswordButtonState extends State<_ChangePasswordButton> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.read<AuthBloc>().add(AuthEvent.changePassword(
-                            password: _passwordController.text));
+                        context.read<AuthBloc>().add(
+                          AuthEvent.changePassword(
+                              password: _passwordController.text),
+                        );
                         ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 content: Text('Password has been changed')));

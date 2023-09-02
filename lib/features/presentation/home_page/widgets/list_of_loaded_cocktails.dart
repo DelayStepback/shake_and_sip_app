@@ -96,8 +96,10 @@ class _ListViewCocktails extends StatelessWidget {
             itemBuilder: (BuildContext context, int indexList) {
               int index = indexList + 5 * pagination;
               return GestureDetector(
-                onTap: () => context.goNamed('fav',
-                    pathParameters: {'id': cocktails[index].id}),
+                onTap: () => context.goNamed(
+                  'fav',
+                  pathParameters: {'id': cocktails[index].id},
+                ),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
@@ -113,9 +115,10 @@ class _ListViewCocktails extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(20).r,
                           child: SizedBox.fromSize(
-                              size: Size.fromRadius(40.r),
-                              child: Image.network(cocktails[index].image,
-                                  fit: BoxFit.fitWidth)),
+                            size: Size.fromRadius(40.r),
+                            child: Image.network(cocktails[index].image,
+                                fit: BoxFit.fitWidth),
+                          ),
                         ),
                         Expanded(
                           child: Padding(

@@ -20,7 +20,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(const AuthState.authenticated());
         } catch (e) {
           emit(
-            AuthState.error(error: e.toString()),
+            AuthState.errorSignIn(error: e.toString()),
           );
         }
       },
@@ -34,7 +34,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(const AuthState.authenticated());
         } catch (e) {
           emit(
-            AuthState.error(error: e.toString()),
+            AuthState.errorSignUp(error: e.toString()),
           );
         }
       },
@@ -50,7 +50,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           );
         } catch (e) {
           emit(
-            AuthState.error(error: e.toString()),
+            AuthState.errorSignIn(error: e.toString()),
           );
         }
       },
@@ -59,18 +59,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoadSignIn>(
       (event, emit) async {
         emit(
-          const AuthState.loading(),
-        );
-        emit(
           const AuthState.unAuthenticatedSignIn(),
         );
       },
     );
     on<LoadSignUp>(
       (event, emit) async {
-        emit(
-          const AuthState.loading(),
-        );
         emit(
           const AuthState.unAuthenticatedSignUp(),
         );
@@ -86,11 +80,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<ChangePassword>(
       (ChangePassword event, emit) async {
+        const AuthState.loading();
         try {
           await _authRepository.changePassword(event.password);
+          emit(const AuthState.authenticated());
         } catch (e) {
           emit(
-            AuthState.error(error: e.toString()),
+            AuthState.errorSignIn(error: e.toString()),
           );
         }
       },
