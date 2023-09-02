@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shake_and_sip_app/features/data/cocktail_entity_to_dto.dart';
+import 'package:shake_and_sip_app/features/data/helpers/cocktail_entity_to_dto.dart';
 import 'package:shake_and_sip_app/features/data/datasource/cocktails_dio.dart';
 import 'package:shake_and_sip_app/features/domain/entities/cocktail_entity.dart';
 import '../../domain/repository/cocktails_repository.dart';

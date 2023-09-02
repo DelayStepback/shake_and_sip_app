@@ -19,7 +19,9 @@ class ListOfLoadedFavCocktails extends StatelessWidget {
     return state.when(
       loadingFav: () {
         context.read<CocktailsFavBloc>().add(const LoadingFavCocktailsEvent());
-        return const LoadingScreen();
+        return const LoadingScreen(
+          text: 'LOADING',
+        );
       },
       loadedFav: (favCocktails) => _ListViewCocktails(
           cocktails: favCocktails, connectivity: connectivity),

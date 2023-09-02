@@ -75,11 +75,6 @@ class MyApp extends StatelessWidget {
           ],
           child: const HomePage(),
         ),
-        // pageBuilder: (context, state) => CustomTransitionPage(
-        //   child: const HomePage(),
-        //   transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-        //       FadeTransition(opacity: animation, child: child),
-        // ),
       ),
       GoRoute(
         path: "/allFav",
@@ -145,19 +140,14 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: "/settings",
         name: "settings",
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => AuthBloc(
-                  RepositoryProvider.of<AuthRepositoryImplementation>(
-                      context),
-                  RepositoryProvider.of<CocktailRepositoryImplementation>(
-                            context),
-              ),
+        builder: (context, state) => MultiBlocProvider(providers: [
+          BlocProvider(
+            create: (context) => AuthBloc(
+              RepositoryProvider.of<AuthRepositoryImplementation>(context),
+              RepositoryProvider.of<CocktailRepositoryImplementation>(context),
             ),
-          ],
-          child: const SettingsPage()
-        ),
+          ),
+        ], child: const SettingsPage()),
       ),
     ],
   );
@@ -179,60 +169,37 @@ class MyApp extends StatelessWidget {
               create: (context) => AuthRepositoryImplementation(),
             )
           ],
-          child:
-          // MultiBlocProvider(
-          //   providers: [
-          //     BlocProvider(
-          //       create: (context) => CocktailsBloc(
-          //           RepositoryProvider.of<CocktailRepositoryImplementation>(
-          //               context)),
-          //     ),
-          //     BlocProvider(
-          //       create: (context) => AuthBloc(
-          //         RepositoryProvider.of<AuthRepositoryImplementation>(context),
-          //         RepositoryProvider.of<CocktailRepositoryImplementation>(
-          //             context),
-          //       ),
-          //     ),
-          //   ],
-          //   child:
-          //
-            MaterialApp.router(
-              routerConfig: _router,
-              title: 'Shake \& Sip',
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                textTheme: TextTheme(
-                  titleLarge: TextStyle(
-                      color: MyColor.white,
-                      fontSize: 24.sp,
-                      fontFamily: 'Inter'),
-                  titleMedium: TextStyle(
-                      color: MyColor.textColor,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Inter'),
-                  bodySmall: TextStyle(
-                      color: MyColor.textColor,
-                      fontSize: 14.sp,
-                      fontFamily: 'Inter'),
-                  displayLarge: TextStyle(
-                      color: MyColor.textColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20.sp,
-                      fontFamily: 'Inter'),
-                  bodyMedium: TextStyle(
-                      color: MyColor.textColor,
-                      fontSize: 16.sp,
-                      fontFamily: 'Inter'),
-                  labelSmall: TextStyle(
-                      color: MyColor.white,
-                      fontSize: 16.sp,
-                      fontFamily: 'Inter'),
-                ),
+          child: MaterialApp.router(
+            routerConfig: _router,
+            title: 'Shake & Sip',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              textTheme: TextTheme(
+                titleLarge: TextStyle(
+                    color: MyColor.white, fontSize: 24.sp, fontFamily: 'Inter'),
+                titleMedium: TextStyle(
+                    color: MyColor.textColor,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Inter'),
+                bodySmall: TextStyle(
+                    color: MyColor.textColor,
+                    fontSize: 14.sp,
+                    fontFamily: 'Inter'),
+                displayLarge: TextStyle(
+                    color: MyColor.textColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.sp,
+                    fontFamily: 'Inter'),
+                bodyMedium: TextStyle(
+                    color: MyColor.textColor,
+                    fontSize: 16.sp,
+                    fontFamily: 'Inter'),
+                labelSmall: TextStyle(
+                    color: MyColor.white, fontSize: 16.sp, fontFamily: 'Inter'),
               ),
             ),
-          // ),
+          ),
         );
       },
     );

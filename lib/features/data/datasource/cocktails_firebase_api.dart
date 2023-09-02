@@ -17,17 +17,6 @@ class CocktailsFirebaseApi {
         .set(json);
   }
 
-  Future<void> updateCocktail(
-      {required CocktailDto newCocktail, required String email}) async {
-    final json = newCocktail.toJson();
-    await _firestore
-        .collection('users')
-        .doc(email)
-        .collection('cocktails')
-        .doc(newCocktail.id)
-        .set(json);
-  }
-
   Future<void> removeCocktail(
       {required String cocktailId, required String email}) async {
     await _firestore

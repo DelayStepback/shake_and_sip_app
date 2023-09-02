@@ -17,19 +17,20 @@ class ListOfLoadedCocktails extends StatelessWidget {
     return state.when(
         loadingAll: () {
           context.read<CocktailsBloc>().add(const LoadingAllCocktailsEvent());
-          return const LoadingScreen();
+          return const LoadingScreen(
+            text: 'LOADING',
+          );
         },
         loadedAll: (allCocktails, pag) => _ListViewCocktails(
               cocktails: allCocktails,
               pagination: pag,
             ),
-        error: (error) => Text('error to load $error'));
+        error: (error) => Center(child: Text('error to load $error')));
   }
 }
 
 class _ListViewCocktails extends StatelessWidget {
-  const _ListViewCocktails(
-      {super.key, required this.cocktails, required this.pagination});
+  const _ListViewCocktails({required this.cocktails, required this.pagination});
 
   final int pagination;
   final List<CocktailEntity> cocktails;

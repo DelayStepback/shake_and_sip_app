@@ -20,7 +20,9 @@ class DetailSingleFavPage extends StatelessWidget {
     final state = context.watch<DetailBloc>().state;
     context.read<DetailBloc>().add(DetailEvent.initDetailPage(id: id!));
     return state.when(
-      loading: () => const LoadingScreen(),
+      loading: () => const LoadingScreen(
+        text: 'LOADING',
+      ),
       loaded: (cocktail, fav) => _DetailLoaded(
         cocktail: cocktail,
         isFav: fav,
@@ -33,8 +35,7 @@ class DetailSingleFavPage extends StatelessWidget {
 
 class _DetailLoaded extends StatefulWidget {
   const _DetailLoaded(
-      {super.key,
-      required this.cocktail,
+      {required this.cocktail,
       required this.isFav,
       required this.connectivity});
 
@@ -175,7 +176,7 @@ List<Widget> _indicators(imagesLength, currentIndex) {
 }
 
 class _TimeAndServes extends StatelessWidget {
-  const _TimeAndServes({super.key, required this.cocktail});
+  const _TimeAndServes({required this.cocktail});
 
   final CocktailEntity cocktail;
 
@@ -240,7 +241,7 @@ class _TimeAndServes extends StatelessWidget {
 }
 
 class _Ingredients extends StatelessWidget {
-  const _Ingredients({super.key, required this.cocktail});
+  const _Ingredients({required this.cocktail});
 
   final CocktailEntity cocktail;
 
@@ -292,7 +293,7 @@ class _Ingredients extends StatelessWidget {
 }
 
 class _Description extends StatelessWidget {
-  const _Description({super.key, required this.cocktail});
+  const _Description({required this.cocktail});
 
   final CocktailEntity cocktail;
 
@@ -331,7 +332,7 @@ class _Description extends StatelessWidget {
 }
 
 class _StepsToCook extends StatelessWidget {
-  const _StepsToCook({super.key, required this.cocktail});
+  const _StepsToCook({required this.cocktail});
 
   final CocktailEntity cocktail;
 

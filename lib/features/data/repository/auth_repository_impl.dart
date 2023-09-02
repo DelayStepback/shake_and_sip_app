@@ -42,13 +42,18 @@ class AuthRepositoryImplementation extends AuthRepository {
     try {
       await _firebaseAuth.signOut();
     } catch (e) {
-      throw Exception(e);
+      throw Exception(e.toString());
     }
   }
 
   @override
   Future<void> changePassword(String password) async {
     var user = FirebaseAuth.instance.currentUser!;
-    await user.updatePassword(password);
+    try{
+      await user.updatePassword(password);
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+
   }
 }

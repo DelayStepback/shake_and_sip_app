@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({super.key});
-
+  const LoadingScreen({super.key, required this.text});
+  final String text;
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
 }
@@ -13,7 +13,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: const Text("Loading...")
+        child: Text(widget.text)
             .animate(
               onPlay: (controller) => controller.repeat(),
             )

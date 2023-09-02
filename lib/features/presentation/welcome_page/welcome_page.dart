@@ -3,11 +3,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/auth_page.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/pages.dart';
 import '../../../utils/colors.dart';
 import '../bloc/auth_bloc/auth_bloc.dart';
 import '../bloc/auth_bloc/auth_event.dart';
+import 'components/auth_page.dart';
+import 'components/pages.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});

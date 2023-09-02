@@ -42,12 +42,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignOutRequested>(
       (event, emit) async {
         emit(const AuthState.loading());
-
-        await _authRepository.signOut();
-        _cocktailRepository.deleteFromDisk();
-        emit(
-          const AuthState.unAuthenticatedSignIn(),
-        );
+        try {
+          await _authRepository.signOut();
+          _cocktailRepository.deleteFromDisk();
+          emit(
+            const AuthState.unAuthenticatedSignIn(),
+          );
+        } catch (e) {
+          emit(
+            AuthState.error(error: e.toString()),
+          );
+        }
       },
     );
 
@@ -81,7 +86,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<ChangePassword>(
       (ChangePassword event, emit) async {
-        await _authRepository.changePassword(event.password);
+        try {
+          await _authRepository.changePassword(event.password);
+        } catch (e) {
+          emit(
+            AuthState.error(error: e.toString()),
+          );
+        }
       },
     );
   }

@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:internet_connectivity_checker/internet_connectivity_checker.dart';
 import 'package:shake_and_sip_app/features/presentation/loading_screen/loading_screen.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/loading_page.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/widgets/sign_in_widget.dart';
-import 'package:shake_and_sip_app/features/presentation/welcome_page/pages/widgets/sign_up_widget.dart';
+import 'package:shake_and_sip_app/features/presentation/welcome_page/components/widgets/sign_in_widget.dart';
+import 'package:shake_and_sip_app/features/presentation/welcome_page/components/widgets/sign_up_widget.dart';
 import '../../../../../utils/colors.dart';
 import '../../bloc/auth_bloc/auth_bloc.dart';
+import 'loading_page.dart';
 
 class Auth extends StatelessWidget {
   const Auth({super.key});
@@ -70,7 +70,9 @@ class Auth extends StatelessWidget {
                 ),
               );
             } else {
-              return const LoadingScreen();
+              return const LoadingScreen(
+                text: 'Checking your connection...',
+              );
             }
           },
         );

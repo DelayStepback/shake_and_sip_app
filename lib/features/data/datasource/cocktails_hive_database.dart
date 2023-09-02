@@ -39,11 +39,6 @@ class CocktailsHiveDatabase {
     await _cocktails.delete(cocktailId);
   }
 
-  Future<void> updateCocktail(
-      CocktailDto oldCocktail, CocktailDto newCocktail) async {
-    await _cocktails.put(oldCocktail.id.toString(), newCocktail);
-  }
-
   Future<bool> hasCocktailFavourite(String id) async {
     bool check = await _cocktails.values
         .firstOrNull((i) => CocktailDto.fromJson(i).id == id);
